@@ -121,7 +121,18 @@ a{
     color: var(--grayscale-color-50);
 }
 
-.sidebar 
+.sidebar:hover img:nth-child(1){
+    display: none;
+}
+
+.sidebar .img img:nth-child(2){
+    width: 3rem;
+    display: none;
+}
+
+.sidebar:hover .img img:nth-child(2){
+    display: block;
+}
 
 /*------------------------- FIX-------------------------*/
 
