@@ -31,6 +31,7 @@ const body = document.querySelector('body'),
 // JUNIOR CODES
 
 // ALTERNATIVE CHANGE NAV BAR WIDTH
+
 const app = document.getElementById('app'),
 sidebar = document.getElementById('sidebar');
 
