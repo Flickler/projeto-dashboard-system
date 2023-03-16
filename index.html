@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---------------------- MATERIAL ICONS GOOGLE ---------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <div id="app">
+        <!-------------------------- SIDE BAR DA DIREITA -------------------------->
+        <nav class="sidebar" id="sidebar">
+            <div class="img">
+                <img src="./assets/img/brand-logo.png" alt="brand">
+                <img src="assets/img/avatar.png" alt="Perfil image">
+            </div>
+            <div class="sidebar__menu">
+                <button href="#" class="menu__link">
+                    <span class="material-symbols-rounded">dashboard</span>
+                    <span>Dashboard</span>
+                </button>
+                <button href="#" class="menu__link">
+                    <span class="material-symbols-rounded">calendar_month</span>
+                    <span>Agenda</span>
+                </button>
+                <button href="#" class="menu__link">
+                    <span class="material-symbols-rounded">electric_bolt</span>
+                    <span>Atividades</span>
+                </button>
+                <button href="#" class="menu__link">
+                    <span class="material-symbols-rounded">contacts</span>
+                    <span>Contatos</span>
+                </button>
+                <button href="#" class="menu__link">
+                    <span class="material-symbols-rounded">widgets</span>
+                    <span>Utilidades</span>
+                </button>
+            </div>
+            <div class="sidebar__menu">
+                <button href="" class="menu__link" id="theme">
+                    <span class="material-symbols-rounded" id="theme-icon">clear_night</span>
+                    <span id="theme-description">Tema Escuro</span>
+                </button>
+                <button href="" class="menu__link">
+                    <span class="material-symbols-rounded">settings</span>
+                    <span>Configurações</span>
+                </button>
+                <button href="" class="menu__link">
+                    <span class="material-symbols-rounded">help</span>
+                    <span>Suporte</span>
+                </button>
+                <button href="" class="menu__link">
+                    <span class="material-symbols-rounded">logout</span>
+                    <span>Sair</span>
+                </button>
+            </div>
+        </nav>
+        <!-------------------------- CONTAINER GRANDÃO -------------------------->
+        <main class="main__container">
+            <!-------------------------- TOPBAR BARRA DE PESQUISA -------------------------->
+            <div class="top__bar">
+                <span class="brand">
+                    <img src="./assets/img/brand-wordmark.png" alt="">
+                </span>
+                <div class="search">
+                    <span>
+                        <img src="./assets/img/i-search.png" alt="Procurar">
+                    </span>
+                    <input type="text" placeholder="Procurar...">
+                </div>
+                <p class="time" id="time">
+                    <!-- JS ESCREVE A DATA AUTOMATICAMENTE -->
+                </p>
+                <div class="user__menu">
+                    <span>
+                        <img src="./assets/img/i-notification-status.png" alt="">
+                    </span>
+                    <span class="img__small">
+                        <img src="./assets/img/avatar.png" alt="">
+                    </span>
+                </div>
+            </div>
+            <!-------------------------- CONTAINER DA WORKSTATION-------------------------->
+            <div class="station__wrapper">
+                <div class="station">
+                    <div class="station__header">
+                        <div class="updates">
+                            <h3>Bem vindo de volta Renisson!</h3>
+                            <span class="label">
+                                <label for="">1 novo evento</label>
+                            </span>
+                            <span class="label">
+                                <label for="">2 novas mensagens</label>
+                            </span>
+                            <span class="label">
+                                <label for="">1 tarefa</label>
+                            </span>
+                        </div>
+                        <div class="tabs">
+                            <span class="tab__1">
+                                <p for="">Detalhes</p>
+                                <h4>Curso 1</h4>
+                            </span>
+                            <span class="tab__2">
+                                <p for="">Detalhes</p>
+                                <h4>Curso 2</h4>
+                            </span>
+                            <span class="tab__3">
+                                <p for="">Detalhes</p>
+                                <h4>Curso 3</h4>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="station__content">
+
+                    </div>
+                </div>
+                <div class="focus__bar">
+                    <span>
+                        <button>Adicionar</button>
+                    </span>
+                    <div class="card">
+                        <h4>Calendário</h4>
+                    </div>
+                    <div class="card">
+                        <h4>Lembretes</h4>
+                    </div>
+                    <div class="card">
+                        <h4>Contatos</h4>
+                        <button class="btn__regular">Enviar Mensagem</button>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <p class="label">
+                    Desenvolvido por Manoel, Melissa e Talita ©2023
+                </p>
+            </footer>
+        </main>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
