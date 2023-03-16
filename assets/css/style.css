@@ -111,6 +111,7 @@ a{
     color: var(--grayscale-color-60);
     background-color: var(--grayscale-color-0);
     border: 1px solid var(--grayscale-color-30);
+    padding: 1.5rem 0;
 }
 
 .sidebar:hover .menu__link{
@@ -126,12 +127,16 @@ a{
 }
 
 .sidebar .img img:nth-child(2){
-    width: 3rem;
     display: none;
 }
 
 .sidebar:hover .img img:nth-child(2){
+    width: 3rem;
     display: block;
+}
+
+.sidebar:hover .sidebar__menu{
+    align-self: start;
 }
 
 /*------------------------- FIX-------------------------*/
@@ -173,8 +178,16 @@ a{
 .menu__link:hover{
     color: var(--primary-color);
     background-color: var(--primary-color-05-opacity);
-    border-left: 4px solid var(--primary-color);
     border-radius: 2px;
+}
+
+.sidebar:hover .sidebar__menu .active{
+    border-left: 4px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.sidebar:hover .sidebar__menu .active span{
+    color: var(--primary-color);
 }
 
 .menu__link span{
