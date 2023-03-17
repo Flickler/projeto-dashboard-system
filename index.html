@@ -13,9 +13,9 @@
     <div id="app">
         <!-------------------------- SIDE BAR DA DIREITA -------------------------->
         <nav class="sidebar" id="sidebar">
-            <div class="img">
-                <img src="./assets/img/brand-logo.png" alt="brand">
-                <img src="assets/img/avatar.png" alt="Perfil image">
+            <div class="img" href="./index.html">
+                <img src="./assets/img/brand-logo.png" alt="brand" class="brand">
+                <img src="assets/img/avatar.png" alt="avatar" class="avatar">
             </div>
             <div class="sidebar__menu">
                 <button href="#" class="menu__link active">
@@ -61,18 +61,26 @@
                     <span>Sair</span>
                 </button>
             </div>
+            <div class="carousel">
+                <div class="carousel__content">
+                    <img src="./assets/img/ads1.jpg" class="ads">
+                    <img src="./assets/img/ads2.jpg" class="ads">
+                    <img src="./assets/img/ads3.jpg" class="ads">
+                </div>
+                <div class="pagination">
+                    <div class="pagination__dots"></div>
+                    <div class="pagination__dots"></div>
+                    <div class="pagination__dots"></div>
+                </div>
+            </div>
         </nav>
         <!-------------------------- CONTAINER GRANDÃO -------------------------->
         <main class="main__container">
-            <!-------------------------- TOPBAR BARRA DE PESQUISA -------------------------->
+            <!-------------------------- TOPBAR / BARRA DE PESQUISA -------------------------->
             <div class="top__bar">
-                <span class="brand">
-                    <img src="./assets/img/brand-wordmark.png" alt="">
-                </span>
+                <h1 class="brand__wordmark">Senac</h1>
                 <div class="search">
-                    <span>
-                        <img src="./assets/img/i-search.png" alt="Procurar">
-                    </span>
+                    <img src="./assets/img/i-search.png">
                     <input type="text" placeholder="Procurar...">
                 </div>
                 <p class="time" id="time">
@@ -134,7 +142,7 @@
                     </div>
                     <div class="card">
                         <h4>Contatos</h4>
-                        <button class="btn__regular">Enviar Mensagem</button>
+                        <button class="btn__regular">Ver Contato</button>
                     </div>
                 </div>
             </div>

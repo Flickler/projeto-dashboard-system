@@ -54,3 +54,5 @@ theme.addEventListener('click', () =>{
         darkTheme = false;
     }
 });
+
+// CAROUSEL AND PAGINATIONS
