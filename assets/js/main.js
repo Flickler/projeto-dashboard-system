@@ -1,46 +1,14 @@
-
-/* SIDEBAR INTERACTION
-const body = document.querySelector('body'),
-    sidebar = body.querySelector('.sidebar'),
-    toggle = body.querySelector('.toggle'),
-    searchBtn = body.querySelector('.search-box'),
-    modeSwtich = body.querySelector('.toggle-switch'), 
-    modeText = body.querySelector('.mode-text');
-
-    toggle.addEventListener('click', () =>{
-        sidebar.classList.toggle('close');
-    });
-
-    searchBtn.addEventListener('click', () =>{
-        sidebar.classList.remove('close');
-    });
-
-    modeSwtich.addEventListener('click', () =>{
-        body.classList.toggle('dark');
-
-        if(body.classList.contains('dark')){
-            modeText.innerText= 'Modo claro'
-        }else{
-            modeText.innerText= 'Modo escuro'
-
-        }
-    });
-
-    */
-
-// JUNIOR CODES
-
 // ALTERNATIVE CHANGE NAV BAR WIDTH
 
 const app = document.getElementById('app'),
 sidebar = document.getElementById('sidebar');
 
 sidebar.addEventListener('mouseover', () =>{
-    app.style.gridTemplateColumns = "1fr 5fr";
+    app.style.gridTemplateColumns = "200px 1fr";
 });
 
 sidebar.addEventListener('mouseout', () =>{
-    app.style.gridTemplateColumns = "1fr 15fr"
+    app.style.gridTemplateColumns = "60px 1fr"
 });
 
 
@@ -65,9 +33,24 @@ setInterval(getDate, 10000);
 
 // SWITCH THEME
 
-// const theme = document.getElementById('theme'),
-// themeIcon = document.getElementById('theme-icon');
+const theme = document.getElementById('theme'),
+themeIcon = document.getElementById('theme-icon'),
+themeDescription = document.getElementById('theme-description'),
+toggleSwitch = document.getElementById('switch');
+let darkTheme = false;
 
-// theme.addEventListener('click', () =>{
-//     themeIcon.innerText = 'wb_sunny';
-// });
+theme.addEventListener('click', () =>{
+    if(!darkTheme){
+        themeIcon.innerText = 'wb_sunny';
+        themeDescription.innerText = "Tema Claro";
+        toggleSwitch.style.justifyContent = "end";
+        app.classList.add('dark-theme');
+        darkTheme = true;
+    } else{
+        themeIcon.innerText = 'clear_night';
+        themeDescription.innerText = "Tema Escuro";
+        toggleSwitch.style.justifyContent = "start";
+        app.classList.remove('dark-theme');
+        darkTheme = false;
+    }
+});

@@ -74,6 +74,14 @@ html{
     scroll-behavior: smooth;
 }
 
+/*
+DARK THEME
+
+body .dark-theme{
+    --primary-color: var(--secondary-color);
+}
+*/
+
 body{
     min-height: 100vh;
     background: #eee;
@@ -83,17 +91,13 @@ a{
     text-decoration: none;
 }
 
-/* button{
-    
-} */
-
 #app{
     display: grid;
-    grid-template-columns: 1fr 15fr;
+    grid-template-columns: 60px 1fr;
     margin: 2rem;
     background-color: #EEE;
     border-radius: .5rem;
-    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 24px;
     transition: .5s ease-in-out;
 }
 
@@ -101,12 +105,13 @@ a{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
     padding: 1.5rem .5rem;
     border-radius: .5rem;
     background-color: var(--primary-color);
     overflow-x: hidden;
-    box-shadow: 24px 0px 16px rgba(186, 186, 188, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 24px;
+    z-index: 1;
 }
 
 .img{
@@ -114,6 +119,7 @@ a{
 }
 
 .material-symbols-rounded {
+    font-size: 1.2rem;
     font-variation-settings:
     'FILL' 1,
     'wght' 400,
@@ -126,7 +132,8 @@ a{
     flex-direction: column;
     align-items: center;
     padding: 1rem 0rem;
-    border-top: 1px solid #eee;
+    width: 40px;
+    border-top: 1px solid var(--grayscale-color-20);
 }
 
 .menu__link{
@@ -153,10 +160,6 @@ a{
     display: none;
 }
 
-.menu__link:hover span{
-    transform: scale(1.1);
-}
-
 /* ALTERAÇOES QUANDO O SIDEBAR ESTÁ EM HOVER */
 
 .sidebar:hover{
@@ -166,10 +169,7 @@ a{
     padding: 1.5rem 0;
 }
 
-.sidebar:hover img:nth-child(1){
-    display: none;
-}
-
+.sidebar:hover img:nth-child(1),
 .sidebar .img img:nth-child(2){
     display: none;
 }
@@ -207,20 +207,39 @@ a{
     color: var(--primary-color);
 }
 
+.sidebar:hover .toggle__container{
+    display: flex;
+}
+
 @keyframes display {
     from{
         opacity: 0;
-        width: 0;
     }
     to{
         opacity: 1;
-        width: fit-content;
     }
 }
 
 .sidebar:hover span:nth-child(2){
-    display: inline-block;
-    animation: display .9s;
+    display: block;
+    animation: display 2s;
+}
+
+.toggle__container{
+    width: 2.5rem;
+    height: 1.5rem;
+    background-color: var(--grayscale-color-20);
+    border-radius: 1rem;
+}
+
+.toggle__switch{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: .1rem;
+    border-radius: 99px;
 }
 
 .main__container{
