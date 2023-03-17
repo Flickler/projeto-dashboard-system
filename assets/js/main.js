@@ -4,11 +4,11 @@ const app = document.getElementById('app'),
 sidebar = document.getElementById('sidebar');
 
 sidebar.addEventListener('mouseover', () =>{
-    app.style.gridTemplateColumns = "200px 1fr";
+    app.style.gridTemplateColumns = "12.5rem 1fr";
 });
 
 sidebar.addEventListener('mouseout', () =>{
-    app.style.gridTemplateColumns = "60px 1fr"
+    app.style.gridTemplateColumns = "3.75rem 1fr"
 });
 
 
