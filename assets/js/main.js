@@ -1,4 +1,4 @@
-// ALTERNATIVE CHANGE NAV BAR WIDTH
+// SIDEBAR EXPAND ON HOVER
 
 const app = document.getElementById('app'),
 sidebar = document.getElementById('sidebar');
@@ -12,7 +12,10 @@ sidebar.addEventListener('mouseout', () =>{
 });
 
 
-// DIA E HORA LADO DO CLIENTE
+// GET DATE USERS NAV
+
+const showDate = document.getElementById('time');
+
 function getDate(){
     const date = new Date(),
     year = date.getFullYear(),
@@ -20,10 +23,9 @@ function getDate(){
     months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
     day = date.getDay(),
     hour = date.getHours(),
-    minutes = date.getMinutes(),
-    showdate = document.getElementById('time');
+    minutes = date.getMinutes();
 
-    return showdate.innerText = `${hour}:${minutes >= 10 ? minutes : '0' + minutes} - ${day} ${months[month]} ${year}`;
+    return showDate.innerText = `${hour}:${minutes >= 10 ? minutes : '0' + minutes} — Hoje, ${day} ${months[month]} ${year}`;
 }
 
 // GET DATE
@@ -31,7 +33,7 @@ function getDate(){
 getDate();
 setInterval(getDate, 10000);
 
-// SWITCH THEME
+// SWITCH DARK THEME
 
 const theme = document.getElementById('theme'),
 themeIcon = document.getElementById('theme-icon'),
@@ -53,6 +55,28 @@ theme.addEventListener('click', () =>{
         app.classList.remove('dark-theme');
         darkTheme = false;
     }
+});
+
+// SEARCH BAR
+
+const search = document.getElementById('search');
+
+search.addEventListener('focusin', ()=>{
+    const searchIco = document.getElementsByClassName('search__ico');
+    searchIco[0].style.display = "none";
+    search.style.width = "50rem";
+    showDate.style.display = "none";
+    search.placeholder = "";
+});
+
+search.addEventListener('focusout', ()=>{
+    const searchIco = document.getElementsByClassName('search__ico');
+    if(search.value == ""){
+        searchIco[0].style.display = "inline-block";
+    }
+    search.placeholder = "Pesquisar";
+    showDate.style.display = "block";
+    search.style.width = "20rem";
 });
 
 // CAROUSEL AND PAGINATIONS
