@@ -81,6 +81,7 @@ search.addEventListener('focusout', ()=>{
 
 // CAROUSEL AND PAGINATIONS
 
+/*
 const slider = document.getElementById('slider'),
 dots = document.getElementsByClassName('pagination__dots');
 let img = 1;
@@ -99,3 +100,47 @@ setInterval(() =>{
         img += 1;
     }
 }, 5000);
+*/
+
+// MENU LINK ACTIVE
+const menuLink = document.getElementsByClassName('menu__link');
+
+menuLink[0].classList.add('active');
+
+// NOTIFICATION DROPDOWN
+
+/*
+
+const notification = document.getElementById('notifications'),
+notificationsDropdown = document.getElementById('notifications-dropdown'),
+notificationStatus = document.getElementById('notifications-status');
+
+notification.addEventListener('click', ()=>{
+    if(notificationsDropdown.visible == true){
+        notificationsDropdown.style.display = "flex";
+        notificationsDropdown.visible = false;
+    } else {
+        notificationsDropdown.style.display = "none";
+        notificationsDropdown.visible = true;
+    }
+});
+
+*/
+
+// PERFIL DROPDOWN
+
+/*
+const avatar = document.getElementById('avatar-sm'),
+avatarDropdown = document.getElementById('avatar-dropdown');
+
+avatar.addEventListener('click', ()=>{
+    if(avatarDropdown.visible == true){
+        avatarDropdown.style.display = "flex";
+        avatarDropdown.visible = false;
+    } else {
+        avatarDropdown.style.display = "none";
+        avatarDropdown.visible = true;
+    }
+});
+
+*/

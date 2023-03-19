@@ -18,7 +18,7 @@
                 <img src="assets/img/avatar.png" alt="avatar" class="avatar">
             </div>
             <div class="sidebar__menu">
-                <button href="#" class="menu__link active">
+                <button href="#" class="menu__link">
                     <span class="material-symbols-rounded">dashboard</span>
                     <span>Dashboard</span>
                 </button>
@@ -89,20 +89,20 @@
                     </p>
                 </div>
                 <div class="user__nav">
-                    <div class="notifications">
+                    <div class="notifications" id="notifications">
                         <span class="material-symbols-rounded no-fill">
                             notifications
                         </span>
-                        <div class="dropdown">
+                        <div class="dropdown" id="notifications-dropdown">
                             <button class="dropdown__btn">not 1</button>
                             <button class="dropdown__btn">not 2</button>
                             <button class="dropdown__btn">not 3</button>
                         </div>
-                        <span class="status"></span>
+                        <span class="status" id="notifications-status"></span>
                     </div>
                     <div class="avatar__sm">
-                        <img src="./assets/img/avatar.png" class="avatar__sm">
-                        <div class="dropdown">
+                        <img src="./assets/img/avatar.png" class="avatar__sm" id="avatar-sm">
+                        <div class="dropdown" id="avatar-dropdown">
                             <button class="dropdown__btn">Perfil</button>
                             <button class="dropdown__btn">Status</button>
                             <button class="dropdown__btn">Configurações</button>
