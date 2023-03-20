@@ -188,9 +188,11 @@ a{
 .dropdown{
     display: none;
     position: absolute;
+    padding: .5rem;
     width: 7rem;
-    bottom: -7.5rem;
+    bottom: -12rem;
     right: 0;
+    gap: .5rem;
     background-color: var(--gray-0);
     border: 1px solid var(--gray-20);
     border-radius: var(--rounded3);
@@ -198,14 +200,35 @@ a{
 
 .dropdown__btn{
     padding: .5rem 1rem;
-    border-bottom: 1px solid red;
     color: var(--gray-20);
-    background-color: transparent;
+    border: none;
+    background-color: var(--gray-0);
+    border-radius: var(--rounded6);
+    cursor: pointer;
 }
 
-.notifications:hover .dropdown, 
-.avatar__sm:hover .dropdown {
-    display: flex;
+.dropdown__btn:hover{
+    color: var(--gray-50);
+    background-color: var(--primary-10);
+}
+
+.dropdown__btn__cta{
+    padding: .5rem 1rem;
+    font-size: var(--size-smx);
+    font-weight: var(--regular);
+    color: var(--gray-0);
+    background-color: var(--primary-40);
+    border: none;
+    border-radius: var(--rounded6);
+    cursor: pointer;
+}
+
+.profile__sm{
+    position: relative;
+}
+
+.notifications .dropdown, 
+.profile__sm #profile__dropdown {
     flex-direction: column;
     align-items: left;
     justify-content: center;
@@ -408,10 +431,6 @@ a{
     position: relative;
 }
 
-#search{
-    transition: .4s;
-}
-
 .search__ico{
     width: 16px;
     height: 16px;
@@ -421,7 +440,7 @@ a{
     transform: translate(-8px, -8px);
 }
 
-input{
+#search{
     min-width: 30rem;
     padding: .5rem;
     text-align: center;
@@ -430,9 +449,10 @@ input{
     background-color: var(--gray-5);
     border: 1px solid var(--gray-10);
     border-radius: var(--rounded8);
+    transition: .4s;
 }
 
-input:focus{
+#search:focus{
     outline: none;
     border: 2px solid var(--gray-20);
     background-color: var(--gray-5);
@@ -614,19 +634,20 @@ input::placeholder{
 
 .card{
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
     height: max-content;
     padding: var(--p8) var(--p24);
-    background-color: var(--gray-0);
+    gap: .5rem;
     border-radius: var(--rounded8);
-    box-shadow: var(--shadow-dark);
     transition: .3s ease;
 }
 
 .card:hover{
+    background-color: var(--gray-0);
+    box-shadow: var(--shadow-dark);
     transform: scaleY(1.05);
 }
 
@@ -644,6 +665,39 @@ input::placeholder{
     font-size: var(--size-nm);
     font-weight: var(--regular);
     color: var(--gray-80);
+}
+
+.edit__card{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+}
+
+.edit__card p{
+    font-size: var(--size-sm);
+    font-weight: var(--semibold);
+    color: var(--gray-30);
+}
+
+.checkbox{
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--gray-30);
+    border-radius: var(--rounded3);
+    cursor: pointer;
+
+}
+
+.checkbox:hover{
+    background-color: var(--gray-30);
+}
+
+.card__reminder .checked{
+    color: var(--gray-0);
+    background-color: var(--primary-50);
+    box-shadow: var(--shadow-indigo);
 }
 
 .card__btn{
@@ -671,17 +725,18 @@ input::placeholder{
 .contact__btn{
     width: 100%;
     text-align: center;
-    padding: 2.5rem;
+    padding: 2rem;
 }
 
 .contact__btn button{
+    width: 100%;
     padding: var(--p16) var(--p24);
     font-size: var(--size-nm);
     font-weight: var(--semibold);
     color: var(--primary-40);
     border: 2px solid var(--primary-40);
     border-radius: var(--rounded8);
-    background-color: var(--gray-0);
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -720,24 +775,32 @@ input::placeholder{
 
 .volume__ico{
     padding: var(--p4);
-    color: var(--gray-0);
-    background-color: var(--primary-40);
+    color: var(--primary-30);
+    border: 1px solid var(--primary-30);
     border-radius: var(--rounded3);
 }
 
 .card__reminder{
     display: flex;
     align-items: center;
-    margin: var(--p12);
     padding: var(--p16);
     gap: 1rem;
+    width: 100%;
     color: var(--gray-30);
-    background-color: var(--primary-10);
+    border: 1px solid var(--gray-10);
     border-radius: var(--rounded6);
 }
 
 .description{
     font-size: var(--size-smx);
+    line-height: 150%;
+}
+
+.events__details{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--gray-0);
 }
 
 .reminder__title{
@@ -746,14 +809,20 @@ input::placeholder{
 }
 
 .reminder__details{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    line-height: 150%;
+    font-size: var(--size-smx);
+    color: var(--gray-30);
+}
+
+.description .reminder__details .agenda{
+    font-size: var(--size-smx);
     color: var(--gray-40);
 }
 
-.bullet__point__task1{
-    background-color: var(--ui-red);
-}
-
-.bullet__point__task2{
+.bullet__point__task{
     background-color: var(--ui-green);
 }
 

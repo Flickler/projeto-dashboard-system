@@ -18,7 +18,7 @@
                 <img src="assets/img/avatar.png" alt="avatar" class="avatar">
             </div>
             <div class="sidebar__menu">
-                <button href="#" class="menu__link">
+                <button href="#" class="menu__link active">
                     <span class="material-symbols-rounded">dashboard</span>
                     <span>Dashboard</span>
                 </button>
@@ -93,19 +93,21 @@
                         <span class="material-symbols-rounded no-fill">
                             notifications
                         </span>
-                        <div class="dropdown" id="notifications-dropdown">
-                            <button class="dropdown__btn">not 1</button>
-                            <button class="dropdown__btn">not 2</button>
-                            <button class="dropdown__btn">not 3</button>
+                        <div class="dropdown" id="notifications__dropdown">
+                            <button class="dropdown__btn">notificação</button>
+                            <button class="dropdown__btn">notificação</button>
+                            <button class="dropdown__btn">notificação</button>
+                            <button class="dropdown__btn__cta">Ver Todos</button>
                         </div>
-                        <span class="status" id="notifications-status"></span>
+                        <span class="status" id="notifications__status"></span>
                     </div>
-                    <div class="avatar__sm">
-                        <img src="./assets/img/avatar.png" class="avatar__sm" id="avatar-sm">
-                        <div class="dropdown" id="avatar-dropdown">
-                            <button class="dropdown__btn">Perfil</button>
-                            <button class="dropdown__btn">Status</button>
-                            <button class="dropdown__btn">Configurações</button>
+                    <div class="profile__sm" id="profile__sm">
+                        <img src="./assets/img/avatar.png" class="avatar__sm">
+                        <div class="dropdown" id="profile__dropdown">
+                            <button class="dropdown__btn">Meu Perfil</button>
+                            <button class="dropdown__btn">Meus Contatos</button>
+                            <button class="dropdown__btn">Segurança</button>
+                            <button class="dropdown__btn">Gerenciar</button>
                         </div>
                     </div>
                 </div>
@@ -118,11 +120,11 @@
                             <h3>Bem vindo de volta, João!</h3>
                             <span class="updates__label">
                                 <div class="bullet__point"></div>
-                                <p>1 evento ativo</p>
+                                <p>1 novo evento foi adicionado</p>
                             </span>
                             <span class="updates__label">
                                 <div class="bullet__point"></div>
-                                <p>2 novos projetos</p>
+                                <p>1 evento ativo</p>
                             </span>
                             <span class="updates__label">
                                 <div class="bullet__point"></div>
@@ -161,10 +163,12 @@
                     <div class="card">
                         <div class="card__title">
                             <h4>Lembretes</h4>
-                            <span class="material-symbols-rounded no-fill edit__ico">
-                                edit_square
-                            </span>
-                            <p>ver todos</p>
+                            <div class="edit__card">
+                                <p>ver todos</p>
+                                <span class="material-symbols-rounded no-fill edit__ico">
+                                    edit_square
+                                </span>
+                            </div>
                         </div>
                         <div class="card__reminder">
                             <span class="material-symbols-rounded volume__ico">
@@ -175,7 +179,23 @@
                                     Apresentação
                                 </p>
                                 <p class="reminder__details">
-                                    Auditório - 20:00 ás 21:00
+                                    Auditório
+                                </p>
+                                <p class="reminder__details">
+                                    <span class="material-symbols-rounded agenda">
+                                        calendar_month
+                                    </span>
+                                    2 Abril — ás 20:00 hrs
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card__reminder">
+                            <div class="description">
+                                <p class="reminder__title">
+                                    &#127876; Natal &#127876;
+                                </p>
+                                <p class="reminder__details">
+                                    Faltam 282 dias, 10 hrs, 36 minutos e 04 segundos para o Natal!
                                 </p>
                             </div>
                         </div>
@@ -183,22 +203,39 @@
                     <div class="card">
                         <div class="card__title">
                             <h4>Tarefas</h4>
-                            <span class="material-symbols-rounded no-fill edit__ico">
-                                edit_square
-                            </span>
+                            <div class="edit__card">
+                                <p>ver todos</p>
+                                <span class="material-symbols-rounded no-fill edit__ico">
+                                    edit_square
+                                </span>
+                            </div>
                         </div>
                         <!-- PAREI AQUI -->
-                        <div class="card__tasks">
+                        <div class="card__reminder">
+                            <div class="checkbox"></div>
                             <div class="description">
-                                <div class="bullet__point__task1"></div>
                                 <p class="reminder__title">
-                                    Atualizar Cronograma
+                                    Tomar Água
+                                </p>
+                                <p class="reminder__details">
+                                    <span class="material-symbols-rounded agenda">
+                                        calendar_month
+                                    </span>
+                                    2 Abril — ás 08:00 hrs
                                 </p>
                             </div>
+                        </div>
+                        <div class="card__reminder">
+                            <div class="checkbox"></div>
                             <div class="description">
-                                <div class="bullet__point__task2"></div>
                                 <p class="reminder__title">
-                                    Planejas Unidade Curricular 4
+                                    Reunião
+                                </p>
+                                <p class="reminder__details">
+                                    <span class="material-symbols-rounded agenda">
+                                        calendar_month
+                                    </span>
+                                    Agora
                                 </p>
                             </div>
                         </div>

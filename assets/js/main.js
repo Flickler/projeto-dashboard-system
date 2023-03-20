@@ -109,11 +109,9 @@ menuLink[0].classList.add('active');
 
 // NOTIFICATION DROPDOWN
 
-/*
-
 const notification = document.getElementById('notifications'),
-notificationsDropdown = document.getElementById('notifications-dropdown'),
-notificationStatus = document.getElementById('notifications-status');
+notificationsDropdown = document.getElementById('notifications__dropdown'),
+notificationStatus = document.getElementById('notifications__status');
 
 notification.addEventListener('click', ()=>{
     if(notificationsDropdown.visible == true){
@@ -125,22 +123,36 @@ notification.addEventListener('click', ()=>{
     }
 });
 
-*/
 
 // PERFIL DROPDOWN
 
-/*
-const avatar = document.getElementById('avatar-sm'),
-avatarDropdown = document.getElementById('avatar-dropdown');
+const profile = document.getElementById('profile__sm'),
+profileDropdown = document.getElementById('profile__dropdown');
 
-avatar.addEventListener('click', ()=>{
-    if(avatarDropdown.visible == true){
-        avatarDropdown.style.display = "flex";
-        avatarDropdown.visible = false;
+profile.addEventListener('click', ()=>{
+    if(profileDropdown.visible == true){
+        profileDropdown.style.display = "flex";
+        profileDropdown.visible = false;
     } else {
-        avatarDropdown.style.display = "none";
-        avatarDropdown.visible = true;
+        profileDropdown.style.display = "none";
+        profileDropdown.visible = true;
     }
 });
 
-*/
+// INPUT CHECKBOX
+
+const inputCheckbox = document.getElementsByClassName('checkbox');
+
+for(let box of inputCheckbox){
+    box.addEventListener('click', () =>{
+        if(box.checked == false){
+            return(
+                box.classList.add('checked'),
+                box.checked = true);
+        } else{
+            return(
+                box.classList.remove('checked'),
+                box.checked = false);
+        }
+    });
+};
