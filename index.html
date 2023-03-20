@@ -18,29 +18,29 @@
                 <img src="assets/img/avatar.png" alt="avatar" class="avatar">
             </div>
             <div class="sidebar__menu">
-                <button href="#" class="menu__link active">
+                <button class="menu__link active">
                     <span class="material-symbols-rounded">dashboard</span>
                     <span>Dashboard</span>
                 </button>
-                <button href="#" class="menu__link">
+                <button class="menu__link">
                     <span class="material-symbols-rounded">calendar_month</span>
                     <span>Agenda</span>
                 </button>
-                <button href="#" class="menu__link">
+                <button class="menu__link">
                     <span class="material-symbols-rounded">electric_bolt</span>
                     <span>Atividades</span>
                 </button>
-                <button href="#" class="menu__link">
+                <button class="menu__link">
                     <span class="material-symbols-rounded">contacts</span>
                     <span>Contatos</span>
                 </button>
-                <button href="#" class="menu__link">
+                <button class="menu__link">
                     <span class="material-symbols-rounded">widgets</span>
                     <span>Utilidades</span>
                 </button>
             </div>
             <div class="sidebar__menu">
-                <button href="" class="menu__link" id="theme">
+                <button class="menu__link" id="theme">
                     <div class="toggle__container" id="switch">
                         <div class="toggle__switch">
                             <span class="material-symbols-rounded" id="theme-icon">clear_night</span>
@@ -48,15 +48,55 @@
                     </div>
                     <span id="theme-description">Tema Escuro</span>
                 </button>
-                <button href="" class="menu__link">
+                <button class="menu__link" id="config">
                     <span class="material-symbols-rounded">settings</span>
                     <span>Configurações</span>
                 </button>
-                <button href="" class="menu__link">
+                <div class="config__dropdown" id="config__dropdown">
+                    <button class="dropdown__btn">
+                        <span class="material-symbols-rounded">
+                            account_box
+                        </span>
+                        Perfil
+                    </button>
+                    <button class="dropdown__btn">
+                        <span class="material-symbols-rounded">
+                            manage_accounts
+                        </span>
+                        Conta
+                    </button>
+                    <button class="dropdown__btn">
+                        <span class="material-symbols-rounded">
+                            article
+                        </span>
+                        Termos
+                    </button>
+                </div>
+                <button class="menu__link" id="support">
                     <span class="material-symbols-rounded">help</span>
                     <span>Suporte</span>
                 </button>
-                <button href="" class="menu__link">
+                <div class="support__dropdown" id="support__dropdown">
+                    <button class="dropdown__btn">
+                        <span class="material-symbols-rounded">
+                            info
+                        </span>
+                        Sobre
+                    </button>
+                    <button class="dropdown__btn">
+                        <span class="material-symbols-rounded">
+                            help
+                        </span>
+                        Ajuda
+                    </button>
+                    <button class="dropdown__btn">
+                        <span class="material-symbols-rounded">
+                            reviews
+                        </span>
+                        Feedback
+                    </button>
+                </div>
+                <button class="menu__link">
                     <span class="material-symbols-rounded">logout</span>
                     <span>Sair</span>
                 </button>
@@ -171,9 +211,6 @@
                             </div>
                         </div>
                         <div class="card__reminder">
-                            <span class="material-symbols-rounded volume__ico">
-                                volume_up
-                            </span>
                             <div class="description">
                                 <p class="reminder__title">
                                     Apresentação
@@ -215,7 +252,7 @@
                             <div class="checkbox"></div>
                             <div class="description">
                                 <p class="reminder__title">
-                                    Tomar Água
+                                    Atualizar Cronograma
                                 </p>
                                 <p class="reminder__details">
                                     <span class="material-symbols-rounded agenda">

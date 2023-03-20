@@ -1,17 +1,3 @@
-// SIDEBAR EXPAND ON HOVER
-
-const app = document.getElementById('app'),
-sidebar = document.getElementById('sidebar');
-
-sidebar.addEventListener('mouseover', () =>{
-    app.style.gridTemplateColumns = "12.5rem 1fr";
-});
-
-sidebar.addEventListener('mouseout', () =>{
-    app.style.gridTemplateColumns = "3.75rem 1fr"
-});
-
-
 // GET DATE USERS NAV
 
 const showDate = document.getElementById('time');
@@ -124,10 +110,10 @@ notification.addEventListener('click', ()=>{
 });
 
 
-// PERFIL DROPDOWN
+// profile DROPDOWN ---------- ADD #support__dropdown #config__dropdown
 
-const profile = document.getElementById('profile__sm'),
-profileDropdown = document.getElementById('profile__dropdown');
+const profile = document.getElementById('profile__dropdown'),
+profileDropdown = document.getElementById('notifications__dropdown');
 
 profile.addEventListener('click', ()=>{
     if(profileDropdown.visible == true){
@@ -138,6 +124,7 @@ profile.addEventListener('click', ()=>{
         profileDropdown.visible = true;
     }
 });
+
 
 // INPUT CHECKBOX
 
@@ -156,3 +143,57 @@ for(let box of inputCheckbox){
         }
     });
 };
+
+
+// CONF DROPDOWN
+
+const config = document.getElementById('config'),
+configDropdown = document.getElementById('config__dropdown');
+configDropdown.visible = false;
+
+config.addEventListener('click', ()=>{
+    if(configDropdown.visible == false){
+        configDropdown.style.display = "flex";
+        configDropdown.visible = true;
+    } else {
+        configDropdown.style.display = "none";
+        configDropdown.visible = false;
+    }
+});
+
+// SUPORT DROPDOWN
+
+const support = document.getElementById('support'),
+supportDropdown = document.getElementById('support__dropdown');
+supportDropdown.visible = false;
+
+support.addEventListener('click', ()=>{
+    if(supportDropdown.visible == false){
+        supportDropdown.style.display = "flex";
+        supportDropdown.visible = true;
+    } else {
+        supportDropdown.style.display = "none";
+        supportDropdown.visible = false;
+    }
+});
+
+// SIDEBAR EXPAND ON HOVER
+
+const app = document.getElementById('app'),
+sidebar = document.getElementById('sidebar');
+
+sidebar.addEventListener('mouseover', () =>{
+    app.style.gridTemplateColumns = "12.5rem 1fr";
+});
+
+sidebar.addEventListener('mouseout', () =>{
+    app.style.gridTemplateColumns = "3.75rem 1fr";
+    /* if(configDropdown.visible == true){
+        configDropdown.style.display = "none";
+        configDropdown.visible = false;
+    }
+    if(supportDropdown.visible == true){
+        supportDropdown.style.display = "none";
+        supportDropdown.visible = false;
+    } CORRIGIR*/
+});
