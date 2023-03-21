@@ -855,7 +855,9 @@ input::placeholder{
 /* ------------------------------MEDIA QUERIES-------------------------------*/
 
 /*-----------------------------------------------------------APP AGENDA-------------------------------------------------------*/
-.app__agenda{
+.station__overview,
+.station__agenda, 
+.station__tools{
     margin-inline: auto;
     padding: var(--p24);
     border: 1px solid red;
@@ -863,21 +865,34 @@ input::placeholder{
 
 .station__tabs{
     display: flex;
+    padding-inline: var(--p16);
     gap: 1rem;
-    padding-left: 1rem;
+    border: 1px solid violet;
 }
 
 .station__tab{
-    border: none;
-    font-size: var(--size-nm);
-    font-weight: var(--medium);
-    color: var(--gray-40);
-    padding: .5rem 1rem;
+    padding: 1rem 0;
     background-color: transparent;
+    border: none;
 }
 
-.station__tabs .active{
+.station__tab span{
+    color: var(--gray-60);
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    cursor: pointer;
+}
+
+.station__tab:hover span{
+    color: var(--primary-60);
     background-color: var(--primary-20);
+}
+
+.active{
+    border-bottom: 2px solid var(--primary-50);
+}
+
+.active span{
     color: var(--primary-50);
 }
 
