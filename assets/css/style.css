@@ -855,12 +855,16 @@ input::placeholder{
 /* ------------------------------MEDIA QUERIES-------------------------------*/
 
 /*-----------------------------------------------------------APP AGENDA-------------------------------------------------------*/
-.station__overview,
-.station__agenda, 
-.station__tools{
+.station__content{
     margin-inline: auto;
     padding: var(--p24);
     border: 1px solid red;
+}
+
+.station__workbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .station__tabs{
