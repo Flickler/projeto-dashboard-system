@@ -1,5 +1,69 @@
-// GET DATE USERS NAV
+// MAKE DROPDOWN - FUNCTION
+function dropdown(icon, container){
+    return(
+        container.visible = false,
+        icon.addEventListener('click', ()=>{
+            if(container.visible == false){
+                container.style.display = "flex";
+                container.visible = true;
+            } else{
+                container.style.display = "none";
+                container.visible = false;
+            }
+        })
+    )
+}
 
+// CONF DROPDOWN
+const config = document.getElementById('config'),
+configDropdown = document.getElementById('config__dropdown');
+dropdown(config, configDropdown);
+
+// SUPPORT DROPDOWN
+const support = document.getElementById('support'),
+supportDropdown = document.getElementById('support__dropdown');
+dropdown(support, supportDropdown);
+
+// NOTIFICATION DROPDOWN
+const notification = document.getElementById('notifications'),
+notificationsDropdown = document.getElementById('notifications__dropdown'),
+notificationStatus = document.getElementById('notifications__status'); // MEXER - 20/03/2023
+dropdown(notification, notificationsDropdown);
+
+// PROFILE DROPDOWN
+const profile = document.getElementById('profile'),
+profileDropdown = document.getElementById('profile__dropdown');
+dropdown(profile, profileDropdown);
+
+// FUNCTION CHECK DROPDOWN OPEN
+
+const dropdownsIcons = [config, support, notification, profile],
+dropdownsContainers = [configDropdown, supportDropdown, notificationsDropdown, profileDropdown];
+
+function dropdownClose(){
+    for(container of dropdownsContainers){
+        if(container.visible == true){
+            container.style.display = "none";
+            container.visible = false;
+            console.log(container.visible);
+        }
+    }
+}
+
+// SIDEBAR EXPAND ON HOVER
+const app = document.getElementById('app'),
+sidebar = document.getElementById('sidebar');
+
+sidebar.addEventListener('mouseover', () =>{
+    app.style.gridTemplateColumns = "12.5rem auto";
+});
+
+sidebar.addEventListener('mouseout', () =>{
+    app.style.gridTemplateColumns = "3.75rem auto";
+});
+
+
+// GET DATE USERS NAV
 const showDate = document.getElementById('time');
 
 function getDate(){
@@ -15,12 +79,10 @@ function getDate(){
 }
 
 // GET DATE
-
 getDate();
 setInterval(getDate, 10000);
 
 // SWITCH DARK THEME
-
 const theme = document.getElementById('theme'),
 themeIcon = document.getElementById('theme-icon'),
 themeDescription = document.getElementById('theme-description'),
@@ -44,7 +106,6 @@ theme.addEventListener('click', () =>{
 });
 
 // SEARCH BAR
-
 const search = document.getElementById('search');
 
 search.addEventListener('focusin', ()=>{
@@ -65,72 +126,36 @@ search.addEventListener('focusout', ()=>{
     search.style.width = "20rem";
 });
 
-// CAROUSEL AND PAGINATIONS
+// CAROUSEL AND PAGINATIONS - CHECK ERRORS IMAGES
 
-/*
-const slider = document.getElementById('slider'),
-dots = document.getElementsByClassName('pagination__dots');
-let img = 1;
+// const slider = document.getElementById('slider'),
+// dots = document.getElementsByClassName('pagination__dots');
+// let img = 1;
 
-setInterval(() =>{
-    if(img <= 2){
-        slider.src = `./assets/img/ads${img}.jpg`;
-        dots[img-1].classList.remove('active');
-        dots[img].classList.add('active');
-        img += 1;
-    } else{
-        img = 0;
-        slider.src = `./assets/img/ads${img}.jpg`;
-        dots[2].classList.remove('active');
-        dots[img].classList.add('active');
-        img += 1;
-    }
-}, 5000);
-*/
+// setInterval(() =>{
+//     if(img <= 2){
+//         slider.src = `./assets/img/ads${img}.jpg`;
+//         dots[img-1].classList.remove('active');
+//         dots[img].classList.add('active');
+//         img += 1;
+//     } else{
+//         img = 0;
+//         slider.src = `./assets/img/ads${img}.jpg`;
+//         dots[2].classList.remove('active');
+//         dots[img].classList.add('active');
+//         img += 1;
+//     }
+// }, 5000);
+
 
 // MENU LINK ACTIVE
 const menuLink = document.getElementsByClassName('menu__link');
-
 menuLink[0].classList.add('active');
 
-// NOTIFICATION DROPDOWN
-
-const notification = document.getElementById('notifications'),
-notificationsDropdown = document.getElementById('notifications__dropdown'),
-notificationStatus = document.getElementById('notifications__status');
-
-notification.addEventListener('click', ()=>{
-    if(notificationsDropdown.visible == true){
-        notificationsDropdown.style.display = "flex";
-        notificationsDropdown.visible = false;
-    } else {
-        notificationsDropdown.style.display = "none";
-        notificationsDropdown.visible = true;
-    }
-});
-
-
-// profile DROPDOWN ---------- ADD #support__dropdown #config__dropdown
-
-const profile = document.getElementById('profile__dropdown'),
-profileDropdown = document.getElementById('notifications__dropdown');
-
-profile.addEventListener('click', ()=>{
-    if(profileDropdown.visible == true){
-        profileDropdown.style.display = "flex";
-        profileDropdown.visible = false;
-    } else {
-        profileDropdown.style.display = "none";
-        profileDropdown.visible = true;
-    }
-});
-
-
 // INPUT CHECKBOX
-
 const inputCheckbox = document.getElementsByClassName('checkbox');
 
-for(let box of inputCheckbox){
+for(box of inputCheckbox){
     box.addEventListener('click', () =>{
         if(box.checked == false){
             return(
@@ -142,58 +167,4 @@ for(let box of inputCheckbox){
                 box.checked = false);
         }
     });
-};
-
-
-// CONF DROPDOWN
-
-const config = document.getElementById('config'),
-configDropdown = document.getElementById('config__dropdown');
-configDropdown.visible = false;
-
-config.addEventListener('click', ()=>{
-    if(configDropdown.visible == false){
-        configDropdown.style.display = "flex";
-        configDropdown.visible = true;
-    } else {
-        configDropdown.style.display = "none";
-        configDropdown.visible = false;
-    }
-});
-
-// SUPORT DROPDOWN
-
-const support = document.getElementById('support'),
-supportDropdown = document.getElementById('support__dropdown');
-supportDropdown.visible = false;
-
-support.addEventListener('click', ()=>{
-    if(supportDropdown.visible == false){
-        supportDropdown.style.display = "flex";
-        supportDropdown.visible = true;
-    } else {
-        supportDropdown.style.display = "none";
-        supportDropdown.visible = false;
-    }
-});
-
-// SIDEBAR EXPAND ON HOVER
-
-const app = document.getElementById('app'),
-sidebar = document.getElementById('sidebar');
-
-sidebar.addEventListener('mouseover', () =>{
-    app.style.gridTemplateColumns = "12.5rem 1fr";
-});
-
-sidebar.addEventListener('mouseout', () =>{
-    app.style.gridTemplateColumns = "3.75rem 1fr";
-    /* if(configDropdown.visible == true){
-        configDropdown.style.display = "none";
-        configDropdown.visible = false;
-    }
-    if(supportDropdown.visible == true){
-        supportDropdown.style.display = "none";
-        supportDropdown.visible = false;
-    } CORRIGIR*/
-});
+}; // ----- REVISAR 20/03/2023
