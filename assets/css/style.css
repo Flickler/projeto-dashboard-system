@@ -571,7 +571,7 @@ input::placeholder{
 .updates h3{
     font-size: var(--size-md);
     font-weight: var(--regular);
-    color: var(--gray-50);
+    color: var(--gray-60);
 }
 
 .updates p{
@@ -856,44 +856,67 @@ input::placeholder{
 
 /*-----------------------------------------------------------APP AGENDA-------------------------------------------------------*/
 .app__agenda{
-    display: grid;
-    grid-template-columns: 1fr;
+    margin-inline: auto;
     padding: var(--p24);
     border: 1px solid red;
 }
 
-.row__data{
+.station__tabs{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 3rem;
-    padding: var(--p20);
-    border: 1px solid var(--gray-50);
+    gap: 1rem;
+    padding-left: 1rem;
+}
+
+.station__tab{
+    border: none;
+    font-size: var(--size-nm);
+    font-weight: var(--medium);
+    color: var(--gray-40);
+    padding: .5rem 1rem;
+    background-color: transparent;
+}
+
+.station__tabs .active{
+    background-color: var(--primary-20);
+    color: var(--primary-50);
+}
+
+.agenda__container{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding: .5rem;
+    gap: .5rem;
     border-radius: var(--rounded8);
 
 }
 
-.data__title{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    min-width: 6rem;
-    padding: var(--p16);
-    gap: .5rem;
-    border-bottom: 1px solid blue;
+.agenda__row{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    column-gap: 1rem;
 }
 
-.data__cell{
-    display: flex;
-    align-items: start;
-    justify-content: space-around;
-    width: 10rem;
-    padding: var(--p16) var(--p24);
-    border-bottom: 1px solid var(--gray-10);
-    border: 1px solid violet;
+.agenda__row div{
+    border: 1px solid pink;
+    padding: .5rem 0 .5rem .5rem;
 }
 
-.data__status{
-
+.agenda__header{
+    font-size: var(--size-md);
+    font-weight: var(--regular);
+    color: var(--gray-60);
 }
+
+.agenda__label{
+    font-size: var(--size-sm);
+    font-weight: var(--regular);
+    color: var(--gray-90);
+}
+
+.agenda__data div{
+    font-size: var(--size-sm);
+    font-weight: var(--regular);
+    color: var(--gray-60);
+}
+

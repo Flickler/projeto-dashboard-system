@@ -10,57 +10,61 @@
     <title>Workstation_Agenda</title>
 </head>
 <body>
-    <div class="station__content">
-        <div class="app__agenda">
-            <div class="row__data">
-                <div class="data__title">
-                    Horário
-                    <div class="data__cell">08:00 às 22:00</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                </div>
-                <div class="data__title">
-                    Curso
-                    <div class="data__cell">Desenvolvimento Web</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                </div>
-                <div class="data__title">
-                    Unidade Curricular
-                    <div class="data__cell">UC5</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                </div>
-                <div class="data__title">
-                    Professor
-                    <div class="data__cell">João</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                </div>
-                <div class="data__title">
-                    Turma
-                    <div class="data__cell">110</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                </div>
-                <div class="data__title">
-                    Sala
-                    <div class="data__cell">AAA</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                    <div class="data__cell">...</div>
-                </div>
-                <div class="data__title">
-                    Status
-                    <div class="data__status__pendente"></div>
-                    <div class="data__status__completo"></div>
-                    <div class="data__status__cancelado"></div>
-                </div>
+    <div class="app__agenda">
+        <div class="station__tabs">
+            <button class="station__tab">
+                Visão Geral
+            </button>
+            <button class="station__tab active">
+                Agenda
+            </button>
+            <button class="station__tab">
+                Utilidades
+            </button>
+        </div>
+        <div class="agenda__container">
+            <h3 class="agenda__header">
+                Quinta, 16 de março de 2023
+            </h3>
+            <div class="agenda__row agenda__label">
+                <div>Hora</div>
+                <div>Turma</div>
+                <div>Sala</div>
+                <div>Curso</div>
+                <div>Unidade Curricular</div>
+                <div>Professor</div>
+                <div>Status</div>
+            </div>
+
+            <div class="agenda__row agenda__data">
+                <div>14:00</div>
+                <div>01011</div>
+                <div>A2</div>
+                <div>Unidade Curricular</div>
+                <div>Maria</div>
+                <div>Programação de Sistemas</div>
+                <div class="agenda__status status__canceled">Cancelado</div>
+            </div>
+            
+            <div class="agenda__row agenda__data">
+                <div>14:00</div>
+                <div>01012</div>
+                <div>A3</div>
+                <div>Unidade Curricular</div>
+                <div>João</div>
+                <div>Tecnico em Informática</div>
+                <div class="agenda__status status__complete">Pendente</div>
+            </div>
+
+            <div class="agenda__row agenda__data">
+                <div>19:00</div>
+                <div>01010</div>
+                <div>A2</div>
+                <div>Unidade Curricular</div>
+                <div>Paula</div>
+                <div>Desenvolvimento Web</div>
+                <div class="agenda__status status__complete">Pendente</div>
+                <!-- status: pendente, em progresso, cancelado, completo -->
             </div>
         </div>
     </div>
