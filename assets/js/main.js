@@ -3,12 +3,12 @@ function dropdown(icon, container){
     return(
         container.visible = false,
         icon.addEventListener('click', ()=>{
-            if(container.visible == false){
+            if(!container.visible){
                 container.style.display = "flex";
-                container.visible = true;
+                container.visible = !container.visible;
             } else{
                 container.style.display = "none";
-                container.visible = false;
+                container.visible = !container.visible;
             }
         })
     )
@@ -87,21 +87,23 @@ const theme = document.getElementById('theme'),
 themeIcon = document.getElementById('theme-icon'),
 themeDescription = document.getElementById('theme-description'),
 toggleSwitch = document.getElementById('switch');
-let darkTheme = false;
+app.darkTheme = false;
 
 theme.addEventListener('click', () =>{
-    if(!darkTheme){
+    if(!app.darkTheme){
         themeIcon.innerText = 'wb_sunny';
         themeDescription.innerText = "Tema Claro";
         toggleSwitch.style.justifyContent = "end";
         app.classList.add('dark-theme');
-        darkTheme = true;
+        document.body.style.backgroundColor = "#282A36"
+        app.darkTheme = !app.darkTheme;
     } else{
         themeIcon.innerText = 'clear_night';
         themeDescription.innerText = "Tema Escuro";
         toggleSwitch.style.justifyContent = "start";
         app.classList.remove('dark-theme');
-        darkTheme = false;
+        document.body.style.backgroundColor = "#e0e7ff"
+        app.darkTheme = !app.darkTheme;
     }
 });
 
