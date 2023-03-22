@@ -151,20 +151,3 @@ search.addEventListener('focusout', ()=>{
 // MENU LINK ACTIVE
 const menuLink = document.getElementsByClassName('menu__link');
 menuLink[0].classList.add('active');
-
-// INPUT CHECKBOX
-const inputCheckbox = document.getElementsByClassName('checkbox');
-
-for(box of inputCheckbox){
-    box.addEventListener('click', () =>{
-        if(box.checked == false){
-            return(
-                box.classList.add('checked'),
-                box.checked = true);
-        } else{
-            return(
-                box.classList.remove('checked'),
-                box.checked = false);
-        }
-    });
-}; // ----- REVISAR 20/03/2023

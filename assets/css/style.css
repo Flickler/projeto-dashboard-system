@@ -18,9 +18,6 @@
     --secondary-20: #F6BC91;
     --secondary-10: #FEE2C2;
 
-    --gradient-1: linear-gradient(30deg, #C2F2FE 0%, #F6BC91 30%, #ED6B4F 60%);
-    --gradient-2: linear-gradient(30deg, #6366f1 0%, #ED6B4F 60%, #C2F2FE 90%);
-
     --gray-100: #1A1A1F;
     --gray-90: #313135;
     --gray-80: #48484C;
@@ -73,31 +70,6 @@
     --shadow-dark: 0px 2px 8px var(--gray-10);
     --shadow-indigo: 2px 4px 20px var(--primary-10);
 
-    /* STATES ~ REFERÊNCIA
-    --hover: 
-        background-color: var(--gray-20);
-
-    --focused: 
-        color: var(--primary-50); 
-        background-color: var(--primary-20);
-        border: 6px solid var(--gray-10);
-
-    --checked:
-        color: var(--gray-0);
-        background-color:var(--primary-50);
-        box-shadow: var(--shadow-indigo);
-
-    --disable: 
-        color: var(--gray-50);
-        background-color: var(--gray-30);
-    
-    */    
-    /* MEDIA QUERIES  BREAKPOINTS
-    --screen-mobile: 360~640px;
-    --screen-tablet: 800~1024px;
-    --screen-desktop-hd: 1440px;
-    --screen-desktop-uhd: 1920px;
-    */
 }
 
 *{
@@ -110,15 +82,24 @@
 
 html{
     scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
 }
 
-body{
-    background: var(--gray-10);
-}
-
-/* DARK THEME
+/* DARK THEME */
 
 body .dark-theme{
+
+    --primary-90: #312e81;
+    --primary-80: #3730a3;
+    --primary-70: #4338ca;
+    --primary-60: #4f46e5;
+    --primary-50: #312e81; /*primary*/
+    --primary-40: #818cf8;
+    --primary-30: #a5b4fc;
+    --primary-20: #c7d2fe;
+    --primary-10: #e0e7ff;
+    
     --gray-100: #FBFCFB;
     --gray-90: #F9F9F9;
     --gray-80: #E8E8E9;
@@ -132,10 +113,17 @@ body .dark-theme{
     --gray-5: #313135;
     --gray-0: #1A1A1F;
 }
- */
+
+body{
+    background-color: var(--gray-10);
+}
 
 a{
     text-decoration: none;
+}
+
+button:focus{
+    outline: 4px solid var(--gray-20);
 }
 
 #app{
@@ -287,7 +275,7 @@ a{
 
 .menu__link span{
     color: var(--gray-0);
-    transition: .3s;
+    transition: .2s;
 }
 
 .menu__link span:nth-child(2){
@@ -325,7 +313,7 @@ a{
 }
 
 .img .avatar:hover,
-#profile__sm .avatar__sm:hover{
+#profile .avatar__sm:hover{
     border: 4px solid var(--gray-10);
     border-radius: 50%;
     opacity: .9;
@@ -482,7 +470,7 @@ a{
     background-color: var(--gray-5);
     border: 1px solid var(--gray-10);
     border-radius: var(--rounded8);
-    transition: .4s;
+    transition: .2s;
 }
 
 #search:focus{
@@ -529,7 +517,7 @@ input::placeholder{
 }
 
 .notifications:hover{
-    background-color: var(--gray-5);
+    background-color: var(--gray-10);
     cursor: pointer;
 }
 
@@ -540,6 +528,8 @@ input::placeholder{
 }
 
 /*------------------------ AQUI COMEÇA A AREA DE TRABALHO ---------------------------*/
+
+
 .station__container{
     display: grid;
     grid-template-columns: 4fr 1fr;
@@ -637,7 +627,7 @@ input::placeholder{
     height: 6.5rem;
     padding: var(--p16);
     border-radius: var(--rounded8);
-    transition: .3s ease;
+    transition: .2s ease-in-out;
     cursor: pointer;
 }
 
@@ -666,19 +656,18 @@ input::placeholder{
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-between;
     width: 100%;
     height: max-content;
     padding: var(--p8) var(--p24);
     gap: .5rem;
     border-radius: var(--rounded8);
-    transition: .3s ease;
+    transition: .2s ease;
 }
 
 .card:hover{
     background-color: var(--gray-0);
     box-shadow: var(--shadow-dark);
-    transform: scaleY(1.05);
+    transform: scaleY(1.01);
 }
 
 .card__title{
@@ -694,7 +683,13 @@ input::placeholder{
 .card__title h4{
     font-size: var(--size-nm);
     font-weight: var(--regular);
-    color: var(--gray-80);
+    color: var(--gray-40);
+}
+
+.card__title h5{
+    font-size: var(--size-sm);
+    font-weight: var(--medium);
+    color: var(--gray-40);
 }
 
 .edit__card{
@@ -705,40 +700,42 @@ input::placeholder{
 }
 
 .edit__card p{
-    font-size: var(--size-sm);
-    font-weight: var(--semibold);
-    color: var(--gray-30);
+    font-size: var(--size-smx);
+    font-weight: var(--medium);
+    color: var(--gray-40);
 }
 
 .card__btn{
     width: 100%;
+    padding: 1rem;
     text-align: center;
-    padding: 2rem;
 }
 
 .card__btn button{
+    width: 100%;
     padding: var(--p16) var(--p64);
     font-size: var(--size-nm);
     font-weight: var(--semibold);
-    color: var(--gray-5);
+    color: var(--gray-40);
     border: none;
     border-radius: var(--rounded8);
-    background-color: var(--primary-40);
+    background-color: var(--gray-10);
     cursor: pointer;
 }
 
 .card__btn button:hover{
-    background-color: var(--primary-50);
+    color: var(--gray-0);
+    background-color: var(--primary-40);
     box-shadow: var(--shadow-indigo);
 }
 
-.contact__btn{
+.card__contact__btn{
     width: 100%;
     text-align: center;
-    padding: 2rem;
+    padding: 2rem 0rem;
 }
 
-.contact__btn button{
+.card__contact__btn button{
     width: 100%;
     padding: var(--p16) var(--p24);
     font-size: var(--size-nm);
@@ -750,9 +747,10 @@ input::placeholder{
     cursor: pointer;
 }
 
-.contact__btn button:hover{
+.card__contact__btn button:hover{
     color: var(--gray-0);
     background-color: var(--primary-40);
+    box-shadow: var(--shadow-indigo);
 }
 
 .contacts{
@@ -773,10 +771,16 @@ input::placeholder{
     height: 24px;
     color: var(--gray-0);
     background-color: var(--primary-40);
+    border-radius: var(--rounded16);
     border: none;
-    border-radius: var(--rounded8);
     cursor: pointer;
 }
+
+.add__contacts span:hover{
+    background-color: var(--primary-50);
+    box-shadow: var(--shadow-indigo);
+}
+
 
 .edit__ico{
     color: var(--gray-30);
@@ -803,7 +807,7 @@ input::placeholder{
 
 .description{
     font-size: var(--size-smx);
-    line-height: 150%;
+    line-height: 175%;
 }
 
 .events__details{
@@ -852,13 +856,11 @@ input::placeholder{
     border-radius: 0 0 .5rem 0;
 }
 
-/* ------------------------------MEDIA QUERIES-------------------------------*/
-
-/*-----------------------------------------------------------APP AGENDA-------------------------------------------------------*/
+/*--------------------------WORKSTATION CONTENT ------------------------------*/
 .station__content{
     margin-inline: auto;
     padding: var(--p24);
-    border: 1px solid red;
+    width: 100%;
 }
 
 .station__workbar{
@@ -871,7 +873,6 @@ input::placeholder{
     display: flex;
     padding-inline: var(--p16);
     gap: 1rem;
-    border: 1px solid violet;
 }
 
 .station__tab{
@@ -892,13 +893,17 @@ input::placeholder{
     background-color: var(--primary-20);
 }
 
-.active{
+.station__tabs .active{
     border-bottom: 2px solid var(--primary-50);
 }
 
-.active span{
+.station__tabs .active span{
     color: var(--primary-50);
 }
+
+/*--------------------------WORKSTATION CONTENT - VISAO GERAL ------------------------------*/
+
+/*--------------------------WORKSTATION CONTENT - AGENDA ------------------------------*/
 
 .agenda__container{
     display: flex;
@@ -921,7 +926,7 @@ input::placeholder{
     padding: .5rem 0 .5rem .5rem;
 }
 
-.agenda__header{
+.content__header{
     font-size: var(--size-md);
     font-weight: var(--regular);
     color: var(--gray-60);
@@ -939,3 +944,69 @@ input::placeholder{
     color: var(--gray-60);
 }
 
+/*--------------------------WORKSTATION CONTENT - FERRAMENTAS ------------------------------*/
+
+.tools__content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 1rem;
+    border: 1px solid red;
+}
+
+.kanban__wrapper{
+    display: flex;
+    gap: 1rem;
+}
+
+.card__kanban{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    padding: var(--p8) var(--p24);
+    gap: .5rem;
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded8);
+    transition: .2s ease;
+    grid-row: 1/3;
+}
+
+.card__kanban:hover{
+    background-color: var(--gray-0);
+    box-shadow: var(--shadow-dark);
+    transform: scaleY(1.05);
+}
+
+.reminder__label__red{
+    padding: var(--p2) var(--p4);
+    font-size: var(--size-smx);
+    color: var(--ui-red);
+    background-color: #fb71863a;
+    border-radius: var(--rounded8);
+}
+
+.reminder__label__orange{
+    padding: var(--p2) var(--p4);
+    font-size: var(--size-smx);
+    color: var(--secondary-30);
+    background-color: var(--secondary-10);
+    border-radius: var(--rounded8);
+}
+
+.reminder__label__green{
+    padding: var(--p2) var(--p4);
+    font-size: var(--size-smx);
+    color: var(--ui-green);
+    background-color:#0af2ac13;
+    border-radius: var(--rounded8);
+}
+
+/*-------------------------- MEDIA QUERIES BREAKPOINTS ------------------------------*/
+/*
+--screen-mobile: 360~640px;
+--screen-tablet: 800~1024px;
+--screen-desktop-hd: 1440px;
+--screen-desktop-uhd: 1920px;
+*/
