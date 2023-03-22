@@ -129,26 +129,24 @@ search.addEventListener('focusout', ()=>{
 });
 
 // CAROUSEL AND PAGINATIONS - CHECK ERRORS IMAGES
+const slider = document.getElementById('slider'),
+dots = document.getElementsByClassName('pagination__dots');
+let img = 1;
 
-// const slider = document.getElementById('slider'),
-// dots = document.getElementsByClassName('pagination__dots');
-// let img = 1;
-
-// setInterval(() =>{
-//     if(img <= 2){
-//         slider.src = `./assets/img/ads${img}.jpg`;
-//         dots[img-1].classList.remove('active');
-//         dots[img].classList.add('active');
-//         img += 1;
-//     } else{
-//         img = 0;
-//         slider.src = `./assets/img/ads${img}.jpg`;
-//         dots[2].classList.remove('active');
-//         dots[img].classList.add('active');
-//         img += 1;
-//     }
-// }, 5000);
-
+setInterval(() =>{
+    if(img <= 2){
+        slider.src = `./assets/img/publi${img}.jpg`;
+        dots[img-1].classList.remove('active');
+        dots[img].classList.add('active');
+        img += 1;
+    } else{
+        img = 0;
+        slider.src = `./assets/img/publi${img}.jpg`;
+        dots[2].classList.remove('active');
+        dots[img].classList.add('active');
+        img += 1;
+    }
+}, 5000);
 
 // MENU LINK ACTIVE
 const menuLink = document.getElementsByClassName('menu__link');

@@ -141,7 +141,7 @@ button:focus{
     background-color: var(--gray-5);
     border-radius: var(--rounded8);
     box-shadow: var(--shadow-dark);
-    transition: .5s ease-in-out;
+    transition: grid-template-columns .5s ease-in-out;
 }
 
 .sidebar{
@@ -362,7 +362,8 @@ button:focus{
 }
 
 .sidebar:hover span:nth-child(2),
-.sidebar:hover .carousel{
+.sidebar:hover .carousel,
+.sidebar:hover .carousel .ads{
     display: block;
     animation: display 2s;
 }
@@ -396,12 +397,6 @@ button:focus{
     position: relative;
 }
 
-.carousel__content{
-    display: flex;
-    overflow-x: hidden;
-}
-
-.carousel__content,
 .ads{
     width: 9rem;
     border-radius: var(--rounded8);
@@ -426,11 +421,13 @@ button:focus{
     border: 1px solid var(--gray-0);
     border-radius: 50%;
     background-color: var(--gray-40);
+    transition: .5s ease;
 }
 
-.pagination__dots:active{
+.pagination .active{
     width: 1rem;
     background-color: var(--gray-0);
+    border-radius: 1rem;
 }
 
 /*----------------------------- O MAIN CONTAINER COMEÇA AQUI ------------------------------*/
@@ -480,7 +477,7 @@ button:focus{
     background-color: var(--gray-5);
     border: 1px solid var(--gray-10);
     border-radius: var(--rounded8);
-    transition: .2s;
+    transition: width .2s;
 }
 
 #search:focus{
@@ -637,7 +634,7 @@ input::placeholder{
     height: 6.5rem;
     padding: var(--p16);
     border-radius: var(--rounded8);
-    transition: .2s ease-in-out;
+    transition: transform .2s ease-in-out;
     cursor: pointer;
 }
 
