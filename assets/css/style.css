@@ -914,6 +914,10 @@ input::placeholder{
     color: var(--primary-50);
 }
 
+#view{
+    position: relative;
+}
+
 #view span{
     display: flex;
     align-items: center;
@@ -922,6 +926,20 @@ input::placeholder{
 
 #view span span{
     font-size: var(--size-sm);
+}
+
+#view__dropdown{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: -6.5rem;
+    background-color: var(--gray-20);
+    border-radius: .5rem;
+}
+
+#view__dropdown button:hover{
+    background-color: var(--primary-20);
+    border-radius: .5rem;
 }
 
 /*--------------------------WORKSTATION CONTENT - VISAO GERAL ------------------------------*/

@@ -137,6 +137,11 @@ function dropdown(icon, container){
     )
 }
 
+//VIEW DROPDOWN
+const view = document.getElementById('view'),
+viewDropdown = document.getElementById('view__dropdown');
+dropdown(view, viewDropdown);
+
 // CONF DROPDOWN
 const config = document.getElementById('config'),
 configDropdown = document.getElementById('config__dropdown');
