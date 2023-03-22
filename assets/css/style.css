@@ -130,7 +130,7 @@ a{
 }
 
 button:focus{
-    outline: 4px solid var(--gray-20);
+    outline: 2px solid var(--gray-20);
 }
 
 #app{
@@ -281,7 +281,8 @@ button:focus{
 }
 
 .menu__link:focus{
-    outline: 1px solid var(--primary-30);
+    outline: none;
+    transform: scale(1.05);
 }
 
 .menu__link span{
