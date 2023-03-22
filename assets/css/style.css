@@ -889,6 +889,11 @@ input::placeholder{
     border: none;
 }
 
+.station__tab:focus{
+    outline: none;
+    border-bottom: 2px solid var(--primary-30);
+}
+
 .station__tab span{
     color: var(--gray-60);
     padding: .5rem 1rem;
@@ -909,6 +914,16 @@ input::placeholder{
     color: var(--primary-50);
 }
 
+#view span{
+    display: flex;
+    align-items: center;
+    line-height: .2rem;
+}
+
+#view span span{
+    font-size: var(--size-sm);
+}
+
 /*--------------------------WORKSTATION CONTENT - VISAO GERAL ------------------------------*/
 
 /*--------------------------WORKSTATION CONTENT - AGENDA ------------------------------*/
@@ -916,21 +931,25 @@ input::placeholder{
 .agenda__container{
     display: flex;
     flex-direction: column;
-    border: 1px solid gray;
     padding: .5rem;
     gap: .5rem;
-    border-radius: var(--rounded8);
 
 }
 
 .agenda__row{
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(3, 1fr) repeat(2, 2fr) repeat(2, 1fr);
     column-gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--gray-10);
+}
+
+.agenda__label,
+.agenda__row:nth-last-child(1){
+    border-bottom: none;
 }
 
 .agenda__row div{
-    border: 1px solid pink;
     padding: .5rem 0 .5rem .5rem;
 }
 
@@ -952,6 +971,25 @@ input::placeholder{
     color: var(--gray-60);
 }
 
+.agenda__status{
+    padding: .5rem;
+    border-radius: .6rem;
+}
+
+.status__cancelado{
+    background-color: var(--ui-red);
+    color: #994350;
+}
+
+.status__pendente{
+    background-color: var(--gray-20);
+    color: var(--gray-70);
+}
+
+.status__completo{
+    background-color: var(--ui-green);
+    color: #077e5a;
+}
 /*--------------------------WORKSTATION CONTENT - FERRAMENTAS ------------------------------*/
 
 .tools__content{

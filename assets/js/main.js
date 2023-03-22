@@ -1,3 +1,126 @@
+// Objects
+class Aula{
+    constructor(hora, turma, sala, curso, undCurricular, professor, dia, status='pendente'){
+        this.hora = hora;
+        this.turma = turma;
+        this.sala = sala;
+        this.curso = curso;
+        this.undCurricular = undCurricular;
+        this.professor = professor;
+        this.dia = dia;
+        this.status = status;
+    }
+}
+class Professor{
+    constructor(nome, sobrenome){
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.aulas = []
+    }
+
+    cadastrarAula(hora, turma, sala, curso, undCurricular, dia){
+        this.aulas.push(new Aula(hora, turma, sala, curso, undCurricular,
+            this.nome, dia));
+        if(dia == new Date().getDate()){
+            return aulasDoDia();
+        }
+    }
+
+    cancelarAula(aula){
+        this.aulas[aula].status = 'cancelado'
+        if(aula == new Date().getDate()){
+            return aulasDoDia();
+        }
+    }
+
+    completarAula(aula){
+        this.aulas[aula].status = 'completo'
+        if(aula == new Date().getDate()){
+            return aulasDoDia();
+        }
+    }
+
+    setAula(){
+        const aula = parseInt(prompt('Aula: '));
+
+        if(aula !== -1){
+            this.aulas[aula].turma = prompt('Turma');
+            this.aulas[aula].hora = prompt('Hora');
+            this.aulas[aula].sala = prompt('Sala');
+            this.aulas[aula].curso = prompt('Curso');
+        } else{
+            return 'Erro!'
+        }
+    }
+}
+
+// FUNCTION AULAS DO DIA
+function aulasDoDia(dia){
+    const tabela = document.getElementById('station-content'),
+    aulasDeHoje = [];
+
+    for(professor of professores){
+        for(aula of professor.aulas){
+            if(aula.dia == dia){
+                aulasDeHoje.push(aula);
+            }
+        }
+    }
+    tabela.innerHTML =
+    `
+    <h3 class="content__header">
+        Quinta, 16 de março de 2023
+    </h3>
+    <div class="agenda__row agenda__label">
+        <div>Hora</div>
+        <div>Turma</div>
+        <div>Sala</div>
+        <div>Curso</div>
+        <div>Unidade Curricular</div>
+        <div>Professor</div>
+        <div>Status</div>
+    </div>
+    `
+
+    for(aula of aulasDeHoje){
+        tabela.innerHTML += 
+        `
+        <div class="agenda__row agenda__data">
+            <div>${aula.hora}</div>
+            <div>${aula.turma}</div>
+            <div>${aula.sala}</div>
+            <div>${aula.curso}</div>
+            <div>${aula.undCurricular}</div>
+            <div>${aula.professor}</div>
+            <div>
+                <span class="agenda__status status__${aula.status}">${aula.status}</span>
+            </div>
+        </div>
+        `
+    };
+}
+
+// CREATING PROFESSORS
+const profJoao = new Professor('João', 'das Neves'),
+profMaria = new Professor('Maria', 'Fernandes'),
+profPaula = new Professor('Paula', 'Oliveira'),
+professores = [profJoao, profMaria, profPaula]
+
+// CREATING AULAS
+profJoao.cadastrarAula('10:00', 01010, 'A2', 'Desenvolvimento Web',
+                        'Unidade Curricular', new Date().getDate());
+profJoao.completarAula(0);
+profMaria.cadastrarAula('14:00', 01011, 'A2', 'Programação de Sistemas',
+                        'Unidade Curricular', new Date().getDate());
+profMaria.cancelarAula(0);
+profJoao.cadastrarAula('14:00', 01012, 'A3', 'Técnico em Informática',
+                        'Unidade Curricular', new Date().getDate());
+profPaula.cadastrarAula('19:00', 01010, 'A2', 'Desenvolvimento Web',
+                        'Unidade Curricular', new Date().getDate());
+
+// EXECUTING aulasDoDia FUNCTION
+aulasDoDia(new Date().getDate());
+
 // MAKE DROPDOWN - FUNCTION
 function dropdown(icon, container){
     return(
@@ -66,7 +189,7 @@ sidebar.addEventListener('mouseout', () =>{
 // GET DATE USERS NAV
 const showDate = document.getElementById('time');
 
-function getDate(){
+function getDateToday(){
     const date = new Date(),
     year = date.getFullYear(),
     month = date.getMonth(),
@@ -78,9 +201,9 @@ function getDate(){
     return showDate.innerText = `${hour}:${minutes >= 10 ? minutes : '0' + minutes} — Hoje, ${day} ${months[month]} ${year}`;
 }
 
-// GET DATE
-getDate();
-setInterval(getDate, 10000);
+// GET DATE TODAY
+getDateToday();
+setInterval(getDateToday, 10000);
 
 // SWITCH DARK THEME
 const theme = document.getElementById('theme'),

@@ -25,14 +25,19 @@
             </div>
             <div class="station__tabs">
                 <button class="station__tab">
-                    <span>Visão Geral</span>
+                    <span>+ Editar</span>
                 </button>
-                <button class="station__tab">
-                    <span>Agenda</span>
+                <button class="station__tab" id="view">
+                    <span>
+                        View diario
+                        <span class="material-symbols-rounded">
+                            keyboard_arrow_down
+                        </span>
+                    </span>
                 </button>
             </div>
         </div>
-        <div class="agenda__container">
+        <div class="agenda__container" id="agenda-container">
             <h3 class="content__header">
                 Quinta, 16 de março de 2023
             </h3>
@@ -47,34 +52,51 @@
             </div>
 
             <div class="agenda__row agenda__data">
+                <div>10:00</div>
+                <div>01010</div>
+                <div>A2</div>
+                <div>Desenvolvimento Web</div>
+                <div>Unidade Curricular</div>
+                <div>João</div>
+                <div>
+                    <span class="agenda__status status__completo">completo</span>
+                </div>
+            </div>
+
+            <div class="agenda__row agenda__data">
                 <div>14:00</div>
                 <div>01011</div>
                 <div>A2</div>
+                <div>Programação de Sistemas</div>
                 <div>Unidade Curricular</div>
                 <div>Maria</div>
-                <div>Programação de Sistemas</div>
-                <div class="agenda__status status__canceled">Cancelado</div>
+                <div>
+                    <span class="agenda__status status__cancelado">cancelado</span>
+                </div>
             </div>
             
             <div class="agenda__row agenda__data">
                 <div>14:00</div>
                 <div>01012</div>
                 <div>A3</div>
+                <div>Tecnico em Informática</div>
                 <div>Unidade Curricular</div>
                 <div>João</div>
-                <div>Tecnico em Informática</div>
-                <div class="agenda__status status__complete">Pendente</div>
+                <div>
+                    <span class="agenda__status status__pendente">pendente</span>
+                </div>
             </div>
 
             <div class="agenda__row agenda__data">
                 <div>19:00</div>
                 <div>01010</div>
                 <div>A2</div>
+                <div>Desenvolvimento Web</div>
                 <div>Unidade Curricular</div>
                 <div>Paula</div>
-                <div>Desenvolvimento Web</div>
-                <div class="agenda__status status__complete">Pendente</div>
-                <!-- status: pendente, em progresso, cancelado, completo -->
+                <div>
+                    <span class="agenda__status status__pendente">pendente</span>
+                </div>
             </div>
         </div>
     </div>
