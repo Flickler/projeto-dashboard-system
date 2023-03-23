@@ -265,7 +265,7 @@ search.addEventListener('focusout', ()=>{
     search.style.width = "20rem";
 });
 
-// CAROUSEL AND PAGINATIONS - CHECK ERRORS IMAGES
+// CAROUSEL AND PAGINATIONS
 const slider = document.getElementById('slider'),
 dots = document.getElementsByClassName('pagination__dots');
 let img = 1;
@@ -285,10 +285,18 @@ setInterval(() =>{
     }
 }, 5000);
 
-// MENU LINK ACTIVE
-const menuLink = document.getElementsByClassName('menu__link');
-menuLink[0].classList.add('active');
+// MENU LINK ACTIVE FUNCTION
+function menuActive(container, links){
+    // fazer menu link ativo!!
+}
 
+const menuLink = document.getElementById('sidebar-active'),
+stationtabs = document.getElementById('station-tabs');
+
+// CREAT MENU LINK ACTIVE
+// ---------------------------------------------------------
+
+// SWITCH SCREEN FUNCTION
 function switchScreen(screen){
     if(screen == 'tools'){
         tabela.innerHTML =
