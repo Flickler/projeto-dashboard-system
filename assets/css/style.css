@@ -230,22 +230,6 @@ button:focus{
     background-color: var(--gray-5);
 }
 
-.dropdown__btn__cta{
-    padding: .5rem 1rem;
-    font-size: var(--size-smx);
-    font-weight: var(--regular);
-    color: var(--gray-0);
-    background-color: var(--primary-40);
-    border: none;
-    border-radius: var(--rounded6);
-    cursor: pointer;
-}
-
-.dropdown__btn__cta:hover{
-    color: var(--gray-0);
-    background-color: var(--primary-50);
-}
-
 .profile__sm{
     position: relative;
 }
@@ -379,6 +363,7 @@ button:focus{
 .sidebar:hover .carousel .ads{
     display: block;
     animation: display 2s;
+    cursor: pointer;
 }
 
 .sidebar:hover .toggle__container{
@@ -494,7 +479,7 @@ button:focus{
 
 #search:focus{
     outline: none;
-    border: 2px solid var(--gray-20);
+    border: 4px solid var(--gray-10);
     background-color: var(--gray-5);
 }
 
@@ -649,6 +634,7 @@ input::placeholder{
     width: 10rem;
     height: 6.5rem;
     padding: var(--p16);
+    border: none;
     border-radius: var(--rounded8);
     transition: transform .2s ease-in-out;
     cursor: pointer;
@@ -728,10 +714,32 @@ input::placeholder{
     color: var(--gray-40);
 }
 
+
+.dropdown__btn__cta{
+    padding: .5rem 1rem;
+    text-align: center;
+    color: var(--gray-30);
+    background-color: var(--gray-0);
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded6);
+    cursor: pointer;
+}
+
+.dropdown__btn__cta:hover{
+    font-weight: var(--size-md);
+    color: var(--gray-5);
+    background-color: var(--primary-40);
+    border: none;
+}
+
 .card__btn{
     width: 100%;
-    padding: 1rem;
+    padding: .5rem 1rem;
     text-align: center;
+    color: var(--gray-40);
+    border: 1px solid var(--gray-5);
+    border-radius: var(--rounded6);
+    cursor: pointer;
 }
 
 .card__btn button{
@@ -1043,14 +1051,12 @@ input::placeholder{
     gap: .5rem;
     border: 1px solid var(--gray-10);
     border-radius: var(--rounded8);
-    transition: .2s ease;
     grid-row: 1/3;
 }
 
 .card__kanban:hover{
     background-color: var(--gray-0);
     box-shadow: var(--shadow-dark);
-    transform: scaleY(1.05);
 }
 
 .reminder__label__red{
@@ -1153,10 +1159,109 @@ input::placeholder{
 }
 
 .contacts{
-    display: flex;
-    border: 1px solid blue;
+    background-color: var(--gray-0);
 }
 
+.contacts__list{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 80%;
+    padding: var(--p16);
+    gap: .2rem;
+    font-size: var(--size-smx);
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded6);
+}
+
+.contacts__list img{
+    width: 24px;
+    height: 24px;
+}
+
+.contacts__list__info p{
+    color: var(--gray-60);
+}
+
+.contacts__list__info span{
+    color: var(--gray-30);
+}
+
+.contacts__list__info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--p8);
+    gap: .5rem;
+    border-radius: var(--rounded3);
+    cursor: pointer;
+}
+
+.contacts__list__info:hover{
+    background-color: var(--gray-5);
+}
+
+.contacts__mini__1{
+    display: flex;
+    align-items: start;
+    width: 80%;
+    padding: var(--p16);
+    gap: 1.5rem;
+    font-size: var(--size-smx);
+    color: var(--gray-30);
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded6);
+}
+
+.contacts__mini__1 img{
+    width: 56px;
+    height: 56px;
+}
+
+.contacts__mini__1 .contacts__info{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contacts__mini__2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 80%;
+    padding: var(--p16);
+    gap: 1rem;
+    font-size: var(--size-smx);
+    color: var(--gray-30);
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded6);
+}
+
+.contacts__mini__2 img{
+    width: 40px;
+    height: 40px;
+}
+
+.contacts__mini__2 .contacts__info{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.contacts__info button:hover{
+    font-weight: var(--size-semibold);
+    color: var(--gray-0);
+    background-color: var(--primary-30);
+}
+
+.group__btn{
+    display: flex;
+    gap: .5rem;
+}
 
 /*-------------------------- MEDIA QUERIES BREAKPOINTS ------------------------------*/
 /*
