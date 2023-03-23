@@ -16,6 +16,7 @@ class Professor{
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.aulas = []
+        professores.push(this);
     }
 
     cadastrarAula(hora, turma, sala, curso, undCurricular, dia){
@@ -26,30 +27,11 @@ class Professor{
         }
     }
 
-    cancelarAula(aula){
-        this.aulas[aula].status = 'cancelado'
-        if(aula == new Date().getDate()){
-            return aulasDoDia();
-        }
-    }
-
-    completarAula(aula){
-        this.aulas[aula].status = 'completo'
-        if(aula == new Date().getDate()){
-            return aulasDoDia();
-        }
-    }
-
-    setAula(){
-        const aula = parseInt(prompt('Aula: '));
-
-        if(aula !== -1){
-            this.aulas[aula].turma = prompt('Turma');
-            this.aulas[aula].hora = prompt('Hora');
-            this.aulas[aula].sala = prompt('Sala');
-            this.aulas[aula].curso = prompt('Curso');
-        } else{
-            return 'Erro!'
+    setAula(aula, set='cancelar'){
+        if(set == 'cancelar'){
+            return this.aulas[aula].status = 'cancelado';
+        } else if(set == 'completar'){
+            return this.aulas[aula].status = 'completo';
         }
     }
 }
@@ -69,7 +51,7 @@ function aulasDoDia(dia){
     tabela.innerHTML =
     `
     <h3 class="content__header">
-        Quinta, 16 de março de 2023
+        Quinta, ${dia} de março de 2023
     </h3>
     <div class="agenda__row agenda__label">
         <div>Hora</div>
@@ -101,18 +83,18 @@ function aulasDoDia(dia){
 }
 
 // CREATING PROFESSORS
-const profJoao = new Professor('João', 'das Neves'),
+const professores = [],
+profJoao = new Professor('João', 'das Neves'),
 profMaria = new Professor('Maria', 'Fernandes'),
-profPaula = new Professor('Paula', 'Oliveira'),
-professores = [profJoao, profMaria, profPaula]
+profPaula = new Professor('Paula', 'Oliveira');
 
 // CREATING AULAS
 profJoao.cadastrarAula('10:00', 01010, 'A2', 'Desenvolvimento Web',
                         'Unidade Curricular', new Date().getDate());
-profJoao.completarAula(0);
+profJoao.setAula(0, 'completar');
 profMaria.cadastrarAula('14:00', 01011, 'A2', 'Programação de Sistemas',
                         'Unidade Curricular', new Date().getDate());
-profMaria.cancelarAula(0);
+profMaria.setAula(0);
 profJoao.cadastrarAula('14:00', 01012, 'A3', 'Técnico em Informática',
                         'Unidade Curricular', new Date().getDate());
 profPaula.cadastrarAula('19:00', 01010, 'A2', 'Desenvolvimento Web',
@@ -123,10 +105,13 @@ aulasDoDia(new Date().getDate());
 
 // MAKE DROPDOWN - FUNCTION
 function dropdown(icon, container){
+    dropdownsIcons.push(icon);
+    dropdownsContainers.push(container);
     return(
         container.visible = false,
         icon.addEventListener('click', ()=>{
             if(!container.visible){
+                dropdownClose();
                 container.style.display = "flex";
                 container.visible = !container.visible;
             } else{
@@ -137,10 +122,14 @@ function dropdown(icon, container){
     )
 }
 
+// ALL DROPDOWNS
+const dropdownsIcons = [],
+dropdownsContainers = [];
+
 //VIEW DROPDOWN
-const view = document.getElementById('view'),
-viewDropdown = document.getElementById('view__dropdown');
-dropdown(view, viewDropdown);
+// const view = document.getElementById('view'),
+// viewDropdown = document.getElementById('view__dropdown');
+// dropdown(view, viewDropdown);
 
 // CONF DROPDOWN
 const config = document.getElementById('config'),
@@ -164,16 +153,11 @@ profileDropdown = document.getElementById('profile__dropdown');
 dropdown(profile, profileDropdown);
 
 // FUNCTION CHECK DROPDOWN OPEN
-
-const dropdownsIcons = [config, support, notification, profile],
-dropdownsContainers = [configDropdown, supportDropdown, notificationsDropdown, profileDropdown];
-
 function dropdownClose(){
     for(container of dropdownsContainers){
         if(container.visible == true){
             container.style.display = "none";
             container.visible = false;
-            console.log(container.visible);
         }
     }
 }
@@ -186,8 +170,9 @@ sidebar.addEventListener('mouseover', () =>{
     app.style.gridTemplateColumns = "12.5rem auto";
 });
 
-sidebar.addEventListener('mouseout', () =>{
+sidebar.addEventListener('mouseleave', () =>{
     app.style.gridTemplateColumns = "3.75rem auto";
+    dropdownClose();
 });
 
 

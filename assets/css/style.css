@@ -121,6 +121,18 @@ body .dark-theme{
     color: var(--gray-100);
 }
 
+::-webkit-scrollbar{
+    display: block;
+    width: .6rem;
+    background-color: var(--gray-30);
+    border-radius: 1rem;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: var(--gray-60);
+    border-radius: 1rem;
+}
+
 body{
     background-color: var(--gray-10);
 }
@@ -419,15 +431,14 @@ button:focus{
 .pagination__dots{
     width: .5rem;
     height: .5rem;
-    border: 1px solid var(--gray-0);
     border-radius: 50%;
-    background-color: var(--gray-40);
+    background-color: #ffffffc4;
     transition: .5s ease;
-}
+}    
 
 .pagination .active{
     width: 1rem;
-    background-color: var(--gray-0);
+    background-color: #FFF;
     border-radius: 1rem;
 }
 
@@ -542,6 +553,10 @@ input::placeholder{
     display: grid;
     grid-template-columns: 4fr 1fr;
     background-color: var(--gray-5);
+}
+
+.station__content{
+    overflow-y: auto;
 }
 
 .station__wrapper{
@@ -761,12 +776,12 @@ input::placeholder{
     box-shadow: var(--shadow-indigo);
 }
 
-.contacts{
+.contacts__mini{
     display:flex;
     gap: .3rem;
 }
 
-.contacts img{
+.contacts__mini img{
     height: 24px;
 }
 
@@ -962,11 +977,6 @@ input::placeholder{
     border-bottom: 1px solid var(--gray-10);
 }
 
-.agenda__label,
-.agenda__row:nth-last-child(1){
-    border-bottom: none;
-}
-
 .agenda__row div{
     padding: .5rem 0 .5rem .5rem;
 }
@@ -1066,6 +1076,87 @@ input::placeholder{
     background-color:#0af2ac13;
     border-radius: var(--rounded8);
 }
+
+/*--------------------------WORKSTATION CONTENT - ACADÊMICO ------------------------------*/
+.scholar__container{
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+    
+.scholar__content{
+    grid-row: 3/3;
+    display: flex;
+    align-items: start;
+    width: 100%;
+    height: max-content;
+    padding: var(--p8) var(--p24);
+    gap: .5rem;
+    border-radius: var(--rounded8);
+}
+    
+/*--------------------------WORKSTATION CONTENT - FERRAMENTAS ------------------------------*/
+
+.tools__content{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,1fr);
+    gap: 1rem;
+}
+    
+.kanban__wrapper{
+    display: flex;
+    gap: 1rem;
+}
+
+.card__kanban{
+    grid-row: 1/3;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    padding: var(--p8) var(--p24);
+    gap: .5rem;
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded8);
+}
+
+.card__kanban:hover{
+    background-color: var(--gray-0);
+    box-shadow: var(--shadow-dark);
+}
+    
+/*------------------------------------- WORKSTATION - ACADEMICO --------------------------------------*/
+.overview__content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    border: 1px solid red;
+}
+
+.data__updates{
+
+}
+
+.events{
+
+}
+
+.calendar__month{
+
+}
+
+.calendar__week{
+
+}
+
+.contacts{
+    display: flex;
+    border: 1px solid blue;
+}
+
 
 /*-------------------------- MEDIA QUERIES BREAKPOINTS ------------------------------*/
 /*
