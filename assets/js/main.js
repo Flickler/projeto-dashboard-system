@@ -38,8 +38,7 @@ class Professor{
 
 // FUNCTION AULAS DO DIA
 function aulasDoDia(dia){
-    const tabela = document.getElementById('station-content'),
-    aulasDeHoje = [];
+    const aulasDeHoje = [];
 
     for(professor of professores){
         for(aula of professor.aulas){
@@ -81,6 +80,8 @@ function aulasDoDia(dia){
         `
     };
 }
+//CREATING TABELA
+const tabela = document.getElementById('station-content');
 
 // CREATING PROFESSORS
 const professores = [],
@@ -127,9 +128,9 @@ const dropdownsIcons = [],
 dropdownsContainers = [];
 
 //VIEW DROPDOWN
-// const view = document.getElementById('view'),
-// viewDropdown = document.getElementById('view__dropdown');
-// dropdown(view, viewDropdown);
+const view = document.getElementById('view'),
+viewDropdown = document.getElementById('view__dropdown');
+dropdown(view, viewDropdown);
 
 // CONF DROPDOWN
 const config = document.getElementById('config'),
@@ -264,3 +265,213 @@ setInterval(() =>{
 // MENU LINK ACTIVE
 const menuLink = document.getElementsByClassName('menu__link');
 menuLink[0].classList.add('active');
+
+function switchScreen(screen){
+    if(screen == 'tools'){
+        tabela.innerHTML =
+        `
+        <div class="tools__container">
+            <h3 class="content__header">
+                Meus Apps
+            </h3>
+            <div class="tools__content">
+                <div class="card__kanban">
+                    <div class="card__title">
+                        <h4>Kanban Board</h4>
+                    </div>
+                    <div class="kanban__wrapper">
+                        <div class="card">
+                            <div class="card__title">
+                                <h5>A Fazer</h5>
+                                <div class="edit__card">
+                                    <span class="material-symbols-rounded no-fill edit__ico">
+                                        more_vert
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__red">
+                                        Pendente
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__red">
+                                        Pendente
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__red">
+                                        Pendente
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__title">
+                                <h5>Em Andamento</h5>
+                                <div class="edit__card">
+                                    <span class="material-symbols-rounded no-fill edit__ico">
+                                        more_vert
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__orange">
+                                        Em Andamento
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__orange">
+                                        Em Andamento
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__orange">
+                                        Em Andamento
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card__title">
+                                <h5>Concluído</h5>
+                                <div class="edit__card">
+                                    <span class="material-symbols-rounded no-fill edit__ico">
+                                        more_vert
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__green">
+                                        Concluído
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__green">
+                                        Concluído
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card__reminder">
+                                <div class="description">
+                                    <span class="reminder__label__green">
+                                        Concluído
+                                    </span>
+                                    <p class="reminder__details">
+                                        Descrição da Tarefa
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="card__btn">
+                        <button>Adicionar</button>
+                    </span>
+                </div>
+                <div class="card">
+                    <div class="card__title">
+                        <h4>Notas Sticky</h4>
+                        <div class="edit__card">
+                            <span class="material-symbols-rounded no-fill edit__ico">
+                                edit_square
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Apresentação
+                            </p>
+                            <p class="reminder__details">
+                                Auditório
+                            </p>
+                            <p class="reminder__details">
+                                <span class="material-symbols-rounded agenda">
+                                    calendar_month
+                                </span>
+                                2 Abril — ás 20:00 hrs
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Tomar Água
+                            </p>
+                            <p class="reminder__details">
+                                <span class="material-symbols-rounded agenda">
+                                    calendar_month
+                                </span>
+                                Agora
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__title">
+                        <h4>Cronômetro</h4>
+                        <div class="edit__card">
+                            <span class="material-symbols-rounded no-fill edit__ico">
+                                edit_square
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                &#127876; Natal &#127876;
+                            </p>
+                            <p class="reminder__details">
+                                Faltam 282 dias, 10 hrs, 36 minutos e 04 segundos para o Natal!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `
+    } /*else if(){
+
+    } else if(){
+
+    } else{
+        aulasDoDia(new Date().getDate());
+    }*/
+}
