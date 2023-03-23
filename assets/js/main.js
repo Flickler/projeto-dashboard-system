@@ -27,11 +27,13 @@ class Professor{
         }
     }
 
-    setStatusAula(aula, set='cancelar'){
-        if(set == 'cancelar'){
-            return this.aulas[aula].status = 'cancelado';
-        } else if(set == 'completar'){
-            return this.aulas[aula].status = 'completo';
+    setStatusAula(aula, set='cancelada'){
+        if(set == 'cancelada'){
+            return this.aulas[aula].status = 'cancelada';
+        } else if(set == 'concluido'){
+            return this.aulas[aula].status = 'concluido';
+        } else if(set == 'em_progresso'){
+            return this.aulas[aula].status = 'em_progresso';
         }
     }
 
@@ -91,7 +93,7 @@ function aulasDoDia(dia){
             <div>${aula.undCurricular}</div>
             <div>${aula.professor}</div>
             <div>
-                <span class="agenda__status status__${aula.status}">${aula.status}</span>
+                <span class="agenda__status status__${aula.status}">${aula.status.replace('_', ' ')}</span>
             </div>
         </div>
         `
@@ -107,17 +109,18 @@ profMaria = new Professor('Maria', 'Fernandes'),
 profPaula = new Professor('Paula', 'Oliveira');
 
 // CREATING PROF IN LOGIN
-const professorOn = profPaula;
+const professorOn = profJoao;
 
 // CREATING AULAS
 profJoao.cadastrarAula('10:00', 01010, 'A2', 'Desenvolvimento Web',
                         'Unidade Curricular', new Date().getDate());
-profJoao.setStatusAula(0, 'completar');
+profJoao.setStatusAula(0, 'concluido');
 profMaria.cadastrarAula('14:00', 01011, 'A2', 'Programação de Sistemas',
                         'Unidade Curricular', new Date().getDate());
 profMaria.setStatusAula(0);
 profJoao.cadastrarAula('14:00', 01012, 'A3', 'Técnico em Informática',
                         'Unidade Curricular', new Date().getDate());
+profJoao.setStatusAula(1, 'em_progresso')
 profPaula.cadastrarAula('19:00', 01010, 'A2', 'Desenvolvimento Web',
                         'Unidade Curricular', new Date().getDate());
 
@@ -487,9 +490,177 @@ function switchScreen(screen){
             </div>
         </div>
         `
-    } /*else if(){
-
-    } else if(){
+    } else if(screen == 'scholar'){
+        tabela.innerHTML =
+        `
+        <div class="scholar__container">
+            <h3 class="content__header">
+                Meus Cursos
+            </h3>
+            <div class="scholar__content">
+                <div class="card">
+                    <div class="card__title">
+                        <h4>Curso 1</h4>
+                        <div class="edit__card">
+                            <span class="material-symbols-rounded no-fill edit__ico">
+                                edit_square
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 1
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 2
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 3
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 4
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <span class="card__btn">
+                        <button>Download</button>
+                    </span>
+                </div>
+                <div class="card">
+                    <div class="card__title">
+                        <h4>Curso 2</h4>
+                        <div class="edit__card">
+                            <span class="material-symbols-rounded no-fill edit__ico">
+                                edit_square
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 1
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 2
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 3
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 4
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <span class="card__btn">
+                        <button>Download</button>
+                    </span>
+                </div>
+                <div class="card">
+                    <div class="card__title">
+                        <h4>Curso 3</h4>
+                        <div class="edit__card">
+                            <span class="material-symbols-rounded no-fill edit__ico">
+                                edit_square
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 1
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 2
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 3
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card__reminder">
+                        <div class="description">
+                            <p class="reminder__title">
+                                Unidade Curricular 4
+                            </p>
+                            <p class="reminder__details">
+                                Cronograma
+                            </p>
+                        </div>
+                    </div>
+                    <span class="card__btn">
+                        <button>Download</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        `
+    }/* else if(){
 
     } else{
         aulasDoDia(new Date().getDate());

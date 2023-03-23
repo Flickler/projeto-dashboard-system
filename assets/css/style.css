@@ -123,7 +123,8 @@ body .dark-theme{
 
 ::-webkit-scrollbar{
     display: block;
-    width: .6rem;
+    width: .5rem;
+    height: .5rem;
     background-color: var(--gray-30);
     border-radius: 1rem;
 }
@@ -985,8 +986,20 @@ input::placeholder{
     border-bottom: 1px solid var(--gray-10);
 }
 
-.agenda__row div{
+.agenda__row div,
+.agenda__row input{
     padding: .5rem 0 .5rem .5rem;
+}
+
+.agenda__row input{
+    border: 1px solid var(--gray-40);
+    border-radius: var(--rounded8);
+    max-width: 10rem;
+}
+
+.agenda__row input:focus{
+    border: 1px solid var(--primary-40);
+    outline: 4px solid var(--gray-10);
 }
 
 .content__header{
@@ -1008,23 +1021,29 @@ input::placeholder{
 }
 
 .agenda__status{
-    padding: .5rem;
-    border-radius: .6rem;
+    padding: var(--p2) var(--p4);
+    font-size: var(--size-smx);
+    border-radius: var(--rounded8);
 }
 
-.status__cancelado{
-    background-color: var(--ui-red);
-    color: #994350;
+.status__cancelada{
+    background-color: var(--gray-10);
+    color: var(--gray-40);
 }
 
 .status__pendente{
-    background-color: var(--gray-20);
-    color: var(--gray-70);
+    background-color: #fb71863a;
+    color: var(--ui-red);
 }
 
-.status__completo{
-    background-color: var(--ui-green);
-    color: #077e5a;
+.status__concluido{
+    color: var(--ui-green);
+    background-color:#0af2ac13;
+}
+
+.status__em_progresso{
+    color: var(--secondary-30);
+    background-color:var(--secondary-10);
 }
 
 .reminder__label__red{
