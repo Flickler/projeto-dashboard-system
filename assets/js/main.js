@@ -27,11 +27,28 @@ class Professor{
         }
     }
 
-    setAula(aula, set='cancelar'){
+    setStatusAula(aula, set='cancelar'){
         if(set == 'cancelar'){
             return this.aulas[aula].status = 'cancelado';
         } else if(set == 'completar'){
             return this.aulas[aula].status = 'completo';
+        }
+    }
+
+    editar(){
+        const rows = document.getElementsByClassName('agenda__data');
+        for(let row of rows){
+            const div = row.getElementsByTagName('div');
+            if(div[5].innerText == this.nome){
+                row.innerHTML =
+                `
+                <input type="text" value="${div[0].innerText}">
+                <input type="text" value="${div[1].innerText}">
+                <input type="text" value="${div[2].innerText}">
+                <input type="text" value="${div[3].innerText}">
+                <input type="text" value="${div[4].innerText}">
+                `
+            }
         }
     }
 }
@@ -89,13 +106,16 @@ profJoao = new Professor('João', 'das Neves'),
 profMaria = new Professor('Maria', 'Fernandes'),
 profPaula = new Professor('Paula', 'Oliveira');
 
+// CREATING PROF IN LOGIN
+const professorOn = profPaula;
+
 // CREATING AULAS
 profJoao.cadastrarAula('10:00', 01010, 'A2', 'Desenvolvimento Web',
                         'Unidade Curricular', new Date().getDate());
-profJoao.setAula(0, 'completar');
+profJoao.setStatusAula(0, 'completar');
 profMaria.cadastrarAula('14:00', 01011, 'A2', 'Programação de Sistemas',
                         'Unidade Curricular', new Date().getDate());
-profMaria.setAula(0);
+profMaria.setStatusAula(0);
 profJoao.cadastrarAula('14:00', 01012, 'A3', 'Técnico em Informática',
                         'Unidade Curricular', new Date().getDate());
 profPaula.cadastrarAula('19:00', 01010, 'A2', 'Desenvolvimento Web',
