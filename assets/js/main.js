@@ -287,11 +287,29 @@ setInterval(() =>{
 
 // MENU LINK ACTIVE FUNCTION
 function menuActive(container, links){
-    // fazer menu link ativo!!
+    const buttons = container.getElementsByClassName(`${links}`);
+    for(let link of buttons){
+        link.addEventListener('click', ()=>{
+            removeActive(container, links);
+            link.classList.add('active');
+        })
+    }
+}
+
+// MENU LINK REMOVE ACTIVE FUNCTION
+function removeActive(container, links){
+    const buttons = container.getElementsByClassName(`${links}`);
+    for(let link of buttons){
+        link.classList.remove('active');
+    }
 }
 
 const menuLink = document.getElementById('sidebar-active'),
 stationtabs = document.getElementById('station-tabs');
+
+// CREAT MENU LINK ACTIVE
+menuActive(menuLink, 'menu__link');
+menuActive(stationtabs, 'station__tab');
 
 // CREAT MENU LINK ACTIVE
 // ---------------------------------------------------------
