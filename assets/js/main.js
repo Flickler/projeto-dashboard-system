@@ -104,9 +104,9 @@ const tabela = document.getElementById('station-content');
 
 // CREATING PROFESSORS
 const professores = [],
-profJoao = new Professor('João', 'das Neves'),
-profMaria = new Professor('Maria', 'Fernandes'),
-profPaula = new Professor('Paula', 'Oliveira');
+profJoao = new Professor('Renisson', 'Silva'),
+profMaria = new Professor('Edgar', 'Segundo'),
+profPaula = new Professor('Bianca', 'Souza');
 
 // CREATING PROF IN LOGIN
 const professorOn = profJoao;
@@ -324,7 +324,7 @@ function switchScreen(screen){
                 Meus Apps
             </h3>
             <div class="tools__content">
-                <div class="card__kanban">
+                <div class="card__wrapper">
                     <div class="card__title">
                         <h4>Kanban Board</h4>
                     </div>
@@ -338,7 +338,7 @@ function switchScreen(screen){
                                     </span>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__red">
                                         Pendente
@@ -348,7 +348,7 @@ function switchScreen(screen){
                                     </p>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__red">
                                         Pendente
@@ -358,7 +358,7 @@ function switchScreen(screen){
                                     </p>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__red">
                                         Pendente
@@ -378,7 +378,7 @@ function switchScreen(screen){
                                     </span>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__orange">
                                         Em Andamento
@@ -388,7 +388,7 @@ function switchScreen(screen){
                                     </p>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__orange">
                                         Em Andamento
@@ -398,7 +398,7 @@ function switchScreen(screen){
                                     </p>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__orange">
                                         Em Andamento
@@ -418,7 +418,7 @@ function switchScreen(screen){
                                     </span>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__green">
                                         Concluído
@@ -428,7 +428,7 @@ function switchScreen(screen){
                                     </p>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__green">
                                         Concluído
@@ -438,7 +438,7 @@ function switchScreen(screen){
                                     </p>
                                 </div>
                             </div>
-                            <div class="card__reminder">
+                            <div class="card__sticky">
                                 <div class="description">
                                     <span class="reminder__label__green">
                                         Concluído
@@ -454,7 +454,7 @@ function switchScreen(screen){
                         <button>Adicionar</button>
                     </span>
                 </div>
-                <div class="card">
+                <div class="card__wrapper">
                     <div class="card__title">
                         <h4>Notas Sticky</h4>
                         <div class="edit__card">
@@ -463,7 +463,7 @@ function switchScreen(screen){
                             </span>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Apresentação
@@ -479,7 +479,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Tomar Água
@@ -492,8 +492,6 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="card">
                     <div class="card__title">
                         <h4>Cronômetro</h4>
                         <div class="edit__card">
@@ -502,7 +500,7 @@ function switchScreen(screen){
                             </span>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 &#127876; Natal &#127876;
@@ -524,16 +522,16 @@ function switchScreen(screen){
                 Meus Cursos
             </h3>
             <div class="scholar__content">
-                <div class="card">
+                <div class="card__wrapper">
                     <div class="card__title">
-                        <h4>Curso 1</h4>
+                        <h4>Téc. Informática para Internet</h4>
                         <div class="edit__card">
                             <span class="material-symbols-rounded no-fill edit__ico">
-                                edit_square
+                                more_vert
                             </span>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 1
@@ -543,7 +541,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 2
@@ -553,7 +551,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 3
@@ -563,7 +561,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 4
@@ -577,16 +575,16 @@ function switchScreen(screen){
                         <button>Download</button>
                     </span>
                 </div>
-                <div class="card">
+                <div class="card__wrapper">
                     <div class="card__title">
-                        <h4>Curso 2</h4>
+                        <h4>Téc. Defesa Cibernética</h4>
                         <div class="edit__card">
                             <span class="material-symbols-rounded no-fill edit__ico">
-                                edit_square
+                                more_vert
                             </span>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 1
@@ -596,7 +594,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 2
@@ -606,7 +604,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 3
@@ -616,7 +614,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 4
@@ -630,16 +628,16 @@ function switchScreen(screen){
                         <button>Download</button>
                     </span>
                 </div>
-                <div class="card">
+                <div class="card__wrapper">
                     <div class="card__title">
-                        <h4>Curso 3</h4>
+                        <h4>Técnico em Banco de Dados</h4>
                         <div class="edit__card">
                             <span class="material-symbols-rounded no-fill edit__ico">
-                                edit_square
+                                more_vert
                             </span>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 1
@@ -649,7 +647,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 2
@@ -659,7 +657,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 3
@@ -669,7 +667,7 @@ function switchScreen(screen){
                             </p>
                         </div>
                     </div>
-                    <div class="card__reminder">
+                    <div class="card__sticky">
                         <div class="description">
                             <p class="reminder__title">
                                 Unidade Curricular 4

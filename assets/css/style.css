@@ -33,6 +33,8 @@
 
     --ui-green: #0AF2AD;
     --ui-red: #FB7185;
+    --ui-blue: #91E4DA;
+    --ui-yellow:#FFE6A7;
 
     /* TYPOGRAPHY */
     --ff: 'Outfit', sans-serif;
@@ -67,7 +69,7 @@
     --rounded16: 1rem; 
 
     /* EFFECTS SHADOW */
-    --shadow-dark: 0px 2px 8px var(--gray-10);
+    --shadow-dark: 0px 2px 6px var(--gray-20);
     --shadow-indigo: 2px 4px 20px var(--primary-10);
 
 }
@@ -91,9 +93,9 @@ html{
 body .dark-theme{
 
     --primary-10: #D1D7EE;
-    --primary-20: #BEC4DA;
-    --primary-30: #AEB4C8;
-    --primary-40: #babbf5;
+    --primary-20: #c3d4f8;
+    --primary-30: #babbf5;
+    --primary-40: #b9aceb;
     --primary-50: #7375f2; /*primary*/
     --primary-60: #9294f5;
     --primary-70: #a5b4fc;
@@ -104,14 +106,14 @@ body .dark-theme{
     --gray-90: #D1D7EE;
     --gray-80: #BEC4DA;
     --gray-70: #AEB4C8;
-    --gray-60: #b8bccf;
+    --gray-60: #c5c8d6;
     --gray-50: #8B90A3;
     --gray-40: #9da1b3;
     --gray-30: #9d9ea7;
     --gray-20: #626570;
     --gray-10: #444755;
     --gray-5: #343643;
-    --gray-0: #282A36;
+    --gray-0: #30313d;
 
     --shadow-dark: 0px 2px 8px var(--gray-0);
     --shadow-indigo: 2px 4px 20px #372272;
@@ -167,6 +169,7 @@ button:focus{
     background-color: var(--primary-50);
     box-shadow: var(--shadow-dark);
     overflow-x: hidden;
+    z-index: 9;
 }
 
 .material-symbols-rounded {
@@ -611,6 +614,7 @@ input::placeholder{
     font-size: var(--size-md);
     font-weight: var(--regular);
     color: var(--gray-0);
+    text-align: left;
 }
 
 .tab__1{
@@ -630,8 +634,7 @@ input::placeholder{
 .tab__3{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: start;
     width: 10rem;
     height: 6.5rem;
     padding: var(--p16);
@@ -826,20 +829,26 @@ input::placeholder{
     border-radius: var(--rounded3);
 }
 
-.card__reminder{
+.card__sticky{
     display: flex;
-    align-items: center;
+    align-items: start;
     padding: var(--p16);
-    gap: 1rem;
+    gap: .5rem;
     width: 100%;
+    font-size: var(--size-smx);
     color: var(--gray-30);
     border: 1px solid var(--gray-10);
     border-radius: var(--rounded6);
 }
 
+
+.card__sticky img{
+    height: 24px;
+    width: 24px;
+}
+
 .description{
     font-size: var(--size-smx);
-    line-height: 175%;
 }
 
 .events__details{
@@ -863,7 +872,7 @@ input::placeholder{
     color: var(--gray-30);
 }
 
-.description .reminder__details .agenda{
+.reminder__details .agenda{
     font-size: var(--size-smx);
     color: var(--gray-40);
 }
@@ -926,16 +935,16 @@ input::placeholder{
 }
 
 .station__tab:hover span{
-    color: var(--primary-60);
-    background-color: var(--primary-20);
+    color: var(--primary-40);
+    background-color: var(--gray-10);
 }
 
 .station__tabs .active{
-    border-bottom: 2px solid var(--primary-50);
+    border-bottom: 2px solid var(--primary-40);
 }
 
 .station__tabs .active span{
-    color: var(--primary-50);
+    color: var(--primary-40);
 }
 
 #view{
@@ -965,8 +974,6 @@ input::placeholder{
     background-color: var(--primary-20);
     border-radius: .5rem;
 }
-
-/*--------------------------WORKSTATION CONTENT - VISAO GERAL ------------------------------*/
 
 /*--------------------------WORKSTATION CONTENT - AGENDA ------------------------------*/
 
@@ -1003,6 +1010,7 @@ input::placeholder{
 }
 
 .content__header{
+    padding-bottom: var(--p20);
     font-size: var(--size-md);
     font-weight: var(--regular);
     color: var(--gray-60);
@@ -1043,7 +1051,7 @@ input::placeholder{
 
 .status__em_progresso{
     color: var(--secondary-30);
-    background-color:var(--secondary-10);
+    background-color: #f18c5228;
 }
 
 .reminder__label__red{
@@ -1058,7 +1066,7 @@ input::placeholder{
     padding: var(--p2) var(--p4);
     font-size: var(--size-smx);
     color: var(--secondary-30);
-    background-color: var(--secondary-10);
+    background-color: #f18c5228;
     border-radius: var(--rounded8);
 }
 
@@ -1071,12 +1079,6 @@ input::placeholder{
 }
 
 /*--------------------------WORKSTATION CONTENT - ACADÊMICO ------------------------------*/
-.scholar__container{
-    display: grid;
-    grid-template-columns: repeat(1fr);
-    grid-template-rows: repeat(2,1fr);
-}
-    
 .scholar__content{
     grid-row: 3/3;
     display: flex;
@@ -1091,10 +1093,15 @@ input::placeholder{
 /*--------------------------WORKSTATION CONTENT - FERRAMENTAS ------------------------------*/
 
 .tools__content{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-template-rows: repeat(2,1fr);
+    display: flex;
+    grid-row: 2/1;
+    grid-column: 2/1;
+    align-items: start;
+    width: 100%;
+    height: max-content;
+    padding: var(--p8) var(--p24);
     gap: 1rem;
+    border-radius: var(--rounded8);
 }
     
 .kanban__wrapper{
@@ -1102,39 +1109,52 @@ input::placeholder{
     gap: 1rem;
 }
 
-.card__kanban{
+.card__wrapper{
     grid-row: 1/3;
     display: flex;
     align-items: start;
     flex-direction: column;
     width: 100%;
     height: max-content;
-    padding: var(--p8) var(--p24);
-    gap: .5rem;
+    padding: var(--p16) var(--p24);
+    gap: 1rem;
     border: 1px solid var(--gray-10);
     border-radius: var(--rounded8);
 }
 
-.card__kanban:hover{
+.card__wrapper:hover{
     background-color: var(--gray-0);
     box-shadow: var(--shadow-dark);
 }
     
-/*------------------------------------- WORKSTATION - ACADEMICO --------------------------------------*/
+/*--------------------------------- WORKSTATION - VISAO GERAL ------------------------------*/
 .overview__content{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
-    border: 1px solid red;
 }
 
-.data__updates{
-
+.events__description{
+    display: flex;
+    align-items: center;
+    padding: var(--p8);
+    gap: .5rem;
+    border-radius: var(--rounded3);
 }
 
-.events{
+.events__description:hover{
+    background-color: var(--gray-5);
+    cursor: pointer;
+}
 
+.events__mini__1 img{
+    width: 80px;
+    height: 80px;
+}
+.events__mini__2 img{
+    width: 56px;
+    height: 56px;
 }
 
 .calendar__month{
@@ -1142,7 +1162,50 @@ input::placeholder{
 }
 
 .calendar__week{
+    padding: var(--p24);
+    border: 1px solid red;
+}
 
+.week__group{
+    gap: .5rem;
+    border: 1px solid blue;
+}
+
+.days__group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid violet;
+    border-radius: var(--rounded8);
+}
+
+.days__group .day__label{
+    color: var(--gray-30);
+    font-size: var(--size-sm);
+    font-weight: var(--medium);
+}
+
+.days__group .date__label{
+    color: var(--gray-60);
+    font-size: var(--size-sm);
+}
+
+.week__group .active{
+    background-color: var(--primary-50);
+}
+
+.navigate__btn span{
+    color: var(--gray-30);
+    cursor: pointer;
+}
+
+.week__group{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.days__group{
+    padding: var(--p8);
 }
 
 .contacts{
@@ -1153,7 +1216,7 @@ input::placeholder{
     display: flex;
     align-items: start;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
     padding: var(--p16);
     gap: .2rem;
     font-size: var(--size-smx);
@@ -1189,36 +1252,22 @@ input::placeholder{
     background-color: var(--gray-5);
 }
 
-.contacts__mini__1{
-    display: flex;
-    align-items: start;
-    width: 80%;
-    padding: var(--p16);
-    gap: 1.5rem;
-    font-size: var(--size-smx);
-    color: var(--gray-30);
-    border: 1px solid var(--gray-10);
-    border-radius: var(--rounded6);
-}
 
 .contacts__mini__1 img{
     width: 56px;
     height: 56px;
 }
 
-.contacts__mini__1 .contacts__info{
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    gap: 4px;
+.contacts__mini__2 img{
+    width: 40px;
+    height: 40px;
 }
 
-.contacts__mini__2{
+.contacts__mini__1,
+.events__mini__1{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-    width: 80%;
+    width: 100%;
     padding: var(--p16);
     gap: 1rem;
     font-size: var(--size-smx);
@@ -1227,19 +1276,39 @@ input::placeholder{
     border-radius: var(--rounded6);
 }
 
-.contacts__mini__2 img{
-    width: 40px;
-    height: 40px;
+.contacts__mini__1 .contacts__info,
+.events__mini__1 .events__info{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.contacts__mini__2 .contacts__info{
+.contacts__mini__2,
+.events__mini__2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    padding: var(--p16);
+    gap: 1rem;
+    font-size: var(--size-smx);
+    color: var(--gray-30);
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded6);
+}
+
+.contacts__mini__2 .contacts__info,
+.events__mini__2 .events__info{
     display: flex;
     align-items: center;
     flex-direction: column;
     gap: 4px;
 }
 
-.contacts__info button:hover{
+.contacts__info button:hover,
+.events__info button:hover{
     font-weight: var(--size-semibold);
     color: var(--gray-0);
     background-color: var(--primary-30);

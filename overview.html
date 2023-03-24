@@ -29,67 +29,81 @@
             <h3 class="content__header">
                 Últimas Atualizações
             </h3>
-            <div class="overview__content">
+            <div class="overview__content card__wrapper">
                 <!-------------------- RECENT ACTIVITIES -------------------->
-                <div class="card data__updates">
+                <div class="card__wrapper data__updates">
                     <div class="card__title">
                         <h4>Atividades Recentes</h4>
                     </div>
-                    <div class="updates__list">
-                        <div class="updates__list__info">
-                            <p class="reminder__title">
-                                Usuário
-                            </p>
-                            <p class="reminder__details">
-                                ação
-                            </p>
-                        </div>
-                        <div class="updates__list__info">
-                            <p class="reminder__title">
-                                Usuário
-                            </p>
-                            <p class="reminder__details">
-                                ação
-                            </p>
-                        </div>
-                        <div class="updates__list__info">
-                            <p class="reminder__title">
-                                Usuário
-                            </p>
-                            <p class="reminder__details">
-                                ação
-                            </p>
-                        </div>
+                    <div class="card__sticky">
+                        <img src="./assets/img/avatar-3.png" alt="">
+                        <p class="reminder__title">
+                            Edgar
+                        </p>
+                        <p class="reminder__details">
+                            alterou status de aula. <br>2min atrás
+                        </p>
+                    </div>
+                    <div class="card__sticky">
+                        <img src="./assets/img/avatar-4.png" alt="">
+                        <p class="reminder__title">
+                            Você
+                        </p>
+                        <p class="reminder__details">
+                            adicionou status de aula. <br>5min atrás
+                        </p>
+                    </div>
+                    <div class="card__sticky">
+                        <img src="./assets/img/avatar-5.png" alt="">
+                        <p class="reminder__title">
+                            Bianca
+                        </p>
+                        <p class="reminder__details">
+                            alterou um evento. <br>39min atrás
+                        </p>
+                    </div>
+                    <div class="card__sticky">
+                        <img src="./assets/img/avatar-5.png" alt="">
+                        <p class="reminder__title">
+                            Bianca
+                        </p>
+                        <p class="reminder__details">
+                            adicionou um evento há 1hr atrás
+                        </p>
                     </div>
                 </div>
                 <!-------------------- EVENTS -------------------->
-                <div class="card events">
+                <div class="card__wrapper events">
                     <div class="card__title">
                         <h4>Eventos</h4>
                     </div>
-                    <div class="events__list">
-                        <div class="events__info">
-                            <div class="bullet__point"></div>
-                            <p class="reminder__details">Evento 1</p>
+                    <div class="card__sticky">
+                        <div class="events__list">
+                            <div class="events__description">
+                                <div class="bullet__point"></div>
+                                <p class="reminder__details">Feira de Oportunidades 2023</p>
+                            </div>
+                            <div class="events__description">
+                                <div class="bullet__point"></div>
+                                <p class="reminder__details">Semana Senac de Leitura</p>
+                            </div>
+                            <div class="events__description">
+                                <div class="bullet__point"></div>
+                                <p class="reminder__details">Feira Virtual 2023</p>
+                            </div>
                         </div>
-                        <div class="events__info">
-                            <div class="bullet__point"></div>
-                            <p class="reminder__details">Evento 2</p>
-                        </div>
-                        <div class="events__info">
-                            <div class="bullet__point"></div>
-                            <p class="reminder__details">Evento 3</p>
-                        </div>
-                        <button class="card__btn">Mais</button>
                     </div>
                     <div class="events__mini__1">
                         <img src="./assets/img/publi0.jpg" alt="">
                         <div class="events__info">
                             <p class="reminder__title">
-                                Evento 1
+                                Feira de Oportunidades 2023
                             </p>
                             <p class="reminder__details">
-                                Dias 16 a 30 de Abril — às 20:00 hrs
+                                <span class="material-symbols-rounded agenda">
+                                    calendar_month
+                                </span>
+                                Dias 30 de Maio a 3 de Junho
                             </p>
                             <button class="card__btn">Add</button>
                         </div>
@@ -98,28 +112,86 @@
                         <img src="./assets/img/publi1.jpg" alt="">
                         <div class="events__info">
                             <p class="reminder__title">
-                                Evento 2
+                                Semana Senac de Leitura
                             </p>
                             <p class="reminder__details">
-                                Dias 20 a 28 de Maio — às 8:00 hrs
+                                <span class="material-symbols-rounded agenda">
+                                    calendar_month
+                                </span>
+                                Dias 20 a 28 de Maio
                             </p>
                             <button class="card__btn">Add</button>
                         </div>
                     </div>
                 </div>
                 <!-------------------- CALENDAR -------------------->
-                <div class="card calendar__month">
-                    <div class="card__title">
-                        <h4>Calendário Mes</h4>
+                <div class="card__wrapper">
+                    <div class="card calendar__week">
+                        <div class="card__title">
+                            <h4>Calendário</h4>
+                            <div class="navigate__btn">
+                                <span class="material-symbols-rounded">
+                                    navigate_before
+                                </span>
+                                <span class="material-symbols-rounded">
+                                        navigate_next
+                                </span>
+                            </div>
+                        </div>
+                        <div class="week__group">
+                            <div class="days__group">
+                                <div class="day__label">D</div>
+                                <div class="date__label">1</div>
+                                <div class="dot__label"></div>
+                            </div>
+                            <div class="days__group disable">
+                                <div class="day__label">S</div>
+                                <div class="date__label">2</div>
+                                <div class="dot__label"></div>
+                            </div>
+                            <div class="days__group active">
+                                <div class="day__label">T</div>
+                                <div class="date__label">3</div>
+                                <div class="dot__label"></div>
+                            </div>
+                            <div class="days__group">
+                                <div class="day__label">Q</div>
+                                <div class="date__label">4</div>
+                                <div class="dot__label"></div>
+                            </div>
+                            <div class="days__group">
+                                <div class="day__label">Q</div>
+                                <div class="date__label">5</div>
+                                <div class="dot__label"></div>
+                            </div>
+                            <div class="days__group">
+                                <div class="day__label">S</div>
+                                <div class="date__label">6</div>
+                                <div class="dot__label"></div>
+                            </div>
+                            <div class="days__group">
+                                <div class="day__label">S</div>
+                                <div class="date__label">7</div>
+                                <div class="dot__label"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="card calendar__week">
-                    <div class="card__title">
-                        <h4>Calendário Semana</h4>
+                    <div class="card calendar__month">
+                        <div class="card__title">
+                            <h4>Calendário</h4>
+                            <div class="navigate__btn">
+                                <span class="material-symbols-rounded">
+                                    navigate_before
+                                </span>
+                                <span class="material-symbols-rounded">
+                                        navigate_next
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-------------------- CONTACTS -------------------->
-                <div class="card contacts">
+                <div class="card__wrapper contacts">
                     <div class="card__title">
                         <h4>Contatos</h4>
                     </div>
