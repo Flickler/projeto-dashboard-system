@@ -44,12 +44,19 @@ class Professor{
             if(div[5].innerText == this.nome){
                 row.innerHTML =
                 `
-                <input type="text" value="${div[0].innerText}">
-                <input type="text" value="${div[1].innerText}">
-                <input type="text" value="${div[2].innerText}">
+                <input type="text" value="${div[0].innerText}" style="width: 100px">
+                <input type="text" value="${div[1].innerText}" style="width: 100px">
+                <input type="text" value="${div[2].innerText}" style="width: 100px">
                 <input type="text" value="${div[3].innerText}">
                 <input type="text" value="${div[4].innerText}">
-                `
+                <div>${div[5].innerText}</div>
+                <select size="1">
+                    <option value="cancelada">Cancelar</option>
+                    <option value="concluido">Concluir</option>
+                    <option value="fiat">Em progesso</option>
+                    <option value="audi">Pendente</option>
+                </select>
+                `;
             }
         }
     }
@@ -117,7 +124,7 @@ profJoao.cadastrarAula('10:00', 01010, 'A2', 'Desenvolvimento Web',
 profJoao.setStatusAula(0, 'concluido');
 profMaria.cadastrarAula('14:00', 01011, 'A2', 'Programação de Sistemas',
                         'Unidade Curricular', new Date().getDate());
-profMaria.setStatusAula(0);
+
 profJoao.cadastrarAula('14:00', 01012, 'A3', 'Técnico em Informática',
                         'Unidade Curricular', new Date().getDate());
 profJoao.setStatusAula(1, 'em_progresso')
