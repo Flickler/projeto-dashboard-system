@@ -23,7 +23,7 @@ class Professor{
         this.aulas.push(new Aula(hora, turma, sala, curso, undCurricular,
             this.nome, dia));
         if(dia == new Date().getDate()){
-            return aulasDoDia();
+            return aulasDoDia(dia);
         }
     }
 
@@ -64,7 +64,9 @@ class Professor{
 
 // FUNCTION AULAS DO DIA
 function aulasDoDia(dia){
-    const aulasDeHoje = [];
+    const aulasDeHoje = [],
+    week = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sabado'],
+    months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
     for(professor of professores){
         for(aula of professor.aulas){
@@ -76,7 +78,8 @@ function aulasDoDia(dia){
     tabela.innerHTML =
     `
     <h3 class="content__header">
-        Quinta, ${dia} de março de 2023
+        ${week[new Date().getDay()]}, ${dia} de 
+        ${months[new Date().getMonth()]} de ${new Date().getFullYear()}
     </h3>
     <div class="agenda__row agenda__label">
         <div>Hora</div>
@@ -111,25 +114,30 @@ const tabela = document.getElementById('station-content');
 
 // CREATING PROFESSORS
 const professores = [],
-profJoao = new Professor('Renisson', 'Silva'),
-profMaria = new Professor('Edgar', 'Segundo'),
-profPaula = new Professor('Bianca', 'Souza');
+profRenisson = new Professor('Renisson', 'Souza'), // Programação web - projeto integrador
+profEdgar = new Professor('Edgar', 'Segundo'), // programação e desenvolvimento web
+profAlexandre = new Professor('Alexandre', 'Morais'), // Administração
+profMarcelo = new Professor('Marcelo', 'Anjos'), // Téc de Informatica, montagem e manutenção
+profGabriel = new Professor('Gabriel', 'Pereira'); // TI para empresas
 
 // CREATING PROF IN LOGIN
-const professorOn = profJoao;
+const professorOn = profRenisson;
 
 // CREATING AULAS
-profJoao.cadastrarAula('10:00', 01010, 'A2', 'Desenvolvimento Web',
-                        'Unidade Curricular', new Date().getDate());
-profJoao.setStatusAula(0, 'concluido');
-profMaria.cadastrarAula('14:00', 01011, 'A2', 'Programação de Sistemas',
-                        'Unidade Curricular', new Date().getDate());
+profEdgar.cadastrarAula('12:00', 01010, 'A2', 'Desenvolvimento Web',
+                        'UC3', new Date().getDate());
+profEdgar.setStatusAula(0);
+profRenisson.cadastrarAula('10:00', 01010, 'A2', 'Desenvolvimento Web',
+                        'UC5', new Date().getDate());
+profRenisson.setStatusAula(0, 'concluido')
+profAlexandre.cadastrarAula('14:00', 01010, 'A1', 'Administração',
+                        'UC1', new Date().getDate());
+profAlexandre.setStatusAula(0, 'em_progresso')
+profMarcelo.cadastrarAula('18:00', 01010, 'A1', 'Téc. Informática',
+                        'UC8', new Date().getDate());
+profGabriel.cadastrarAula('20:00', 01010, 'A1', 'TI para Empresas',
+                        'UC2', new Date().getDate());
 
-profJoao.cadastrarAula('14:00', 01012, 'A3', 'Técnico em Informática',
-                        'Unidade Curricular', new Date().getDate());
-profJoao.setStatusAula(1, 'em_progresso')
-profPaula.cadastrarAula('19:00', 01010, 'A2', 'Desenvolvimento Web',
-                        'Unidade Curricular', new Date().getDate());
 
 // EXECUTING aulasDoDia FUNCTION
 aulasDoDia(new Date().getDate());
@@ -205,7 +213,6 @@ sidebar.addEventListener('mouseleave', () =>{
     app.style.gridTemplateColumns = "3.75rem auto";
     dropdownClose();
 });
-
 
 // GET DATE USERS NAV
 const showDate = document.getElementById('time');
@@ -318,8 +325,45 @@ stationtabs = document.getElementById('station-tabs');
 menuActive(menuLink, 'menu__link');
 menuActive(stationtabs, 'station__tab');
 
-// CREAT MENU LINK ACTIVE
-// ---------------------------------------------------------
+// SIDEBAR BUTTONS - SWITCH SCREEN
+const sidebarButtons = menuLink.getElementsByTagName('button');
+
+function switchScreenTo(button, active=undefined, to='agenda'){
+    if(to !== 'agenda'){
+        button.addEventListener('click', () =>{
+            switchScreen(to);
+            if(active !== undefined){
+                removeActive(stationtabs, 'station__tab');
+                stationtabs.getElementsByClassName('station__tab')[active].classList.add('active');
+            }
+        })
+    } else{
+        button.addEventListener('click', () =>{
+            if(active !== undefined){
+                removeActive(stationtabs, 'station__tab');
+                stationtabs.getElementsByClassName('station__tab')[active].classList.add('active');
+            }
+            return aulasDoDia(new Date().getDate());
+        })
+    }
+}
+
+// switchScreenTo(sidebarButtons[0], '');
+switchScreenTo(sidebarButtons[1], 1);
+// switchScreenTo(sidebarButtons[2], '');
+// switchScreenTo(sidebarButtons[3], '');
+switchScreenTo(sidebarButtons[4], 3, 'tools');
+
+// TABS SWITCH SCREEN
+const tabsContainers = document.getElementById('tabs').getElementsByTagName('button');
+
+for(let tab of tabsContainers){
+    tab.addEventListener('click', () =>{
+        removeActive(stationtabs, 'station__tab');
+        stationtabs.getElementsByClassName('station__tab')[2].classList.add('active');
+        switchScreen('scholar');
+    })
+}
 
 // SWITCH SCREEN FUNCTION
 function switchScreen(screen){
