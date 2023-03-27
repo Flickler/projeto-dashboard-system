@@ -157,7 +157,6 @@ button:focus{
     grid-template-columns: 3.75rem auto;
     margin: 2rem;
     min-height: 100vh;
-    background-color: var(--gray-5);
     border-radius: var(--rounded8);
     box-shadow: var(--shadow-dark);
     transition: grid-template-columns .5s ease-in-out;
@@ -451,6 +450,7 @@ button:focus{
     padding-inline: var(--p24);
     border-bottom: 1px solid var(--gray-10);
     border-radius: 0 .5rem 0 0;
+    background-color: var(--gray-5);
 }
 
 .brand__wordmark{
@@ -469,7 +469,7 @@ button:focus{
     height: 16px;
     position: absolute;
     top: 50%;
-    left: 42%;
+    left: 40%;
     transform: translate(-8px, -8px);
 }
 
@@ -551,6 +551,7 @@ input::placeholder{
 .station__content{
     max-height: 700px;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .station__wrapper{
@@ -1473,6 +1474,57 @@ input::placeholder{
 }
 
 /*-------------------------- MEDIA QUERIES BREAKPOINTS ------------------------------*/
+
+@media screen and (max-width: 1024px){
+    .focus__bar{
+        display: none;
+    }
+    .station__wrapper{
+        grid-column: 1/3;
+    }
+
+    #search{
+        min-width: 10rem;
+        max-width: 30rem;
+        width: fit-content;
+    }
+    .search__ico{
+        left: 34%;
+        width: 12px;
+        height: 12px;
+        transform: translate(-6px, -6px);
+    }
+}
+
+@media screen and (max-width: 942px){
+    .date{
+        display: none;
+    }
+    .hero{
+        flex-direction: column;
+        align-items: start;
+        padding: 0 0 2rem 2rem;
+    }
+/*     
+    .sidebar{
+        position: fixed;
+        flex-direction: row;
+        top: 70vh;
+        left: 50vw;
+    }
+
+    .sidebar .sidebar__menu{
+        flex-direction: row;
+        width: fit-content;
+    }
+
+    #app{
+        grid-template-columns: 1fr;
+    }
+    */
+}
+
+
 /*
 --screen-mobile: 360~640px;
 --screen-tablet: 800~1024px;
