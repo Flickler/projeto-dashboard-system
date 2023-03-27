@@ -321,6 +321,20 @@ stationtabs = document.getElementById('station-tabs');
 menuActive(menuLink, 'menu__link');
 menuActive(stationtabs, 'station__tab');
 
+// STATIN TABS SWITCH ACTIVE SIDEBAR
+const stationTabButtons = stationtabs.getElementsByClassName('station__tab');
+
+function changeSidebarActive(arr, i, to=undefined){
+    arr[i].addEventListener('click', () =>{
+        removeActive(sidebar, 'menu__link');
+        sidebar.getElementsByClassName('menu__link')[to !== undefined ? to : i].classList.add('active');
+    })
+}
+
+changeSidebarActive(stationTabButtons, 0);
+changeSidebarActive(stationTabButtons, 1);
+changeSidebarActive(stationTabButtons, 3, 4);
+
 // SIDEBAR BUTTONS - SWITCH SCREEN
 const sidebarButtons = menuLink.getElementsByTagName('button');
 
