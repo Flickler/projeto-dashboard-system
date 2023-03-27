@@ -138,10 +138,6 @@ profMarcelo.cadastrarAula('18:00', 01010, 'A1', 'Téc. Informática',
 profGabriel.cadastrarAula('20:00', 01010, 'A1', 'TI para Empresas',
                         'UC2', new Date().getDate());
 
-
-// EXECUTING aulasDoDia FUNCTION
-aulasDoDia(new Date().getDate());
-
 // MAKE DROPDOWN - FUNCTION
 function dropdown(icon, container){
     dropdownsIcons.push(icon);
@@ -348,7 +344,7 @@ function switchScreenTo(button, active=undefined, to='agenda'){
     }
 }
 
-// switchScreenTo(sidebarButtons[0], '');
+switchScreenTo(sidebarButtons[0], 0, 'overview');
 switchScreenTo(sidebarButtons[1], 1);
 // switchScreenTo(sidebarButtons[2], '');
 // switchScreenTo(sidebarButtons[3], '');
@@ -364,6 +360,59 @@ for(let tab of tabsContainers){
         switchScreen('scholar');
     })
 }
+
+//Mini Calendario
+const currentDate = document.querySelector(".current-date"),
+daysTag = document.querySelector(".calendar__days"),
+prevNextIcon = document.querySelectorAll(".nav__ico__wrapper span");
+
+// getting new date, current year and month
+let date = new Date(),
+currYear = date.getFullYear(),
+currMonth = date.getMonth();
+
+const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+const renderCalendar = () => {
+    let firstDateofMouth = new Date(currYear, currMonth, 1).getDay(),
+    lastDateofMouth = new Date(currYear, currMonth +1, 0).getDate(),
+    lastDayofMouth = new Date(currYear, currMonth, lastDateofMouth).getDay(),
+    lastDateofLastMouth = new Date(currYear, currMonth, 0).getDate(),
+    liTag = "";
+    
+    for (let i = firstDateofMouth; i > 0; i--) {
+        liTag += `<li class="inactive">${lastDateofLastMouth - i + 1}</li>`; 
+    }
+
+    for (let i = 1; i <= lastDateofMouth; i++) {
+        let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
+        liTag += `<li class="${isToday}">${i}</li>`;
+    }
+
+    for (let i = lastDayofMouth; i < 6; i++) {
+        liTag += `<li class="inactive">${i - lastDayofMouth + 1}</li>`;
+    }
+
+    currentDate.innerText = `${months[currMonth]} ${currYear}`;
+    daysTag.innerHTML = liTag;
+}
+
+renderCalendar()
+
+prevNextIcon.forEach(icon => {
+    icon.addEventListener("click", () => {
+        currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+        if(currMonth < 0 || currMonth > 11) {
+            date = new Date(currYear, currMonth);
+            currYear = date.getFullYear();
+            currMonth = date.getMonth();
+        } else {
+            date = new Date();
+        }
+        renderCalendar();
+    });
+});
 
 // SWITCH SCREEN FUNCTION
 function switchScreen(screen){
@@ -735,9 +784,259 @@ function switchScreen(screen){
             </div>
         </div>
         `
-    }/* else if(){
-
-    } else{
+    } else if(screen == 'overview'){
+        tabela.innerHTML =
+        `
+        <h3 class="content__header">
+            Últimas Atualizações
+        </h3>
+        <div class="overview__content card__wrapper">
+            <!-------------------- RECENT ACTIVITIES -------------------->
+            <div class="card__wrapper data__updates">
+                <div class="card__title">
+                    <h4>Atividades Recentes</h4>
+                </div>
+                <div class="card__sticky">
+                    <img src="./assets/img/avatar-3.png" alt="">
+                    <p class="reminder__title">
+                        Edgar
+                    </p>
+                    <p class="reminder__details">
+                        alterou status de aula. <br>2min atrás
+                    </p>
+                </div>
+                <div class="card__sticky">
+                    <img src="./assets/img/avatar-4.png" alt="">
+                    <p class="reminder__title">
+                        Você
+                    </p>
+                    <p class="reminder__details">
+                        adicionou status de aula. <br>5min atrás
+                    </p>
+                </div>
+                <div class="card__sticky">
+                    <img src="./assets/img/avatar-5.png" alt="">
+                    <p class="reminder__title">
+                        Bianca
+                    </p>
+                    <p class="reminder__details">
+                        alterou um evento. <br>39min atrás
+                    </p>
+                </div>
+                <div class="card__sticky">
+                    <img src="./assets/img/avatar-5.png" alt="">
+                    <p class="reminder__title">
+                        Bianca
+                    </p>
+                    <p class="reminder__details">
+                        adicionou um evento há 1hr atrás
+                    </p>
+                </div>
+            </div>
+            <!-------------------- CALENDAR -------------------->
+            <div class="card__wrapper">
+                <div class="card calendar__weekly">
+                    <div class="card__title">
+                        <h4>Calendário Semana</h4>
+                        <div class="navigate__btn">
+                            <span class="material-symbols-rounded">
+                                navigate_before
+                            </span>
+                            <span class="material-symbols-rounded">
+                                    navigate_next
+                            </span>
+                        </div>
+                    </div>
+                    <div class="week__group">
+                        <div class="days__group">
+                            <div class="day__label">D</div>
+                            <div class="date__label">1</div>
+                            <div class="dot__label"></div>
+                        </div>
+                        <div class="days__group disable">
+                            <div class="day__label">S</div>
+                            <div class="date__label">2</div>
+                            <div class="dot__label"></div>
+                        </div>
+                        <div class="days__group active">
+                            <div class="day__label">T</div>
+                            <div class="date__label">3</div>
+                            <div class="dot__label"></div>
+                        </div>
+                        <div class="days__group">
+                            <div class="day__label">Q</div>
+                            <div class="date__label">4</div>
+                            <div class="dot__label"></div>
+                        </div>
+                        <div class="days__group">
+                            <div class="day__label">Q</div>
+                            <div class="date__label">5</div>
+                            <div class="dot__label"></div>
+                        </div>
+                        <div class="days__group">
+                            <div class="day__label">S</div>
+                            <div class="date__label">6</div>
+                            <div class="dot__label"></div>
+                        </div>
+                        <div class="days__group">
+                            <div class="day__label">S</div>
+                            <div class="date__label">7</div>
+                            <div class="dot__label"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card calendar__month">
+                    <div class="card__title">
+                        <h4>Calendário Mês</h4>
+                    </div>
+                    <div class="calendar__wrapper">
+                        <div class="calendar__nav">
+                            <div class="current__date__group">
+                                <span class="material-symbols-rounded">
+                                    calendar_today
+                                </span>
+                                <p class="current-date"></p>
+                            </div>
+                            <div class="nav__ico__wrapper">
+                                <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                                <span id="next" class="material-symbols-rounded">chevron_right</span>
+                            </div>
+                        </div>
+                        <div class="calendar">
+                            <ul class="calendar__weeks">
+                                <li>D</li>
+                                <li>S</li>
+                                <li>T</li>
+                                <li>Q</li>
+                                <li>Q</li>
+                                <li>S</li>
+                                <li>S</li>
+                            </ul>
+                            <ul class="calendar__days"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-------------------- CONTACTS -------------------->
+            <div class="card__wrapper contacts">
+                <div class="card__title">
+                    <h4>Contatos</h4>
+                </div>
+                <div class="contacts__list">
+                    <div class="contacts__list__info">
+                        <p class="reminder__details">
+                            <img src="./assets/img/avatar-3.png" alt="">
+                            Edgar Segundo
+                        </p>
+                        <span class="material-symbols-rounded">
+                            more_vert
+                        </span>
+                    </div>
+                    <div class="contacts__list__info">
+                        <p class="reminder__details">
+                            <img src="./assets/img/avatar-2.png" alt="">
+                            Ana Maria
+                        </p>
+                        <span class="material-symbols-rounded">
+                            more_vert
+                        </span>
+                    </div>
+                    <div class="contacts__list__info">
+                        <p class="reminder__details">
+                            <img src="./assets/img/avatar-5.png" alt="">
+                            Bianca Silva
+                        </p>
+                        <span class="material-symbols-rounded">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+                <div class="contacts__mini__1">
+                    <img src="./assets/img/avatar-2.png" alt="">
+                    <div class="contacts__info">
+                        <p class="reminder__title">
+                            João Silva
+                        </p>
+                        <p class="reminder__details">
+                            Professor de TI
+                        </p>
+                        <button class="card__btn">Ver Mais</button>
+                    </div>
+                </div>
+                <div class="contacts__mini__2">
+                    <img src="./assets/img/avatar-2.png" alt="">
+                    <div class="contacts__info">
+                        <p class="reminder__title">
+                            João Silva
+                        </p>
+                        <p class="reminder__details">
+                            Professor de TI
+                        </p>
+                        <div class="group__btn">
+                            <button class="card__btn">Email</button>
+                            <button class="card__btn">Contato</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-------------------- EVENTS -------------------->
+            <div class="card__wrapper events">
+                <div class="card__title">
+                    <h4>Eventos</h4>
+                </div>
+                <div class="card__sticky">
+                    <div class="events__list">
+                        <div class="events__description">
+                            <div class="bullet__point"></div>
+                            <p class="reminder__details">Feira de Oportunidades 2023</p>
+                        </div>
+                        <div class="events__description">
+                            <div class="bullet__point"></div>
+                            <p class="reminder__details">Semana Senac de Leitura</p>
+                        </div>
+                        <div class="events__description">
+                            <div class="bullet__point"></div>
+                            <p class="reminder__details">Feira Virtual 2023</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="events__mini__1">
+                    <img src="./assets/img/publi0.jpg" alt="">
+                    <div class="events__info">
+                        <p class="reminder__title">
+                            Feira de Oportunidades 2023
+                        </p>
+                        <p class="reminder__details">
+                            <span class="material-symbols-rounded agenda">
+                                calendar_month
+                            </span>
+                            Dias 30 de Maio a 3 de Junho
+                        </p>
+                        <button class="card__btn">Add</button>
+                    </div>
+                </div>
+                <div class="events__mini__2">
+                    <img src="./assets/img/publi1.jpg" alt="">
+                    <div class="events__info">
+                        <p class="reminder__title">
+                            Semana Senac de Leitura
+                        </p>
+                        <p class="reminder__details">
+                            <span class="material-symbols-rounded agenda">
+                                calendar_month
+                            </span>
+                            Dias 20 a 28 de Maio
+                        </p>
+                        <button class="card__btn">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        `
+    }/* else{
         aulasDoDia(new Date().getDate());
     }*/
 }
+
+// EXECUTING OVERVIEW DEFAULT PAGE
+switchScreen('overview');

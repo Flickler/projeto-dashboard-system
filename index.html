@@ -187,10 +187,10 @@
                     <div class="station__header">
                         <div class="station__workbar">
                             <div class="station__tabs" id="station-tabs">
-                                <button class="station__tab">
+                                <button class="station__tab active" onclick="switchScreen('overview')">
                                     <span>Visão Geral</span>
                                 </button>
-                                <button class="station__tab active" onclick="aulasDoDia(new Date().getDate())">
+                                <button class="station__tab" onclick="aulasDoDia(new Date().getDate())">
                                     <span>Agenda</span>
                                 </button>
                                 <button class="station__tab" onclick="switchScreen('scholar')">
@@ -237,6 +237,32 @@
                     <div class="card">
                         <div class="card__title">
                             <h4>Calendário</h4>
+                        </div>
+                        <div class="calendar__wrapper">
+                            <div class="calendar__nav">
+                                <div class="current__date__group">
+                                    <span class="material-symbols-rounded">
+                                        calendar_today
+                                    </span>
+                                    <p class="current-date"></p>
+                                </div>
+                                <div class="nav__ico__wrapper">
+                                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                                    <span id="next" class="material-symbols-rounded">chevron_right</span>
+                                </div>
+                            </div>
+                            <div class="calendar">
+                                <ul class="calendar__weeks">
+                                    <li>D</li>
+                                    <li>S</li>
+                                    <li>T</li>
+                                    <li>Q</li>
+                                    <li>Q</li>
+                                    <li>S</li>
+                                    <li>S</li>
+                                </ul>
+                                <ul class="calendar__days"></ul>
+                            </div>
                         </div>
                     </div>
                     <div class="card">

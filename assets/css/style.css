@@ -127,13 +127,17 @@ body .dark-theme{
     display: block;
     width: .5rem;
     height: .5rem;
-    background-color: var(--gray-30);
+    background-color: transparent;
     border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb{
-    background-color: var(--gray-60);
+    background-color: var(--gray-30);
     border-radius: 1rem;
+}
+
+::-webkit-scrollbar-corner{
+    background-color: transparent;
 }
 
 body{
@@ -434,7 +438,7 @@ button:focus{
 /*----------------------------- O MAIN CONTAINER COMEÇA AQUI ------------------------------*/
 .main__container{
     display: grid;
-    grid-template-rows: 1fr 6fr 1fr;
+    grid-template-rows: 90px auto 90px;
     grid-column: 2/3;
     min-height: 100vh;
 }
@@ -545,7 +549,8 @@ input::placeholder{
 }
 
 .station__content{
-    overflow-y: auto;
+    max-height: 700px;
+    overflow: scroll;
 }
 
 .station__wrapper{
@@ -1154,11 +1159,106 @@ input::placeholder{
     height: 56px;
 }
 
-.calendar__month{
-    border: 1px solid green;
+.calendar__wrapper{
+    width: 100%;
 }
 
-.calendar__week{
+.calendar__nav{
+    display: flex;
+    justify-content: space-between;
+    padding: var(--p8);
+    border: 1px solid var(--gray-10);
+    border-radius: var(--rounded8);
+}
+
+.current__date__group{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.calendar__nav .current-date{
+    font-size: var(--size-sm);
+    font-weight: var(--regular);
+    color: var(--gray-30);
+}
+
+.calendar__nav span,
+.nav__icons__wrapper span{
+    text-align: center;
+    color: var(--gray-30);
+    font-size: var(--size-sm);
+    cursor: pointer;
+}
+
+.nav__icons__wrapper span:hover{
+    background: var(--gray-60);
+}
+
+.calendar{
+    padding: var(--p16);
+}
+
+.calendar ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.calendar .calendar__days{
+    margin-bottom:var(--p16);
+}
+
+.calendar .calendar__weeks li{
+    font-size: var(--size-nm);
+    font-weight: var(--regular);
+    color: var(--gray-60);
+}
+
+.calendar ul li{
+    position: relative;
+    width: calc(100% / 7);
+}
+
+.calendar .calendar__days li{
+    font-size: var(--size-smx);
+    margin-top: var(--p16);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.calendar__days li.inactive{
+    color: var(--gray-20);
+}
+
+.calendar__days li.active{
+    font-weight: var(--semibold);
+    color: var(--gray-0);
+}
+
+.calendar .calendar__days li::before{
+    position: absolute;
+    content: '';
+    height: 24px;
+    width: 24px;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar__days li:hover::before{
+    background: var(--primary-10);
+}
+
+.calendar__days li.active::before{
+    background: var(--primary-50);
+}
+
+
+.calendar__weekly{
     padding: var(--p20);
 }
 
@@ -1171,7 +1271,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
     gap: 2px;
-    border-radius: var(--rounded8);
+    border-radius: var(--rounded16);
     cursor: pointer;
 }
 
@@ -1214,8 +1314,8 @@ input::placeholder{
 }
 
 .days__group:hover{
-    color: var(--gray-0);
-    background-color: var(--primary-50);
+    color: var(--gray-10);
+    background-color: var(--gray-10);
 }
 
 .days__group:hover .day__label{
@@ -1227,7 +1327,7 @@ input::placeholder{
 }
 
 .days__group:hover .dot__label{
-    background-color: var(--gray-0);
+    background-color: var(--gray-10);
 }
 
 .navigate__btn span{

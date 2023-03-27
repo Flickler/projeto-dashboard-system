@@ -74,9 +74,9 @@
                 </div>
                 <!-------------------- CALENDAR -------------------->
                 <div class="card__wrapper">
-                    <div class="card calendar__week">
+                    <div class="card calendar__weekly">
                         <div class="card__title">
-                            <h4>Calendário</h4>
+                            <h4>Calendário Semana</h4>
                             <div class="navigate__btn">
                                 <span class="material-symbols-rounded">
                                     navigate_before
@@ -126,25 +126,34 @@
                     </div>
                     <div class="card calendar__month">
                         <div class="card__title">
-                            <h4>Calendário</h4>
-                            <div class="navigate__btn">
-                                <span class="material-symbols-rounded">
-                                    navigate_before
-                                </span>
-                                <span class="material-symbols-rounded">
-                                        navigate_next
-                                </span>
+                            <h4>Calendário Mês</h4>
+                        </div>
+                        <div class="calendar__wrapper">
+                            <div class="calendar__nav">
+                                <div class="current__date__group">
+                                    <span class="material-symbols-rounded">
+                                        calendar_today
+                                    </span>
+                                    <p class="current-date"></p>
+                                </div>
+                                <div class="nav__ico__wrapper">
+                                    <span id="prev" class="material-symbols-rounded">chevron_left</span>
+                                    <span id="next" class="material-symbols-rounded">chevron_right</span>
+                                </div>
+                            </div>
+                            <div class="calendar">
+                                <ul class="calendar__weeks">
+                                    <li>D</li>
+                                    <li>S</li>
+                                    <li>T</li>
+                                    <li>Q</li>
+                                    <li>Q</li>
+                                    <li>S</li>
+                                    <li>S</li>
+                                </ul>
+                                <ul class="calendar__days"></ul>
                             </div>
                         </div>
-                        <div class="month__group">
-                            <div class="days__group">
-                                <div class="day__label">D</div>
-                                <div class="date__label">1</div>
-                                <div class="dot__label"></div>
-                            </div>
-                            <div class="select__btn"></div>
-                        </div>
-                        <!-- PAREI AQUI -->
                     </div>
                 </div>
                 <!-------------------- CONTACTS -------------------->
