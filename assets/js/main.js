@@ -23,7 +23,7 @@ class Professor{
         this.aulas.push(new Aula(hora, turma, sala, curso, undCurricular,
             this.nome, dia));
         if(dia == new Date().getDate()){
-            return aulasDoDia(dia);
+            return switchScreen();
         }
     }
 
@@ -353,7 +353,7 @@ function switchScreenTo(button, active=undefined, to='agenda'){
                 removeActive(stationtabs, 'station__tab');
                 stationtabs.getElementsByClassName('station__tab')[active].classList.add('active');
             }
-            return aulasDoDia(new Date().getDate());
+            return switchScreen(to);
         })
     }
 }
@@ -628,6 +628,7 @@ function switchScreen(screen){
             </div>
         </div>
         `
+        document.getElementById('agenda-buttons').style.display = 'none';
     } else if(screen == 'scholar'){
         tabela.innerHTML =
         `
@@ -798,6 +799,7 @@ function switchScreen(screen){
             </div>
         </div>
         `
+        document.getElementById('agenda-buttons').style.display = 'none';
     } else if(screen == 'overview'){
         tabela.innerHTML =
         `
@@ -1049,9 +1051,11 @@ function switchScreen(screen){
             </div>    
         </div>
         `
-    }/* else{
+        document.getElementById('agenda-buttons').style.display = 'none';
+    } else if(screen == 'agenda'){
+        document.getElementById('agenda-buttons').style.display = 'flex';
         aulasDoDia(new Date().getDate());
-    }*/
+    }
 }
 
 // EXECUTING OVERVIEW DEFAULT PAGE

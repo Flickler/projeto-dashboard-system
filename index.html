@@ -188,9 +188,9 @@
                         <div class="station__workbar">
                             <div class="station__tabs" id="station-tabs">
                                 <button class="station__tab active" onclick="switchScreen('overview')">
-                                    <span>Visão Geral</span>
+                                    <span id="overview-ico">Visão Geral</span>
                                 </button>
-                                <button class="station__tab" onclick="aulasDoDia(new Date().getDate())">
+                                <button class="station__tab" onclick="switchScreen('agenda')">
                                     <span>Agenda</span>
                                 </button>
                                 <button class="station__tab" onclick="switchScreen('scholar')">
@@ -200,7 +200,7 @@
                                     <span>Utilidades</span>
                                 </button>
                             </div>
-                            <div class="station__tabs">
+                            <div class="station__tabs" id="agenda-buttons" style="display: none;">
                                 <button class="station__tab" onclick="professorOn.editar()">
                                     <span>+ Editar</span>
                                 </button>

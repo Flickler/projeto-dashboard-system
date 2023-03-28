@@ -1575,6 +1575,14 @@ input::placeholder{
     }
 }
 
+@media screen and (max-width: 640px){
+    .station__tabs{
+        width: 100%;
+        gap: 0;
+        justify-content: space-between;
+    }
+}
+
 
 /*
 --screen-mobile: 360~640px;
