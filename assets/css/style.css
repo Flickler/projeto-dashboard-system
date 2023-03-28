@@ -855,6 +855,9 @@ input::placeholder{
     border-radius: var(--rounded6);
 }
 
+.overview__content .card__sticky{
+    align-items: center;
+}
 
 .card__sticky img{
     height: 24px;
@@ -1102,10 +1105,8 @@ input::placeholder{
 /*--------------------------WORKSTATION CONTENT - ACADÊMICO ------------------------------*/
 .scholar__content{
     grid-row: 3/3;
-    display: flex;
-    align-items: start;
-    width: 100%;
-    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     padding: var(--p8) var(--p24);
     gap: .5rem;
     border-radius: var(--rounded8);
@@ -1134,8 +1135,6 @@ input::placeholder{
     display: flex;
     align-items: start;
     flex-direction: column;
-    width: 100%;
-    height: max-content;
     padding: var(--p16) var(--p24);
     gap: 1rem;
     border: 1px solid var(--gray-10);
@@ -1475,12 +1474,35 @@ input::placeholder{
 
 /*-------------------------- MEDIA QUERIES BREAKPOINTS ------------------------------*/
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1480px){
+    .scholar__content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tools__content{
+        flex-wrap: wrap;
+    }
+
+    .tools__content > div{
+        width: 100%;
+    }
+
+    .kanban__wrapper{
+        margin-inline: auto;
+    }
+}
+
+@media screen and (max-width: 1300px){
+    .station__container{
+        grid-template-columns: 1fr;
+    }
+
     .focus__bar{
         display: none;
     }
+
     .station__wrapper{
-        grid-column: 1/3;
+        grid-template-rows: repeat(3, auto);
     }
 
     #search{
@@ -1494,9 +1516,13 @@ input::placeholder{
         height: 12px;
         transform: translate(-6px, -6px);
     }
+
+    .tools__content{
+        flex-direction: column;
+    }
 }
 
-@media screen and (max-width: 942px){
+@media screen and (max-width: 1070px){
     .date{
         display: none;
     }
@@ -1505,23 +1531,40 @@ input::placeholder{
         align-items: start;
         padding: 0 0 2rem 2rem;
     }
-/*     
-    .sidebar{
-        position: fixed;
-        flex-direction: row;
-        top: 70vh;
-        left: 50vw;
+}
+
+@media screen and (max-width: 890px){
+    .search{
+        display: none;
     }
 
-    .sidebar .sidebar__menu{
-        flex-direction: row;
-        width: fit-content;
+    .station__workbar{
+        flex-wrap: wrap;
     }
 
-    #app{
+    .scholar__content{
         grid-template-columns: 1fr;
     }
-    */
+
+    .kanban__wrapper{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 1fr);
+        margin-inline: 0;
+        width: 100%;
+    }
+
+    .kanban__wrapper .card__title{
+        justify-content: space-between;
+    }
+
+    .tabs{
+        flex-wrap: wrap;
+    }
+
+    .overview__content{
+        grid-template-columns: 1fr;
+    }
 }
 
 
