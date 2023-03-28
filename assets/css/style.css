@@ -156,7 +156,6 @@ button:focus{
     display: grid;
     grid-template-columns: 3.75rem auto;
     margin: 2rem;
-    min-height: 100vh;
     border-radius: var(--rounded8);
     box-shadow: var(--shadow-dark);
     transition: grid-template-columns .5s ease-in-out;
@@ -549,7 +548,7 @@ input::placeholder{
 }
 
 .station__content{
-    max-height: 700px;
+    max-height: 750px;
     overflow: scroll;
     overflow-x: hidden;
 }
@@ -1474,7 +1473,7 @@ input::placeholder{
 
 /*-------------------------- MEDIA QUERIES BREAKPOINTS ------------------------------*/
 
-@media screen and (max-width: 1480px){
+@media screen and (max-width: 1440px){
     .scholar__content{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1490,9 +1489,7 @@ input::placeholder{
     .kanban__wrapper{
         margin-inline: auto;
     }
-}
 
-@media screen and (max-width: 1300px){
     .station__container{
         grid-template-columns: 1fr;
     }
@@ -1522,7 +1519,7 @@ input::placeholder{
     }
 }
 
-@media screen and (max-width: 1070px){
+@media screen and (max-width: 1024px){
     .date{
         display: none;
     }
@@ -1534,6 +1531,13 @@ input::placeholder{
 }
 
 @media screen and (max-width: 890px){
+    #app{
+        margin: 0;
+    }
+    .sidebar{
+        border-radius: 0;
+    }
+
     .search{
         display: none;
     }
@@ -1564,6 +1568,10 @@ input::placeholder{
 
     .overview__content{
         grid-template-columns: 1fr;
+    }
+
+    .station__content{
+        max-height: none;
     }
 }
 
