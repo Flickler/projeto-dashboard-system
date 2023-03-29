@@ -1,6 +1,6 @@
 // Objects
 class Aula{
-    constructor(hora, turma, sala, curso, undCurricular, professor, dia, status='pendente'){
+    constructor(hora, turma, sala, curso, undCurricular, professor, dia, status='a__começar'){
         this.hora = hora;
         this.turma = turma;
         this.sala = sala;
@@ -32,8 +32,8 @@ class Professor{
             return this.aulas[aula].status = 'cancelada';
         } else if(set == 'concluido'){
             return this.aulas[aula].status = 'concluido';
-        } else if(set == 'em_progresso'){
-            return this.aulas[aula].status = 'em_progresso';
+        } else if(set == 'em__andamento'){
+            return this.aulas[aula].status = 'em__andamento';
         }
     }
 
@@ -103,7 +103,7 @@ function aulasDoDia(dia){
             <div>${aula.undCurricular}</div>
             <div>${aula.professor}</div>
             <div>
-                <span class="agenda__status status__${aula.status}">${aula.status.replace('_', ' ')}</span>
+                <span class="agenda__status status__${aula.status}">${aula.status.replace('__', ' ')}</span>
             </div>
         </div>
         `
@@ -124,18 +124,18 @@ profGabriel = new Professor('Gabriel', 'Pereira'); // TI para empresas
 const professorOn = profRenisson;
 
 // CREATING AULAS
-profEdgar.cadastrarAula('12:00', 01010, 'A2', 'Desenvolvimento Web',
+profEdgar.cadastrarAula('12:00', '443', 'Lab 1', 'Desenvolvimento Web',
                         'UC3', new Date().getDate());
 profEdgar.setStatusAula(0);
-profRenisson.cadastrarAula('10:00', 01010, 'A2', 'Programação Web',
+profRenisson.cadastrarAula('10:00', '443', 'Lab 1', 'Programação Web',
                         'UC5', new Date().getDate());
 profRenisson.setStatusAula(0, 'concluido')
-profAlexandre.cadastrarAula('14:00', 01010, 'A1', 'Administração',
+profAlexandre.cadastrarAula('14:00', '460', 'Sala 6', 'Administração',
                         'UC1', new Date().getDate());
-profAlexandre.setStatusAula(0, 'em_progresso')
-profMarcelo.cadastrarAula('18:00', 01010, 'A1', 'Téc. Informática',
+profAlexandre.setStatusAula(0, 'em__andamento')
+profMarcelo.cadastrarAula('18:00', '448', 'Lab 2', 'Téc. Informática',
                         'UC8', new Date().getDate());
-profGabriel.cadastrarAula('20:00', 01010, 'A1', 'TI para Empresas',
+profGabriel.cadastrarAula('20:00', '480', 'Lab 3', 'TI para Empresas',
                         'UC2', new Date().getDate());
 
 // MAKE DROPDOWN - FUNCTION

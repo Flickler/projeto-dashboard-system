@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---------------------- MATERIAL ICONS GOOGLE ---------------------->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Workstation_Agenda_mes</title>
+</head>
+<body>
+    <div class="station__content">
+        <div class="station__workbar">
+            <div class="station__tabs">
+                <button class="station__tab">
+                    <span>Visão Geral</span>
+                </button>
+                <button class="station__tab active">
+                    <span>Agenda</span>
+                </button>
+                <button class="station__tab">
+                    <span>Acadêmico</span>
+                </button>
+                <button class="station__tab">
+                    <span>Utilidades</span>
+                </button>
+            </div>
+            <div class="station__tabs">
+                <button class="station__tab">
+                    <span>+ Editar</span>
+                </button>
+                <div id="view">
+                    <button class="station__tab">
+                        <span>
+                            Mês
+                            <span class="material-symbols-rounded">
+                                keyboard_arrow_down
+                            </span>
+                        </span>
+                    </button>
+                    <div id="view__dropdown">
+                        <button class="station__tab">
+                            <span>Dia</span>
+                        </button>
+                        <button class="station__tab">
+                            <span>Semana</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agenda__container" id="station-content">
+            <h3 class="content__header">
+                Mês/ano Atual rodando no JS
+            </h3>
+            <p>Dia atual rodando no JS. Ex: Quinta 16 Março</p>
+            <div class="agenda__monthly__view">
+                <div class="agenda__monthly__col">
+                    <div>Seg</div>
+                    <div>Ter</div>
+                    <div>Qua</div>
+                    <div>Qui</div>
+                    <div>Sex</div>
+                </div>
+                <div class="agenda__monthly__data">
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
