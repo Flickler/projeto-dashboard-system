@@ -83,8 +83,8 @@ function aulasDoDia(dia){
     </h3>
     <div class="agenda__row agenda__label">
         <div>Hora</div>
-        <div>Turma</div>
         <div>Sala</div>
+        <div>Turma</div>
         <div>Curso</div>
         <div>Unidade Curricular</div>
         <div>Professor</div>
@@ -97,8 +97,8 @@ function aulasDoDia(dia){
         `
         <div class="agenda__row agenda__data">
             <div>${aula.hora}</div>
-            <div>${aula.turma}</div>
             <div>${aula.sala}</div>
+            <div>${aula.turma}</div>
             <div>${aula.curso}</div>
             <div>${aula.undCurricular}</div>
             <div>${aula.professor}</div>
@@ -385,33 +385,42 @@ let date = new Date(),
 currYear = date.getFullYear(),
 currMonth = date.getMonth();
 
-const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
-const renderCalendar = () => {
-    let firstDateofMouth = new Date(currYear, currMonth, 1).getDay(),
-    lastDateofMouth = new Date(currYear, currMonth +1, 0).getDate(),
-    lastDayofMouth = new Date(currYear, currMonth, lastDateofMouth).getDay(),
-    lastDateofLastMouth = new Date(currYear, currMonth, 0).getDate(),
+const renderCalendar = (overview=false) => {
+
+    const months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+    let firstDateofMonth = new Date(currYear, currMonth, 1).getDay(),
+    lastDateofMonth = new Date(currYear, currMonth +1, 0).getDate(),
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(),
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(),
     liTag = "";
     
-    for (let i = firstDateofMouth; i > 0; i--) {
-        liTag += `<li class="inactive">${lastDateofLastMouth - i + 1}</li>`; 
+    for (let i = firstDateofMonth; i > 0; i--) {
+        liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`; 
     }
 
-    for (let i = 1; i <= lastDateofMouth; i++) {
+    for (let i = 1; i <= lastDateofMonth; i++) {
         let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
         liTag += `<li class="${isToday}">${i}</li>`;
     }
 
-    for (let i = lastDayofMouth; i < 6; i++) {
-        liTag += `<li class="inactive">${i - lastDayofMouth + 1}</li>`;
+    for (let i = lastDayofMonth; i < 6; i++) {
+        liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
     }
 
     currentDate.innerText = `${months[currMonth]} ${currYear}`;
     daysTag.innerHTML = liTag;
+
+    if(overview == true){
+        const currentDateOverview = document.querySelector(".current-date-overview"),
+        daysTagOverview = document.querySelector(".calendar__days-overview");
+
+        currentDateOverview.innerText = `${months[currMonth]} ${currYear}`;
+        daysTagOverview.innerHTML = liTag;
+    }
 }
 
-renderCalendar()
+renderCalendar();
 
 prevNextIcon.forEach(icon => {
     icon.addEventListener("click", () => {
@@ -912,9 +921,9 @@ function switchScreen(screen){
                                     <span class="material-symbols-rounded">
                                         calendar_today
                                     </span>
-                                    <p class="current-date"></p>
+                                    <p class="current-date-overview"></p>
                                 </div>
-                                <div class="nav__ico__wrapper">
+                                <div class="nav__ico__wrapper-overview">
                                     <span id="prev" class="material-symbols-rounded">chevron_left</span>
                                     <span id="next" class="material-symbols-rounded">chevron_right</span>
                                 </div>
@@ -929,7 +938,7 @@ function switchScreen(screen){
                                     <li>S</li>
                                     <li>S</li>
                                 </ul>
-                                <ul class="calendar__days"></ul>
+                                <ul class="calendar__days-overview"></ul>
                             </div>
                         </div>
                     </div>
@@ -1052,6 +1061,21 @@ function switchScreen(screen){
         </div>
         `
         document.getElementById('agenda-buttons').style.display = 'none';
+        renderCalendar(true);
+        document.querySelectorAll(".nav__ico__wrapper-overview span").forEach(icon => {
+            icon.addEventListener("click", () => {
+                currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+        
+                if(currMonth < 0 || currMonth > 11) {
+                    date = new Date(currYear, currMonth);
+                    currYear = date.getFullYear();
+                    currMonth = date.getMonth();
+                } else {
+                    date = new Date();
+                }
+                renderCalendar(true);
+            });
+        });
     } else if(screen == 'agenda'){
         document.getElementById('agenda-buttons').style.display = 'flex';
         aulasDoDia(new Date().getDate());

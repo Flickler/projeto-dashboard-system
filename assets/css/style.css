@@ -1193,7 +1193,8 @@ input::placeholder{
     gap: .5rem;
 }
 
-.calendar__nav .current-date{
+.calendar__nav .current-date,
+.calendar__nav .current-date-overview{
     font-size: var(--size-sm);
     font-weight: var(--regular);
     color: var(--gray-30);
@@ -1222,7 +1223,8 @@ input::placeholder{
     text-align: center;
 }
 
-.calendar .calendar__days{
+.calendar .calendar__days,
+.calendar .calendar__days-overview{
     margin-bottom:var(--p16);
 }
 
@@ -1237,23 +1239,27 @@ input::placeholder{
     width: calc(100% / 7);
 }
 
-.calendar .calendar__days li{
+.calendar .calendar__days li,
+.calendar .calendar__days-overview li{
     font-size: var(--size-smx);
     margin-top: var(--p16);
     z-index: 1;
     cursor: pointer;
 }
 
-.calendar__days li.inactive{
+.calendar__days li.inactive,
+.calendar__days-overview li.inactive{
     color: var(--gray-20);
 }
 
-.calendar__days li.active{
+.calendar__days li.active,
+.calendar__days-overview li.active{
     font-weight: var(--semibold);
     color: var(--gray-0);
 }
 
-.calendar .calendar__days li::before{
+.calendar .calendar__days li::before,
+.calendar .calendar__days-overview li::before{
     position: absolute;
     content: '';
     height: 24px;
@@ -1265,11 +1271,13 @@ input::placeholder{
     transform: translate(-50%, -50%);
 }
 
-.calendar__days li:hover::before{
+.calendar__days li:hover::before,
+.calendar__days-overview li:hover::before{
     background: var(--primary-10);
 }
 
-.calendar__days li.active::before{
+.calendar__days li.active::before,
+.calendar__days-overview li.active::before{
     background: var(--primary-50);
 }
 
@@ -1580,6 +1588,31 @@ input::placeholder{
         width: 100%;
         gap: 0;
         justify-content: space-between;
+    }
+    .tabs button{
+        width: 90%;
+        height: fit-content;
+    }
+
+    .agenda__data .agenda__status{
+        display: block;
+        border-radius: 50%;
+        width: 1rem;
+        height: 1rem;
+        color: transparent;
+    }
+
+    .status__cancelada{
+        background-color: var(--gray-40);
+    }
+    .status__concluido{
+        background-color: var(--ui-green);
+    }
+    .status__pendente{
+        background-color: var(--ui-red);
+    }
+    .status__em_progresso{
+        background-color: var(--secondary-30);
     }
 }
 
