@@ -200,9 +200,15 @@
                                     <span>Utilidades</span>
                                 </button>
                             </div>
-                            <div class="station__tabs" id="agenda-buttons" style="display: none;">
+                            <div class="station__tabs" id="agenda-buttons" style="display: none; gap: 1rem;">
                                 <button class="station__tab" onclick="professorOn.editar()">
                                     <span>Editar</span>
+                                </button>
+                                <button class="station__tab" style="display: none;">
+                                    <span>Confirmar</span>
+                                </button>
+                                <button class="station__tab" style="display: none;" onclick="aulasDoDia(new Date().getDate())">
+                                    <span>Cancelar</span>
                                 </button>
                                 <div id="view">
                                     <button class="station__tab">

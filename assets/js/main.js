@@ -44,23 +44,51 @@ class Professor{
             if(div[5].innerText == this.nome){
                 row.innerHTML =
                 `
-                <input type="text" value="${div[0].innerText}" style="width: 100px">
-                <input type="text" value="${div[1].innerText}" style="width: 100px">
-                <input type="text" value="${div[2].innerText}" style="width: 100px">
-                <input type="text" value="${div[3].innerText}">
-                <input type="text" value="${div[4].innerText}">
+                <input type="text" class="input_aula" value="${div[0].innerText}" style="width: 100px">
+                <input type="text" class="input_aula" value="${div[1].innerText}" style="width: 100px">
+                <input type="text" class="input_aula" value="${div[2].innerText}" style="width: 100px">
+                <input type="text" class="input_aula" value="${div[3].innerText}">
+                <input type="text" class="input_aula" value="${div[4].innerText}">
                 <div>${div[5].innerText}</div>
-                <select size="1">
-                    <option value="cancelada">Cancelar</option>
+                <select id="select-status" size="1">
+                    <option value="cancelada" class="seleted">Cancelar</option>
                     <option value="concluido">Concluir</option>
-                    <option value="fiat">Em progesso</option>
-                    <option value="audi">Pendente</option>
+                    <option value="em progresso">Em progesso</option>
+                    <option value="pendente">Pendente</option>
                 </select>
                 `;
+                selected('select-status');
             }
         }
+        const buttonsEditar = document.getElementById('agenda-buttons').getElementsByClassName('station__tab');
+        buttonsEditar[0].style.display = 'none';
+        buttonsEditar[1].style.display = 'block';
+        buttonsEditar[2].style.display = 'block';
     }
+
+    // comfirmarEditar(){
+    //     const row = document.getElementsByClassName('input_aula'),
+    //     seleted = document.getElementById('select-status').querySelector('.selected')
+    //     for(let data of row){
+    //         console.log(data.value)
+    //     }
+    //     console.log(seleted.value)
+    // }
 }
+
+// FUNCTION SELECTED
+
+// function selected(container){
+//     const select = document.getElementById(container),
+//     options = select.getElementsByTagName('option');
+
+//     console.log(options)
+//     for(let option of options){
+//         option.addEventListener('click', () =>{
+//             console.log(option)
+//         })
+//     }
+// }
 
 // FUNCTION AULAS DO DIA
 function aulasDoDia(dia){
@@ -107,7 +135,13 @@ function aulasDoDia(dia){
             </div>
         </div>
         `
-    };
+    }
+    const buttonsEditar = document.getElementById('agenda-buttons').getElementsByClassName('station__tab');
+    if(buttonsEditar[0].style.display == 'none'){
+        buttonsEditar[0].style.display = 'inline-block';
+        buttonsEditar[1].style.display = 'none';
+        buttonsEditar[2].style.display = 'none';
+    }
 }
 //CREATING TABELA
 const tabela = document.getElementById('station-content');

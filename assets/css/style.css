@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root{
-    /* COLOR STYLES  ~ Tailwind Indigo*/
-    --primary-90: #312e81;
-    --primary-80: #3730a3;
-    --primary-70: #4338ca;
-    --primary-60: #4f46e5;
-    --primary-50: #6366f1; /*primary*/
-    --primary-40: #818cf8;
-    --primary-30: #a5b4fc;
-    --primary-20: #c7d2fe;
-    --primary-10: #e0e7ff;
+    /* COLOR STYLES */
+    --primary-90: #000B15;
+    --primary-80: #001930;
+    --primary-70: #002E58;
+    --primary-60: #003C72;
+    --primary-50: #0458A4; /*primary*/
+    --primary-40: #316DA4;
+    --primary-30: #92B3D1;
+    --primary-20: #C2D6E8;
+    --primary-10: #F3F9FF;
     
-    --secondary-50: #D64A52;
-    --secondary-40: #ED6B4F;
-    --secondary-30: #F18B52; /*secondary*/
-    --secondary-20: #F6BC91;
-    --secondary-10: #FEE2C2;
+    --secondary-50: #945911;
+    --secondary-40: #C67617;
+    --secondary-30: #F7941D; /*secondary*/
+    --secondary-20: #FABF77;
+    --secondary-10: #FDDFBB;
 
     --gray-100: #1A1A1F;
     --gray-90: #313135;
@@ -964,6 +964,10 @@ input::placeholder{
     color: var(--primary-40);
 }
 
+#agenda-buttons{
+    justify-content: end;
+}
+
 #view{
     position: relative;
 }
@@ -1213,7 +1217,7 @@ input::placeholder{
 }
 
 .events__description .bullet__point{
-    background-color: var(--primary-30);
+    background-color: var(--ui-blue);
 }
 
 .events__mini__1 img{
@@ -1632,14 +1636,19 @@ input::placeholder{
     .station__content{
         max-height: none;
     }
+
+    .station__tabs{
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 640px){
+
     .station__tabs{
-        width: 100%;
         gap: 0;
         justify-content: space-between;
     }
+
     .tabs button{
         width: 90%;
         height: fit-content;

@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root{
-    /* COLOR STYLES  ~ Tailwind Indigo*/
-    --primary-90: #312e81;
-    --primary-80: #3730a3;
-    --primary-70: #4338ca;
-    --primary-60: #4f46e5;
-    --primary-50: #6366f1; /*primary*/
-    --primary-40: #818cf8;
-    --primary-30: #a5b4fc;
-    --primary-20: #c7d2fe;
-    --primary-10: #e0e7ff;
+    /* COLOR STYLES */
+    --primary-90: #000B15;
+    --primary-80: #001930;
+    --primary-70: #002E58;
+    --primary-60: #003C72;
+    --primary-50: #0458A4; /*primary*/
+    --primary-40: #316DA4;
+    --primary-30: #92B3D1;
+    --primary-20: #C2D6E8;
+    --primary-10: #F3F9FF;
     
-    --secondary-50: #D64A52;
-    --secondary-40: #ED6B4F;
-    --secondary-30: #F18B52; /*secondary*/
-    --secondary-20: #F6BC91;
-    --secondary-10: #FEE2C2;
+    --secondary-50: #945911;
+    --secondary-40: #C67617;
+    --secondary-30: #F7941D; /*secondary*/
+    --secondary-20: #FABF77;
+    --secondary-10: #FDDFBB;
 
     --gray-100: #1A1A1F;
     --gray-90: #313135;
@@ -224,29 +224,83 @@ button:focus{
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    padding: var(--p20);
-    border: 1px solid red;
 }
 
 .login__title__2{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-inline: var(--p16);
     gap: .5rem;
 }
 .login__title__2 img{
-    width: 100px;
+    width: 120px;
     margin-bottom: 1rem;
 }
-.login__title__2 h2{
+
+.login__inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    padding: var(--p16);
+    gap: .3rem;
+}
+
+.login__input{
+    position: relative;
+    padding: var(--p12) var(--p20);
+    width: 100%;
+    border: 1px solid var(--gray-30);
+    border-radius: var(--rounded8);
+}
+
+.login__input:focus{
+    outline: 4px solid var(--primary-10);
+}
+
+/* FIX ICONE DE VISUALIZAÇÃO DE PASS
+.login__box span{
+    position: absolute;
+    right: .75rem;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    cursor: pointer;
+}
+*/
+
+.login__buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--p16);
+}
+
+.login__button{
+    width: 100%;
+    padding: var(--p16) var(--p20);
+    font-size: var(--size-nm);
+    font-weight: var(--regular);
+    color: var(--gray-0);
+    background-color: var(--primary-40);
+    border: none;
+    border-radius: var(--rounded8);
+    cursor: pointer;
+}
+
+.login__button:hover{
     font-weight: var(--semibold);
-    color: var(--primary-50);
+    background-color: var(--primary-50);
+    box-shadow: var(--shadow-indigo);
 }
 
 .login__qrcode__2{
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     gap: .2rem;
     padding: var(--p20);
@@ -263,7 +317,7 @@ button:focus{
     overflow: hidden;
 }
 
-.login__qrcode__2 h3{
+.login__qrcode__2 h2{
     margin-inline: auto;
     color: var(--gray-0);
 }
