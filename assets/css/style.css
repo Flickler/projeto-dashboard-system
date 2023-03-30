@@ -315,6 +315,11 @@ button:focus{
     border: 1px solid var(--gray-20);
 }
 
+.sidebar .img img:first-child{
+    width: 2rem;
+    padding-top: 1rem;
+}
+
 .sidebar:hover img:nth-child(1),
 .sidebar .img img:nth-child(2){
     display: none;
@@ -1399,7 +1404,7 @@ input::placeholder{
 }
 
 .week__group .active{
-    background-color: var(--secondary-20);
+    background-color: var(--primary-30);
 }
 
 .week__group .active .day__label,
@@ -1409,7 +1414,7 @@ input::placeholder{
 
 .days__group:hover{
     color: var(--gray-10);
-    background-color: var(--secondary-10);
+    background-color: var(--primary-40);
 }
 
 .days__group:hover .day__label{
