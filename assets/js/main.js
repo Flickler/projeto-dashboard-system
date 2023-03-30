@@ -1,9 +1,9 @@
 // Objects
 class Aula{
-    constructor(hora, turma, sala, curso, undCurricular, professor, dia, status='a__começar'){
+    constructor(hora, sala, turma, curso, undCurricular, professor, dia, status='a__começar'){
         this.hora = hora;
-        this.turma = turma;
         this.sala = sala;
+        this.turma = turma;
         this.curso = curso;
         this.undCurricular = undCurricular;
         this.professor = professor;
@@ -51,13 +51,12 @@ class Professor{
                 <input type="text" class="input_aula" value="${div[4].innerText}">
                 <div>${div[5].innerText}</div>
                 <select id="select-status" size="1">
-                    <option value="cancelada" class="seleted">Cancelar</option>
+                    <option value="cancelada">Cancelar</option>
                     <option value="concluido">Concluir</option>
-                    <option value="em progresso">Em progesso</option>
-                    <option value="pendente">Pendente</option>
+                    <option value="em__andamento">Em progesso</option>
+                    <option value="a__começar">A começar</option>
                 </select>
                 `;
-                selected('select-status');
             }
         }
         const buttonsEditar = document.getElementById('agenda-buttons').getElementsByClassName('station__tab');
@@ -66,29 +65,20 @@ class Professor{
         buttonsEditar[2].style.display = 'block';
     }
 
-    // comfirmarEditar(){
-    //     const row = document.getElementsByClassName('input_aula'),
-    //     seleted = document.getElementById('select-status').querySelector('.selected')
-    //     for(let data of row){
-    //         console.log(data.value)
-    //     }
-    //     console.log(seleted.value)
-    // }
+    confirmarEditar(){
+        const row = document.getElementsByClassName('input_aula'),
+        select = document.getElementById('select-status'),
+        options = select.getElementsByTagName('option'),
+        datas = []
+        for(let data of row){
+            datas.push(data.value);
+        }
+        datas.push(options[select.selectedIndex].value);
+        this.cadastrarAula(datas[0],datas[1],datas[2],datas[3],datas[4],
+                        this.nome, new Date().getDate(), datas[5],);
+        // resolver nome do professor e dia
+    }
 }
-
-// FUNCTION SELECTED
-
-// function selected(container){
-//     const select = document.getElementById(container),
-//     options = select.getElementsByTagName('option');
-
-//     console.log(options)
-//     for(let option of options){
-//         option.addEventListener('click', () =>{
-//             console.log(option)
-//         })
-//     }
-// }
 
 // FUNCTION AULAS DO DIA
 function aulasDoDia(dia){
