@@ -18,17 +18,18 @@
                 </div>
                 <div class="login__form">
                     <div class="login__inputs">
-                        <label for="" class="login__label">Email:</label>
+                        <label for="" class="login__label">Email</label>
                         <input type="email" placeholder="Digite seu email" required class="login__input">
-                        <label for="" class="login_label">Senha:</label>
+                        <label for="" class="login_label">Senha</label>
                         <div class="login__box">
                             <input type="password" placeholder="Digite sua senha" required class="login__input" id="input-pass">
-                            <span class="material-symbols-rounded login__eye">
-                                visibility
-                            </span>
-                            <span class="material-symbols-rounded login__eyeoff">
+                            <span class="material-symbols-rounded" id="visibility">
                                 visibility_off
                             </span>
+                        </div>
+                        <div class="login__check">
+                            <input type="checkbox" class="login__check-input">
+                            <label for="" class="login__check-label">Lembre-se de mim</label>
                         </div>
                     </div>
                     <div class="login__buttons">
@@ -45,5 +46,7 @@
             </div>
         </div>
     </div>
+
+    <script src="assets/js/login.js"></script>
 </body>
 </html>

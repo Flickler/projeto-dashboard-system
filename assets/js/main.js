@@ -1020,7 +1020,9 @@ function switchScreen(screen){
                             <p class="reminder__details">
                                 Administração
                             </p>
-                            <button class="card__btn">Ver Mais</button>
+                            <span class="card__btn__mini">
+                                <button>Ver Mais</button>
+                            </span>
                         </div>
                     </div>
                     <div class="contacts__mini__2">
@@ -1033,8 +1035,12 @@ function switchScreen(screen){
                                 Administração
                             </p>
                             <div class="group__btn">
-                                <button class="card__btn">Email</button>
-                                <button class="card__btn">Contato</button>
+                                <span class="card__btn__mini">
+                                    <button>Email</button>
+                                </span>
+                                <span class="card__btn__mini">
+                                    <button>Contato</button>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -1072,7 +1078,9 @@ function switchScreen(screen){
                                 </span>
                                 Dias 30 de Maio a 3 de Junho
                             </p>
-                            <button class="card__btn">Add</button>
+                            <span class="card__btn__mini">
+                                <button>Adicionar</button>
+                            </span>
                         </div>
                     </div>
                     <div class="events__mini__2">
@@ -1087,7 +1095,9 @@ function switchScreen(screen){
                                 </span>
                                 Dias 20 a 28 de Maio
                             </p>
-                            <button class="card__btn">Add</button>
+                            <span class="card__btn__mini">
+                                <button>Adicionar</button>
+                            </span>
                         </div>
                     </div>
                 </div>

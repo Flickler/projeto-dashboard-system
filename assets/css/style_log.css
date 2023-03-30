@@ -6,7 +6,7 @@
     --primary-80: #001930;
     --primary-70: #002E58;
     --primary-60: #003C72;
-    --primary-50: #0458A4; /*primary*/
+    --primary-50: #004A8D; /*primary*/
     --primary-40: #316DA4;
     --primary-30: #92B3D1;
     --primary-20: #C2D6E8;
@@ -15,7 +15,7 @@
     --secondary-50: #945911;
     --secondary-40: #C67617;
     --secondary-30: #F7941D; /*secondary*/
-    --secondary-20: #FABF77;
+    --secondary-20: #FDC180;
     --secondary-10: #FDDFBB;
 
     --gray-100: #1A1A1F;
@@ -88,64 +88,8 @@ html{
     -webkit-font-smoothing: antialiased;
 }
 
-/* DARK THEME */
-
-body .dark-theme{
-
-    --primary-10: #D1D7EE;
-    --primary-20: #c3d4f8;
-    --primary-30: #babbf5;
-    --primary-40: #b9aceb;
-    --primary-50: #7375f2; /*primary*/
-    --primary-60: #9294f5;
-    --primary-70: #a5b4fc;
-    --primary-80: #c7d2fe;
-    --primary-90: #e0e7ff;
-    
-    --gray-100: #e0e7ff;
-    --gray-90: #D1D7EE;
-    --gray-80: #BEC4DA;
-    --gray-70: #AEB4C8;
-    --gray-60: #c5c8d6;
-    --gray-50: #8B90A3;
-    --gray-40: #9da1b3;
-    --gray-30: #9d9ea7;
-    --gray-20: #626570;
-    --gray-10: #444755;
-    --gray-5: #343643;
-    --gray-0: #30313d;
-
-    --shadow-dark: 0px 2px 8px var(--gray-0);
-    --shadow-indigo: 2px 4px 20px #372272;
-}
-
-.dark-theme .menu__link span{
-    color: var(--gray-100);
-}
-
-::-webkit-scrollbar{
-    display: block;
-    width: .5rem;
-    height: .5rem;
-    background-color: transparent;
-    border-radius: 1rem;
-}
-
-::-webkit-scrollbar-thumb{
-    background-color: var(--gray-30);
-    border-radius: 1rem;
-}
-
-::-webkit-scrollbar-corner{
-    background-color: transparent;
-}
-
 body{
     background-color: var(--gray-10);
-}
-
-a{
-    text-decoration: none;
 }
 
 button:focus{
@@ -160,6 +104,7 @@ button:focus{
     height: 100vh;
     background-color: var(--secondary-30);
 }
+
 .login__content{
     display: flex;
     flex-direction: column;
@@ -211,7 +156,8 @@ button:focus{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4rem;
+    padding-inline: 1rem;
+    gap: 2rem;
     height: 80%;
     width: 60%;
     background-color: var(--gray-0);
@@ -224,6 +170,7 @@ button:focus{
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
+    width: 40%;
 }
 
 .login__title__2{
@@ -234,7 +181,7 @@ button:focus{
     gap: .5rem;
 }
 .login__title__2 img{
-    width: 120px;
+    width: 100px;
     margin-bottom: 1rem;
 }
 
@@ -259,18 +206,33 @@ button:focus{
     outline: 4px solid var(--primary-10);
 }
 
-/* FIX ICONE DE VISUALIZAÇÃO DE PASS
-.login__box span{
+.login__box{
+    position: relative;
+}
+
+.login__box .material-symbols-rounded{
     position: absolute;
     right: .75rem;
-    top: 0;
-    bottom: 0;
-    margin: auto 0;
-    font-size: 1rem;
-    -webkit-font-smoothing: antialiased;
+    top: 50%;
+    font-size: 16px;
+    transform: translateY(-8px);
     cursor: pointer;
 }
-*/
+
+.login__check{
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
+    padding-inline: var(--p12);
+    gap: .5rem;
+}
+.login__check-input{
+    cursor: pointer;
+}
+.login__check-label{
+    font-size: var(--size-smx);
+    color: var(--gray-60);
+}
 
 .login__buttons{
     display: flex;
@@ -305,7 +267,7 @@ button:focus{
     gap: .2rem;
     padding: var(--p20);
     height: 90%;
-    width: 40%;
+    width: 50%;
     background-color: var(--gray-90);
     border-radius: var(--rounded16);
 }
@@ -323,12 +285,13 @@ button:focus{
 }
 
 .login__qrcode__2 p{
+    text-align: center;
     margin-inline: auto;
     color: var(--gray-40);
 }
-/* MEDIA QUERY | BREAKPOINTS
---screen-mobile: 360~640px;
---screen-tablet: 800~1024px;
---screen-desktop-hd: 1440px;
---screen-desktop-uhd: 1920px;
-*/
+
+@media screen and (max-width: 1200px) {
+    .login__qrcode__2{
+        display: none;
+    }
+}

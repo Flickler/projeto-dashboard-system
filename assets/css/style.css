@@ -6,7 +6,7 @@
     --primary-80: #001930;
     --primary-70: #002E58;
     --primary-60: #003C72;
-    --primary-50: #0458A4; /*primary*/
+    --primary-50: #004A8D; /*primary*/
     --primary-40: #316DA4;
     --primary-30: #92B3D1;
     --primary-20: #C2D6E8;
@@ -15,7 +15,7 @@
     --secondary-50: #945911;
     --secondary-40: #C67617;
     --secondary-30: #F7941D; /*secondary*/
-    --secondary-20: #FABF77;
+    --secondary-20: #FDC180;
     --secondary-10: #FDDFBB;
 
     --gray-100: #1A1A1F;
@@ -92,15 +92,15 @@ html{
 
 body .dark-theme{
 
-    --primary-10: #D1D7EE;
-    --primary-20: #c3d4f8;
-    --primary-30: #babbf5;
-    --primary-40: #b9aceb;
-    --primary-50: #7375f2; /*primary*/
-    --primary-60: #9294f5;
-    --primary-70: #a5b4fc;
-    --primary-80: #c7d2fe;
-    --primary-90: #e0e7ff;
+    --primary-10: #C2D6E8;
+    --primary-20: #aac7e0;
+    --primary-30: #82a9ce;
+    --primary-40: #6b97c0;
+    --primary-50: #004A8D; /*primary*/
+    --primary-60: #316DA4;
+    --primary-70: #92B3D1;
+    --primary-80: #C2D6E8;
+    --primary-90: #F3F9FF;
     
     --gray-100: #e0e7ff;
     --gray-90: #D1D7EE;
@@ -751,7 +751,6 @@ input::placeholder{
 
 .card__btn{
     width: 100%;
-    padding: 1.5rem;
     text-align: center;
     color: var(--gray-40);
     border: 1px solid var(--gray-5);
@@ -882,7 +881,6 @@ input::placeholder{
 .reminder__details{
     display: flex;
     align-items: center;
-    padding-top: var(--p8);
     gap: .5rem;
     line-height: 150%;
     font-size: var(--size-smx);
@@ -1203,6 +1201,23 @@ input::placeholder{
     gap: 1rem;
 }
 
+.card__btn__mini{
+    width: 100%;
+    text-align: center;
+    color: var(--gray-40);
+    border: 1px solid var(--gray-5);
+}
+
+.card__btn__mini button{
+    padding: var(--p16) var(--p24);
+    font-size: var(--size-sm);
+    font-weight: var(--semibold);
+    color: var(--gray-0);
+    border: none;
+    border-radius: var(--rounded8);
+    background-color: var(--primary-30);
+    cursor: pointer;
+}
 .events__description{
     display: flex;
     align-items: center;
@@ -1217,7 +1232,7 @@ input::placeholder{
 }
 
 .events__description .bullet__point{
-    background-color: var(--ui-blue);
+    background-color: var(--secondary-20);
 }
 
 .events__mini__1 img{
@@ -1327,12 +1342,12 @@ input::placeholder{
 
 .calendar__days li:hover::before,
 .calendar__days-overview li:hover::before{
-    background: var(--primary-10);
+    background: var(--primary-20);
 }
 
 .calendar__days li.active::before,
 .calendar__days-overview li.active::before{
-    background: var(--primary-50);
+    background: var(--primary-40);
 }
 
 
@@ -1349,6 +1364,7 @@ input::placeholder{
     flex-direction: column;
     align-items: center;
     gap: 2px;
+    padding: var(--p8);
     border-radius: var(--rounded16);
     cursor: pointer;
 }
@@ -1379,11 +1395,11 @@ input::placeholder{
 }
 
 .week__group .future .dot__label{
-    background-color: var(--primary-50);
+    background-color: var(--secondary-30);
 }
 
 .week__group .active{
-    background-color: var(--primary-50);
+    background-color: var(--secondary-20);
 }
 
 .week__group .active .day__label,
@@ -1393,7 +1409,7 @@ input::placeholder{
 
 .days__group:hover{
     color: var(--gray-10);
-    background-color: var(--primary-10);
+    background-color: var(--secondary-10);
 }
 
 .days__group:hover .day__label{
@@ -1405,7 +1421,7 @@ input::placeholder{
 }
 
 .days__group:hover .dot__label{
-    background-color: var(--primary-10);
+    background-color: var(--secondary-10);
 }
 
 .navigate__btn span{
@@ -1417,10 +1433,6 @@ input::placeholder{
 .week__group{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-}
-
-.days__group{
-    padding: var(--p8);
 }
 
 .contacts{
@@ -1566,12 +1578,12 @@ input::placeholder{
     }
 
     #search{
-        min-width: 10rem;
+        min-width: 25rem;
         max-width: 30rem;
         width: fit-content;
     }
     .search__ico{
-        left: 34%;
+        left: 12%;
         width: 12px;
         height: 12px;
         transform: translate(-6px, -6px);
