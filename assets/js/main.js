@@ -1,6 +1,6 @@
 // Objects
 class Aula{
-    constructor(hora, sala, turma, curso, undCurricular, professor, dia, status='a__começar'){
+    constructor(hora, turma, sala, curso, undCurricular, professor, dia, status){
         this.hora = hora;
         this.sala = sala;
         this.turma = turma;
@@ -19,9 +19,9 @@ class Professor{
         professores.push(this);
     }
 
-    cadastrarAula(hora, turma, sala, curso, undCurricular, dia){
+    cadastrarAula(hora, turma, sala, curso, undCurricular, dia, status='a__começar'){
         this.aulas.push(new Aula(hora, turma, sala, curso, undCurricular,
-            this.nome, dia));
+            this.nome, dia, status));
         if(dia == new Date().getDate()){
             return switchScreen();
         }
@@ -74,9 +74,12 @@ class Professor{
             datas.push(data.value);
         }
         datas.push(options[select.selectedIndex].value);
+        for(let aula of this.aulas){
+            aula.status = 'alterada';
+        }
         this.cadastrarAula(datas[0],datas[1],datas[2],datas[3],datas[4],
-                        this.nome, new Date().getDate(), datas[5],);
-        // resolver nome do professor e dia
+                            new Date().getDate(), datas[5],);
+        aulasDoDia(new Date().getDate());
     }
 }
 
@@ -88,7 +91,7 @@ function aulasDoDia(dia){
 
     for(professor of professores){
         for(aula of professor.aulas){
-            if(aula.dia == dia){
+            if(aula.dia == dia && aula.status !== 'alterada'){
                 aulasDeHoje.push(aula);
             }
         }
@@ -101,8 +104,8 @@ function aulasDoDia(dia){
     </h3>
     <div class="agenda__row agenda__label">
         <div>Hora</div>
-        <div>Sala</div>
         <div>Turma</div>
+        <div>Sala</div>
         <div>Curso</div>
         <div>Unidade Curricular</div>
         <div>Professor</div>
@@ -115,8 +118,8 @@ function aulasDoDia(dia){
         `
         <div class="agenda__row agenda__data">
             <div>${aula.hora}</div>
-            <div>${aula.sala}</div>
             <div>${aula.turma}</div>
+            <div>${aula.sala}</div>
             <div>${aula.curso}</div>
             <div>${aula.undCurricular}</div>
             <div>${aula.professor}</div>
