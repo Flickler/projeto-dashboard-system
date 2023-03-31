@@ -37,6 +37,44 @@ class Professor{
         }
     }
 
+    newAula(){
+        tabela.innerHTML +=
+        `
+        <div id="new-aula" class="agenda__row agenda__data">
+            <input type="text" class="input_newaula" value="" style="width: 100px">
+            <input type="text" class="input_newaula" value="" style="width: 100px">
+            <input type="text" class="input_newaula" value="" style="width: 100px">
+            <input type="text" class="input_newaula" value="">
+            <input type="text" class="input_newaula" value="" style="width: 100px">
+            <div>${this.nome}</div>
+            <select id="select-status" size="1">
+            <option value="a__começar">A começar</option>
+            <option value="em__andamento">Em progesso</option>
+            <option value="concluido">Concluir</option>
+                <option value="cancelada">Cancelar</option>
+            </select>
+        </div>
+        `
+        switchButtons();
+        confirmButton(this);
+    }
+
+    confirmarNewAula(){
+        const container = document.getElementById('new-aula'),
+        inputs = container.getElementsByTagName('input'),
+        select = container.querySelector('select'),
+        options = select.getElementsByTagName('option'),
+        datas = [];
+
+        for(let data of inputs){
+            datas.push(data.value);
+        }
+        
+        this.cadastrarAula(datas[0],datas[1],datas[2],datas[3],datas[4],
+                            new Date().getDate(), options[select.selectedIndex].value);
+        aulasDoDia(new Date().getDate());
+    }
+
     editar(){
         const rows = document.getElementsByClassName('agenda__data');
         for(let row of rows){
@@ -59,10 +97,8 @@ class Professor{
                 `;
             }
         }
-        const buttonsEditar = document.getElementById('agenda-buttons').getElementsByClassName('station__tab');
-        buttonsEditar[0].style.display = 'none';
-        buttonsEditar[1].style.display = 'block';
-        buttonsEditar[2].style.display = 'block';
+        switchButtons();
+        confirmButton(this);
     }
 
     confirmarEditar(){
@@ -81,6 +117,31 @@ class Professor{
                             new Date().getDate(), datas[5],);
         aulasDoDia(new Date().getDate());
     }
+}
+
+// CONFIRM BUTTON LISTENING
+
+function confirmButton(user){
+    const button = document.getElementById('confirm-button');
+
+    button.addEventListener('click', ()=>{
+        const isNew = document.getElementById('new-aula');
+        if(isNew !== null){
+            user.confirmarNewAula();
+        } else{
+            user.confirmarEditar();
+        }
+    })
+}
+
+// FUNCTION CHANGE BUTTONS OF WORKBAR
+
+function switchButtons(){
+    const buttonsEditar = document.getElementById('agenda-buttons').getElementsByClassName('station__tab');
+        buttonsEditar[0].style.display = 'none';
+        buttonsEditar[1].style.display = 'none';
+        buttonsEditar[2].style.display = 'block';
+        buttonsEditar[3].style.display = 'block';
 }
 
 // FUNCTION AULAS DO DIA
@@ -131,9 +192,10 @@ function aulasDoDia(dia){
     }
     const buttonsEditar = document.getElementById('agenda-buttons').getElementsByClassName('station__tab');
     if(buttonsEditar[0].style.display == 'none'){
-        buttonsEditar[0].style.display = 'inline-block';
-        buttonsEditar[1].style.display = 'none';
+        buttonsEditar[0].style.display = 'block';
+        buttonsEditar[1].style.display = 'block';
         buttonsEditar[2].style.display = 'none';
+        buttonsEditar[3].style.display = 'none';
     }
 }
 //CREATING TABELA

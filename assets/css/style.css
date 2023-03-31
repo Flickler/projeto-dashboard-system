@@ -553,6 +553,8 @@ input::placeholder{
 }
 
 .station__content{
+    display: flex;
+    flex-direction: column;
     max-height: 750px;
     overflow: scroll;
     overflow-x: hidden;
@@ -1043,12 +1045,18 @@ input::placeholder{
     font-size: var(--size-md);
     font-weight: var(--regular);
     color: var(--gray-60);
+    order: 1;
 }
 
 .agenda__label{
     font-size: var(--size-sm);
     font-weight: var(--regular);
     color: var(--gray-60);
+    order: 2;
+}
+
+.agenda__data{
+    order: 4;
 }
 
 .agenda__data div{
@@ -1082,6 +1090,10 @@ input::placeholder{
 .status__em__andamento{
     color: var(--secondary-30);
     background-color: #f18c5228;
+}
+
+#new-aula{
+    order: 3;
 }
 
 .reminder__label__red{

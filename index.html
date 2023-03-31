@@ -201,10 +201,13 @@
                                 </button>
                             </div>
                             <div class="station__tabs" id="agenda-buttons" style="display: none; gap: 1rem;">
+                                <button class="station__tab" onclick="professorOn.newAula()">
+                                    <span>Nova Aula</span>
+                                </button>
                                 <button class="station__tab" onclick="professorOn.editar()">
                                     <span>Editar</span>
                                 </button>
-                                <button class="station__tab" style="display: none;" onclick="professorOn.confirmarEditar()">
+                                <button class="station__tab" id="confirm-button" style="display: none">
                                     <span>Confirmar</span>
                                 </button>
                                 <button class="station__tab" style="display: none;" onclick="aulasDoDia(new Date().getDate())">
