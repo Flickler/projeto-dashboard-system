@@ -533,7 +533,7 @@ input::placeholder{
 }
 
 .notifications:hover{
-    background-color: var(--gray-10);
+    background-color: var(--primary-20);
     cursor: pointer;
 }
 
@@ -756,6 +756,12 @@ input::placeholder{
     border: none;
 }
 
+.focus__bar .card__btn button{
+    width: 90%;
+    margin-top: 1rem;
+    text-align: center;
+}
+
 .card__btn{
     width: 100%;
     text-align: center;
@@ -824,17 +830,16 @@ input::placeholder{
     width: 24px;
     height: 24px;
     color: var(--gray-0);
-    background-color: var(--primary-40);
+    background-color: var(--secondary-20);
     border-radius: var(--rounded16);
     border: none;
     cursor: pointer;
 }
 
 .add__contacts span:hover{
-    background-color: var(--primary-50);
+    background-color: var(--secondary-30);
     box-shadow: var(--shadow-indigo);
 }
-
 
 .edit__ico{
     color: var(--gray-30);
@@ -881,7 +886,8 @@ input::placeholder{
 }
 
 .reminder__title{
-    font-weight: var(--semibold);
+    font-size: var(--size-sm);
+    font-weight: var(--regular);
     color: var(--gray-60);
 }
 
@@ -1200,7 +1206,7 @@ input::placeholder{
     align-items: start;
     flex-direction: column;
     padding: var(--p16) var(--p24);
-    gap: 1rem;
+    gap: .5rem;
     border: 1px solid var(--gray-10);
     border-radius: var(--rounded8);
 }
@@ -1570,18 +1576,6 @@ input::placeholder{
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .tools__content{
-        flex-wrap: wrap;
-    }
-
-    .tools__content > div{
-        width: 100%;
-    }
-
-    .kanban__wrapper{
-        margin-inline: auto;
-    }
-
     .station__container{
         grid-template-columns: 1fr;
     }
@@ -1606,9 +1600,6 @@ input::placeholder{
         transform: translate(-6px, -6px);
     }
 
-    .tools__content{
-        flex-direction: column;
-    }
 }
 
 @media screen and (max-width: 1024px){
