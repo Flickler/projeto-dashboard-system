@@ -449,8 +449,8 @@ function switchScreenTo(button, active=undefined, to='agenda'){
 
 switchScreenTo(sidebarButtons[0], 0, 'overview');
 switchScreenTo(sidebarButtons[1], 1);
-// switchScreenTo(sidebarButtons[2], '');
-// switchScreenTo(sidebarButtons[3], '');
+switchScreenTo(sidebarButtons[2], 0,'overview');
+switchScreenTo(sidebarButtons[3], 0,'overview');
 switchScreenTo(sidebarButtons[4], 3, 'tools');
 
 // TABS SWITCH SCREEN
@@ -1183,3 +1183,16 @@ function switchScreen(screen){
 
 // EXECUTING OVERVIEW DEFAULT PAGE
 switchScreen('overview');
+
+// RESIZE
+
+if(window.innerWidth <= 500){
+    document.getElementById('overview-ico').innerText = "Início";
+}
+window.addEventListener('resize', ()=>{
+    if(window.innerWidth <= 500){
+        document.getElementById('overview-ico').innerText = "Início";
+    } else {
+        document.getElementById('overview-ico').innerText = "Visão Geral";
+    }
+})
