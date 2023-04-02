@@ -1186,13 +1186,9 @@ input::placeholder{
 
 .tools__content{
     display: flex;
-    grid-row: 2/1;
-    grid-column: 2/1;
     align-items: start;
-    width: 100%;
-    height: max-content;
-    padding: var(--p8) var(--p24);
     gap: 1rem;
+    padding: var(--p8) var(--p24);
     border-radius: var(--rounded8);
 }
     
@@ -1599,7 +1595,9 @@ input::placeholder{
         height: 12px;
         transform: translate(-6px, -6px);
     }
-
+    .tools__content{
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (max-width: 1024px){

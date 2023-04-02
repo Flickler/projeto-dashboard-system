@@ -10,40 +10,30 @@
     <title>Log_Funcionario</title>
 </head>
 <body>
-    <div class="login__container__2">
-        <div class="login__content__2">
-            <div class="login__wrapper__2">
-                <div class="login__title__2">
-                    <img src="./assets/img/brand-wordmark.png" alt="Senac">
+    <div class="login__container">
+        <form class="login__form">
+            <img src="./assets/img/brand-wordmark-colorf.png" alt="Senac logo">
+            <div class="login__inputs">
+                <label for="">Email</label>
+                <input type="email" placeholder="Digite seu email" required>
+                <label for="">Senha</label>
+                <div class="login__pass">
+                    <input type="password" placeholder="Digite sua senha" required id="input-pass">
+                    <span class="material-symbols-rounded" id="visibility">
+                        visibility_off
+                    </span>
                 </div>
-                <div class="login__form">
-                    <div class="login__inputs">
-                        <label for="" class="login__label">Email</label>
-                        <input type="email" placeholder="Digite seu email" required class="login__input">
-                        <label for="" class="login_label">Senha</label>
-                        <div class="login__box">
-                            <input type="password" placeholder="Digite sua senha" required class="login__input" id="input-pass">
-                            <span class="material-symbols-rounded" id="visibility">
-                                visibility_off
-                            </span>
-                        </div>
-                        <div class="login__check">
-                            <input type="checkbox" class="login__check-input">
-                            <label for="" class="login__check-label">Lembre-se de mim</label>
-                        </div>
-                    </div>
-                    <div class="login__buttons">
-                        <button class="login__button">Conectar</button>
-                    </div>
+                <div class="login__reminder">
+                    <input type="checkbox" class="login__check-input">
+                    <label for="" class="login__check-label">Lembre-se de mim</label>
                 </div>
             </div>
-            <div class="login__qrcode__2">
-                <h2>Entre com o código QR</h2>
-                <div class="qrcode__box__2">
-                    <img src="./assets/img/qrcode2.png" alt="qrcode">
-                </div>
-                <p>Escaneie o app móvel para se conectar.</p>
-            </div>
+            <a href="index.html" class="login__button">Conectar</a>
+        </form>
+        <div class="login__qrcode">
+            <h2>Entre com o código QR</h2>
+            <img src="./assets/img/qrcode2.png" alt="qrcode">
+            <p>Escaneie o app móvel para se conectar.</p>
         </div>
     </div>
 
