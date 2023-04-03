@@ -41,11 +41,11 @@ class Professor{
         tabela.innerHTML +=
         `
         <div id="new-aula" class="agenda__row agenda__data">
-            <input type="text" class="input_newaula" value="" style="width: 100px">
-            <input type="text" class="input_newaula" value="" style="width: 100px">
-            <input type="text" class="input_newaula" value="" style="width: 100px">
-            <input type="text" class="input_newaula" value="">
-            <input type="text" class="input_newaula" value="" style="width: 100px">
+            <input type="text" class="input_newaula" placeholder="Nome" value="" style="width: 100px">
+            <input type="text" class="input_newaula" placeholder="Turma" value="" style="width: 100px">
+            <input type="text" class="input_newaula" placeholder="Sala" value="" style="width: 100px">
+            <input type="text" class="input_newaula" placeholder="curso" value="">
+            <input type="text" class="input_newaula" placeholder="Und. Curricular" value="" style="width: 100px">
             <div>${this.nome}</div>
             <select id="select-status" size="1">
             <option value="a__começar">A começar</option>
@@ -525,6 +525,50 @@ prevNextIcon.forEach(icon => {
         renderCalendar();
     });
 });
+
+// ACORDION FUNCTION
+
+function acordion(button, container, container2, curso){
+    button.addEventListener('click', ()=>{
+        const name = button.getElementsByTagName('p')[0].innerText,
+        image = button.getElementsByTagName('img')[0].src;
+        container.innerHTML =
+        `
+        <img src="${image}" alt="perfil image">
+        <div class="contacts__info">
+            <p class="reminder__title">
+                ${name}
+            </p>
+            <p class="reminder__details">
+                ${curso}
+            </p>
+            <span class="card__btn__mini">
+                <button>Ver Mais</button>
+            </span>
+        </div>
+        `
+        container2.innerHTML =
+        `
+        <img src="${image}" alt="">
+            <div class="contacts__info">
+                <p class="reminder__title">
+                    ${name}
+                </p>
+                <p class="reminder__details">
+                    ${curso}
+                </p>
+                <div class="group__btn">
+                    <span class="card__btn__mini">
+                        <button>Email</button>
+                    </span>
+                    <span class="card__btn__mini">
+                        <button>Contato</button>
+                    </span>
+                </div>
+            </div>
+        `
+    })
+}
 
 // SWITCH SCREEN FUNCTION
 function switchScreen(screen){
@@ -1066,7 +1110,7 @@ function switchScreen(screen){
                             </span>
                         </div>
                     </div>
-                    <div class="contacts__mini__1">
+                    <div class="contacts__mini__1" id="mini">
                         <img src="./assets/img/avatar-2.png" alt="">
                         <div class="contacts__info">
                             <p class="reminder__title">
@@ -1080,7 +1124,7 @@ function switchScreen(screen){
                             </span>
                         </div>
                     </div>
-                    <div class="contacts__mini__2">
+                    <div class="contacts__mini__2" id="mini2">
                         <img src="./assets/img/avatar-2.png" alt="">
                         <div class="contacts__info">
                             <p class="reminder__title">
@@ -1159,6 +1203,14 @@ function switchScreen(screen){
             </div>    
         </div>
         `
+
+        const contacts = document.getElementsByClassName('contacts__list__info'),
+        contactContainer = document.getElementById('mini'),
+        contactContainer2 = document.getElementById('mini2')
+        acordion(contacts[0], contactContainer, contactContainer2, "Desenvolvimento Web");
+        acordion(contacts[1], contactContainer, contactContainer2, "Administração");
+        acordion(contacts[2], contactContainer, contactContainer2, "Téc. de Informática");
+
         document.getElementById('agenda-buttons').style.display = 'none';
         renderCalendar(true);
         document.querySelectorAll(".nav__ico__wrapper-overview span").forEach(icon => {

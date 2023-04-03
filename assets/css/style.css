@@ -1672,11 +1672,59 @@ input::placeholder{
         height: fit-content;
     }
 
+    .station__content{
+        gap: 1rem;
+    }
+
+    .station__content .agenda__label{
+        display: none;
+    }
+
     .agenda__row{
         display: grid;
-        grid-template-columns: repeat(2,1fr);
-        width: 50%;
+        grid-template-columns: 1fr;
         gap: .5rem;
+        align-self: center;
+        border: 1px solid var(--gray-30);
+        border-radius: var(--rounded8);
+        padding: var(--p16);
+        width: 75%;
+    }
+
+    .agenda__row input{
+        width: 100% !important;
+    }
+
+    .agenda__row div:first-child:before{
+        content: 'Hora:';
+    }
+
+    .agenda__row div:nth-child(2):before{
+        content: 'Turma: ';
+    }
+
+    .agenda__row div:nth-child(3):before{
+        content: 'Sala: ';
+    }
+
+    .agenda__row div:nth-child(4):before{
+        content: 'Curso: ';
+    }
+
+    .agenda__row div:nth-child(5):before{
+        content: 'Und. Curricular: ';
+    }
+
+    .agenda__row div:nth-child(6):before{
+        content: 'Professor: ';
+    }
+
+    .agenda__row div:last-child:before{
+        content: 'Status: ';
+    }
+
+    .agenda__row div:before{
+        margin-right: 1rem;
     }
 }
 
