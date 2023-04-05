@@ -30,10 +30,10 @@ class Professor{
     setStatusAula(aula, set='cancelada'){
         if(set == 'cancelada'){
             return this.aulas[aula].status = 'cancelada';
-        } else if(set == 'concluido'){
-            return this.aulas[aula].status = 'concluido';
-        } else if(set == 'em__andamento'){
-            return this.aulas[aula].status = 'em__andamento';
+        } else if(set == 'concluida'){
+            return this.aulas[aula].status = 'concluida';
+        } else if(set == 'agora'){
+            return this.aulas[aula].status = 'agora';
         }
     }
 
@@ -41,16 +41,16 @@ class Professor{
         tabela.innerHTML +=
         `
         <div id="new-aula" class="agenda__row agenda__data">
-            <input type="text" class="input_newaula" placeholder="Nome" value="" style="width: 100px">
+            <input type="text" class="input_newaula" placeholder="Hora" value="" style="width: 100px">
             <input type="text" class="input_newaula" placeholder="Turma" value="" style="width: 100px">
             <input type="text" class="input_newaula" placeholder="Sala" value="" style="width: 100px">
-            <input type="text" class="input_newaula" placeholder="curso" value="">
-            <input type="text" class="input_newaula" placeholder="Und. Curricular" value="" style="width: 100px">
+            <input type="text" class="input_newaula" placeholder="Curso" value="">
+            <input type="text" class="input_newaula" placeholder="UC" value="" style="width: 100px">
             <div>${this.nome}</div>
             <select id="select-status" size="1">
             <option value="a__começar">A começar</option>
-            <option value="em__andamento">Em progesso</option>
-            <option value="concluido">Concluir</option>
+            <option value="agora">Em andamento</option>
+            <option value="concluida">Concluir</option>
                 <option value="cancelada">Cancelar</option>
             </select>
         </div>
@@ -90,8 +90,8 @@ class Professor{
                 <div>${div[5].innerText}</div>
                 <select id="select-status" size="1">
                     <option value="cancelada">Cancelar</option>
-                    <option value="concluido">Concluir</option>
-                    <option value="em__andamento">Em progesso</option>
+                    <option value="concluida">Concluir</option>
+                    <option value="agora">Em andamento</option>
                     <option value="a__começar">A começar</option>
                 </select>
                 `;
@@ -218,10 +218,10 @@ profEdgar.cadastrarAula('12:00', '443', 'Lab 1', 'Desenvolvimento Web',
 profEdgar.setStatusAula(0);
 profRenisson.cadastrarAula('10:00', '443', 'Lab 1', 'Programação Web',
                         'UC5', new Date().getDate());
-profRenisson.setStatusAula(0, 'concluido')
+profRenisson.setStatusAula(0, 'concluida')
 profAlexandre.cadastrarAula('14:00', '460', 'Sala 6', 'Administração',
                         'UC1', new Date().getDate());
-profAlexandre.setStatusAula(0, 'em__andamento')
+profAlexandre.setStatusAula(0, 'agora')
 profMarcelo.cadastrarAula('18:00', '448', 'Lab 2', 'Téc. Informática',
                         'UC8', new Date().getDate());
 profGabriel.cadastrarAula('20:00', '480', 'Lab 3', 'TI para Empresas',
@@ -627,7 +627,7 @@ function switchScreen(screen){
                         </div>
                         <div class="card">
                             <div class="card__title">
-                                <h5>Em Andamento</h5>
+                                <h5>Fazendo</h5>
                                 <div class="edit__card">
                                     <span class="material-symbols-rounded no-fill edit__ico">
                                         more_vert
@@ -667,7 +667,7 @@ function switchScreen(screen){
                         </div>
                         <div class="card">
                             <div class="card__title">
-                                <h5>Concluído</h5>
+                                <h5>Feito</h5>
                                 <div class="edit__card">
                                     <span class="material-symbols-rounded no-fill edit__ico">
                                         more_vert
@@ -829,7 +829,7 @@ function switchScreen(screen){
                         </div>
                     </div>
                     <span class="card__btn">
-                        <button>Download</button>
+                        <button>Download PDF</button>
                     </span>
                 </div>
                 <div class="card__wrapper">
@@ -882,7 +882,7 @@ function switchScreen(screen){
                         </div>
                     </div>
                     <span class="card__btn">
-                        <button>Download</button>
+                        <button>Download PDF</button>
                     </span>
                 </div>
                 <div class="card__wrapper">
@@ -935,7 +935,7 @@ function switchScreen(screen){
                         </div>
                     </div>
                     <span class="card__btn">
-                        <button>Download</button>
+                        <button>Download PDF</button>
                     </span>
                 </div>
             </div>
@@ -997,7 +997,7 @@ function switchScreen(screen){
                     <div class="card calendar__weekly">
                         <div class="card__title">
                             <h4>Calendário Semana</h4>
-                            <div class="navigate__btn">
+                            <div class="nav__icons__wrapper">
                                 <span class="material-symbols-rounded">
                                     navigate_before
                                 </span>
